@@ -36,7 +36,6 @@ body {
     background: var(--cream);
     color: var(--brown-dark);
     overflow-x: hidden;
-    overflow-y: auto;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -52,10 +51,7 @@ button, a {
     font-family: 'Cormorant Garamond', serif;
 }
 
-/* =========================
-   SAMPUL PEMBUKA
-========================= */
-
+/* SAMPUL PEMBUKA */
 .opening {
     position: fixed;
     inset: 0;
@@ -132,7 +128,7 @@ button, a {
     font-size: 10px;
     letter-spacing: 1.5px;
     cursor: pointer;
-    transition: background .2s, transform .2s;
+    transition: .2s;
 }
 
 .open-button:hover {
@@ -143,15 +139,11 @@ button, a {
     transform: scale(.97);
 }
 
-/* =========================
-   BAGIAN WEBSITE
-========================= */
-
+/* BAGIAN WEBSITE */
 #presentation {
     width: 100%;
     min-height: 100vh;
     min-height: 100dvh;
-    overflow: visible;
 }
 
 .section {
@@ -164,7 +156,6 @@ button, a {
     min-height: 100dvh;
     padding: 65px 24px;
     overflow: hidden;
-    scroll-margin-top: 0;
 }
 
 .section-inner {
@@ -207,10 +198,7 @@ button, a {
     margin: 25px auto;
 }
 
-/* =========================
-   1. BIRTHDAY CELEBRATION
-========================= */
-
+/* 1. HERO */
 .hero-section {
     color: var(--white);
     text-align: center;
@@ -271,10 +259,7 @@ button, a {
     color: #e5cbb0;
 }
 
-/* =========================
-   2. INTRO
-========================= */
-
+/* 2. INTRO */
 .intro-section {
     background: var(--cream);
     text-align: center;
@@ -295,10 +280,7 @@ button, a {
     color: var(--brown);
 }
 
-/* =========================
-   3. COUNTDOWN
-========================= */
-
+/* 3. COUNTDOWN */
 .countdown-section {
     background: var(--cream-dark);
 }
@@ -344,10 +326,7 @@ button, a {
     color: #806853;
 }
 
-/* =========================
-   4. DETAIL ACARA
-========================= */
-
+/* 4. DETAIL ACARA */
 .details-section {
     background: var(--white);
 }
@@ -400,10 +379,7 @@ button, a {
     background: var(--brown-dark);
 }
 
-/* =========================
-   5. OUR MEMORIES
-========================= */
-
+/* 5. GALERI */
 .gallery-section {
     background: var(--cream);
 }
@@ -441,10 +417,7 @@ button, a {
     padding: 10px 2px 5px;
 }
 
-/* =========================
-   6. LITTLE MOMENTS
-========================= */
-
+/* 6. LITTLE MOMENTS */
 .memory-section {
     background: var(--cream-dark);
 }
@@ -500,10 +473,7 @@ button, a {
     margin-top: 16px;
 }
 
-/* =========================
-   7. SURAT ULANG TAHUN
-========================= */
-
+/* 7. KARTU UCAPAN */
 .letter-section {
     background: var(--cream);
 }
@@ -511,11 +481,107 @@ button, a {
 .letter-container {
     width: min(100%, 700px);
     margin: 0 auto;
+}
+
+/* Sampul surat sebelum diklik */
+.letter-cover {
+    position: relative;
+    overflow: hidden;
+    padding: 48px 25px;
+    text-align: center;
+    background: var(--white);
+    border: 1px solid #d8c3ad;
+    outline: 1px solid #d8c3ad;
+    outline-offset: 5px;
+    transition: background .3s, transform .3s;
+}
+
+.letter-cover:hover {
+    background: #fffdf9;
+    transform: translateY(-3px);
+}
+
+.cover-heart {
+    font-size: 45px;
+    color: var(--brown-light);
+    margin-bottom: 18px;
+    animation: heartbeat 2s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    10%, 30% { transform: scale(1.08); }
+    20%, 40% { transform: scale(1); }
+}
+
+.letter-cover h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 8vw, 64px);
+    line-height: 1;
+    font-weight: 500;
+    color: var(--brown);
+    margin-bottom: 18px;
+}
+
+.letter-cover p {
+    font-size: 12px;
+    line-height: 2;
+    color: #806853;
+}
+
+.letter-open-button {
+    margin-top: 25px;
+    padding: 13px 24px;
+    border: 1px solid var(--brown);
+    background: var(--brown);
+    color: white;
+    font-family: inherit;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.letter-open-button:hover {
+    background: var(--brown-dark);
+    transform: translateY(-2px);
+}
+
+.letter-hint {
+    margin-top: 16px;
+    font-size: 9px !important;
+    letter-spacing: 1px;
+    color: var(--brown-light) !important;
+}
+
+/* Isi surat disembunyikan sebelum tombol diklik */
+.letter-paper {
+    display: none;
     padding: clamp(26px, 5vw, 58px);
     background: var(--white);
     border: 1px solid #d8c3ad;
     outline: 1px solid #d8c3ad;
     outline-offset: 5px;
+    transform-origin: top center;
+}
+
+.letter-paper.show {
+    display: block;
+    animation: letterReveal .85s ease both;
+}
+
+@keyframes letterReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(25px) scale(.97);
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .letter-heart {
@@ -580,10 +646,25 @@ button, a {
     letter-spacing: 5px;
 }
 
-/* =========================
-   8. PENUTUP
-========================= */
+.letter-close-button {
+    display: block;
+    margin: 28px auto 0;
+    padding: 11px 18px;
+    background: transparent;
+    border: 1px solid #cdb69e;
+    color: var(--brown);
+    font-family: inherit;
+    font-size: 10px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: .2s;
+}
 
+.letter-close-button:hover {
+    background: var(--cream-dark);
+}
+
+/* 8. PENUTUP */
 .closing-section {
     min-height: 75vh;
     min-height: 75dvh;
@@ -608,10 +689,7 @@ button, a {
     color: #f2dfcc;
 }
 
-/* =========================
-   TOMBOL MUSIK
-========================= */
-
+/* TOMBOL MUSIK */
 .music-button {
     position: fixed;
     z-index: 200;
@@ -639,10 +717,7 @@ button, a {
     transform: scale(.95);
 }
 
-/* =========================
-   RESPONSIVE TABLET
-========================= */
-
+/* RESPONSIVE */
 @media (max-width: 800px) {
     .section {
         padding: 55px 22px;
@@ -659,7 +734,6 @@ button, a {
     .gallery-item img {
         height: auto;
         max-height: 380px;
-        aspect-ratio: auto;
         object-fit: contain;
     }
 
@@ -667,10 +741,6 @@ button, a {
         height: 310px;
     }
 }
-
-/* =========================
-   RESPONSIVE HP
-========================= */
 
 @media (max-width: 520px) {
     .section {
@@ -776,7 +846,6 @@ button, a {
         width: 100%;
         height: auto;
         max-height: 350px;
-        aspect-ratio: auto;
         object-fit: contain;
         background: #e8d8c5;
     }
@@ -818,7 +887,15 @@ button, a {
         font-size: 11px;
     }
 
-    .letter-container {
+    .letter-cover {
+        padding: 38px 19px;
+    }
+
+    .letter-cover h2 {
+        font-size: clamp(42px, 12vw, 56px);
+    }
+
+    .letter-paper {
         padding: 29px 21px;
     }
 
@@ -844,7 +921,6 @@ button, a {
     }
 }
 
-/* HP KECIL */
 @media (max-width: 360px) {
     .section {
         padding-left: 13px;
@@ -867,12 +943,11 @@ button, a {
         font-size: 7px;
     }
 
-    .letter-container {
+    .letter-paper {
         padding: 24px 16px;
     }
 }
 
-/* LAYAR PENDEK */
 @media (max-height: 650px) and (min-width: 521px) {
     .section {
         padding-top: 40px;
@@ -889,13 +964,13 @@ button, a {
     }
 }
 
-/* AKSESIBILITAS */
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
     }
 
     *, *::before, *::after {
+        animation-duration: .01ms !important;
         transition-duration: .01ms !important;
     }
 }
@@ -912,11 +987,9 @@ button, a {
     <div class="opening-card">
         <p class="opening-top">A little invitation for you</p>
 
-        <img
-            src="images/foto-12.jpg"
-            alt="Foto spesial"
-            class="opening-photo"
-        >
+        <img src="images/foto-12.jpg"
+             alt="Foto spesial"
+             class="opening-photo">
 
         <h1 class="serif">You're<br>Invited ♡</h1>
 
@@ -932,12 +1005,10 @@ button, a {
 </div>
 
 <!-- TOMBOL MUSIK -->
-<button
-    class="music-button"
-    id="musicButton"
-    aria-label="Putar atau hentikan musik"
-    title="Musik"
->♫</button>
+<button class="music-button"
+        id="musicButton"
+        aria-label="Putar atau hentikan musik"
+        title="Musik">♫</button>
 
 <main id="presentation">
 
@@ -946,18 +1017,14 @@ button, a {
         <div class="section-inner">
             <p class="hero-eyebrow">A special day · A special person</p>
 
-            <h1 class="hero-title">
-                Birthday<br>Celebration
-            </h1>
+            <h1 class="hero-title">Birthday<br>Celebration</h1>
 
             <p class="hero-description">
                 Dengan penuh rasa bahagia,<br>
                 aku ingin mengajakmu merayakan hari spesial ini.
             </p>
 
-            <div class="hero-date">
-                SUNDAY · 25 OCTOBER 2026
-            </div>
+            <div class="hero-date">SUNDAY · 25 OCTOBER 2026</div>
 
             <p class="hero-decoration">SCROLL TO EXPLORE ↓</p>
         </div>
@@ -967,7 +1034,6 @@ button, a {
     <section class="section intro-section" id="intro">
         <div class="section-inner">
             <div class="intro-heart">♡</div>
-
             <p class="section-label">A little note for you</p>
 
             <h2 class="intro-quote">
@@ -989,12 +1055,9 @@ button, a {
     <section class="section countdown-section" id="countdown">
         <div class="section-inner">
             <p class="section-label">Save the date</p>
-
             <h2 class="section-title">Counting the Days</h2>
 
-            <p class="section-text">
-                Waktu menuju hari spesial kita ♡
-            </p>
+            <p class="section-text">Waktu menuju hari spesial kita ♡</p>
 
             <div class="countdown">
                 <div class="countdown-item">
@@ -1028,12 +1091,8 @@ button, a {
     <section class="section details-section" id="details">
         <div class="section-inner">
             <p class="section-label">The celebration</p>
-
             <h2 class="section-title">Event Details</h2>
-
-            <p class="section-text">
-                Catat detail acaranya, ya ♡
-            </p>
+            <p class="section-text">Catat detail acaranya, ya ♡</p>
 
             <div class="details-grid">
                 <article class="detail-card">
@@ -1057,17 +1116,12 @@ button, a {
                 <article class="detail-card">
                     <div class="detail-icon">⌂</div>
                     <h3>Our Place</h3>
-                    <p>
-                        La Vida LOCA<br>
-                        Rooftop Resto and Bar
-                    </p>
+                    <p>La Vida LOCA<br>Rooftop Resto and Bar</p>
 
-                    <a
-                        class="map-button"
-                        href="https://www.google.com/maps/search/?api=1&query=La+Vida+LOCA+Rooftop+Resto+and+Bar"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <a class="map-button"
+                       href="https://www.google.com/maps/search/?api=1&query=La+Vida+LOCA+Rooftop+Resto+and+Bar"
+                       target="_blank"
+                       rel="noopener noreferrer">
                         BUKA GOOGLE MAPS ↗
                     </a>
                 </article>
@@ -1075,16 +1129,12 @@ button, a {
         </div>
     </section>
 
-    <!-- 5. OUR MEMORIES: 8 FOTO -->
+    <!-- 5. OUR MEMORIES -->
     <section class="section gallery-section" id="memories">
         <div class="section-inner">
             <p class="section-label">Little moments</p>
-
             <h2 class="section-title">Our Memories</h2>
-
-            <p class="section-text">
-                Beberapa potongan cerita yang berarti ♡
-            </p>
+            <p class="section-text">Beberapa potongan cerita yang berarti ♡</p>
 
             <div class="gallery">
                 <div class="gallery-item">
@@ -1134,28 +1184,23 @@ button, a {
     <section class="section memory-section" id="little-moments">
         <div class="section-inner">
             <p class="section-label">Made with love</p>
-
             <h2 class="section-title">Little Moments</h2>
 
             <div class="memory-layout">
                 <div class="memory-frame">
-                    <img
-                        class="memory-photo"
-                        src="images/foto-02.jpg"
-                        alt="Foto kenangan pertama"
-                        loading="lazy"
-                    >
+                    <img class="memory-photo"
+                         src="images/foto-02.jpg"
+                         alt="Foto kenangan pertama"
+                         loading="lazy">
                 </div>
 
                 <div class="memory-copy">
                     <h3>Little things,<br>big feelings.</h3>
-
                     <p>
                         Nggak semua momen harus mewah untuk jadi berarti.
                         Kadang, hal-hal sederhana justru jadi kenangan
                         yang paling ingin kita simpan.
                     </p>
-
                     <p>
                         Semoga hari spesial ini membawa banyak senyum,
                         cerita baru, dan kenangan manis untuk kita.
@@ -1166,7 +1211,6 @@ button, a {
             <div class="memory-layout">
                 <div class="memory-copy">
                     <h3>Here's to<br>another chapter ♡</h3>
-
                     <p>
                         Untuk semua cerita yang sudah kita lewati,
                         dan semua cerita baik yang masih menunggu
@@ -1175,67 +1219,159 @@ button, a {
                 </div>
 
                 <div class="memory-frame">
-                    <img
-                        class="memory-photo"
-                        src="images/foto-03.jpg"
-                        alt="Foto kenangan kedua"
-                        loading="lazy"
-                    >
+                    <img class="memory-photo"
+                         src="images/foto-03.jpg"
+                         alt="Foto kenangan kedua"
+                         loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 7. SURAT ULANG TAHUN -->
+    <!-- 7. KARTU UCAPAN: KLIK UNTUK MEMBUKA -->
     <section class="section letter-section" id="letter">
         <div class="section-inner">
             <div class="letter-container">
-                <p class="section-label">A letter from me to you</p>
 
-                <div class="letter-heart">♡</div>
+                <!-- SAMPUL SURAT -->
+                <div class="letter-cover" id="letterCover">
+                    <p class="section-label">A little surprise for you</p>
 
-                <h2 class="letter-title">
-                    Happy Birthday,<br>Sayangku ♡
-                </h2>
+                    <div class="cover-heart">♡</div>
 
-                <div class="divider"></div>
+                    <h2>For You,<br>My Favorite Person</h2>
 
-                <div class="letter-content">
+                    <div class="divider"></div>
+
                     <p>
-                        Selamat ulang tahun sayangku, cintaku. Semoga apa
-                        yang kamu inginkan tercapai, semoga hidup kamu jadi
-                        lebih tenang dan bahagia ke depannya, semoga kamu
-                        dilancarkan kuliahnya, rezekinya ditambahin, makin
-                        cantik, lucu, dan imut. 🤎
+                        Ada sesuatu yang ingin aku sampaikan
+                        di hari spesial kamu. 🤎
                     </p>
 
                     <p>
-                        Dari aku, aku mau minta maaf sebesar-besarnya karena
-                        dengan adanya aku di hidup kamu, mungkin hidup kamu
-                        jadi nggak tenang, banyak pikiran, dan lain-lain
-                        karena perilaku aku. Aku sadar, hidup kamu harus
-                        lebih diwarnai dengan kebahagiaan.
+                        Mungkin nggak seberapa, tapi semuanya
+                        aku tulis dengan tulus dari hati.
                     </p>
 
-                    <p>
-                        Aku masih banyak belajar buat jadi lebih baik.
-                        Terima kasih karena sudah hadir dan menjadi seseorang
-                        yang begitu berarti buat aku. Aku berharap ke
-                        depannya kamu lebih sering ngerasain bahagia, tenang,
-                        dan dikelilingi hal-hal baik.
-                    </p>
+                    <button class="letter-open-button"
+                            id="openLetter"
+                            aria-controls="letterPaper"
+                            aria-expanded="false">
+                        BUKA SURAT ♡
+                    </button>
 
-                    <p class="letter-ending">
-                        I love you more and more, sayangku ❤️
-                    </p>
+                    <p class="letter-hint">♡ A little letter, just for you ♡</p>
                 </div>
 
-                <div class="letter-signature">
-                    <span>With all my love,</span>
-                    <h3>Dari aku, untuk kamu ♡</h3>
+                <!-- ISI SURAT: BARU MUNCUL SETELAH DIKLIK -->
+                <div class="letter-paper" id="letterPaper" aria-hidden="true">
+                    <p class="section-label">A letter from me to you</p>
+
+                    <div class="letter-heart">♡</div>
+
+                    <h2 class="letter-title">
+                        Happy Birthday,<br>Sayangku ♡
+                    </h2>
+
+                    <div class="divider"></div>
+
+                    <div class="letter-content">
+                        <p>
+                            Selamat ulang tahun sayangku, cintaku. 🤎
+                            Semoga apa yang kamu inginkan satu per satu
+                            bisa tercapai. Semoga hidup kamu ke depannya
+                            jadi lebih tenang, lebih bahagia, dan selalu
+                            dipertemukan sama hal-hal baik.
+                        </p>
+
+                        <p>
+                            Semoga kuliahnya dilancarkan, rezekinya
+                            ditambahin, segala urusannya dimudahkan,
+                            dan kamu selalu punya alasan buat tersenyum.
+                            Semoga kamu makin cantik, lucu, imut, dan
+                            pastinya selalu jadi diri kamu sendiri yang
+                            aku kenal dan sayang. ❤️
+                        </p>
+
+                        <p>
+                            Dari aku, aku juga mau minta maaf sebesar-
+                            besarnya kalau selama ini dengan adanya aku
+                            di hidup kamu, mungkin ada hal-hal yang bikin
+                            kamu capek, banyak pikiran, atau bahkan sedih
+                            karena perilaku aku. Aku sadar aku masih
+                            punya banyak kekurangan dan masih harus
+                            banyak belajar buat jadi lebih baik.
+                        </p>
+
+                        <p>
+                            Aku nggak mau cuma janji lewat kata-kata.
+                            Aku pengin terus belajar buat lebih ngerti
+                            kamu, lebih menghargai perasaan kamu, dan
+                            lebih hati-hati dalam bersikap. Aku tahu
+                            aku nggak selalu bisa sempurna, tapi aku
+                            mau berusaha supaya kehadiran aku bisa
+                            membawa lebih banyak bahagia daripada sedih.
+                        </p>
+
+                        <p>
+                            Terima kasih ya, sayang, karena sudah hadir
+                            di hidup aku dan jadi seseorang yang begitu
+                            berarti. Terima kasih buat setiap cerita,
+                            waktu, tawa, dan hal-hal sederhana yang
+                            mungkin kelihatannya kecil, tapi punya arti
+                            besar buat aku. Banyak momen yang mungkin
+                            biasa aja buat orang lain, tapi jadi spesial
+                            karena aku ngejalaninnya sama kamu.
+                        </p>
+
+                        <p>
+                            Di umur kamu yang baru ini, aku berharap
+                            kamu selalu diberi kesehatan, hati yang
+                            tenang, orang-orang baik di sekeliling kamu,
+                            dan keberanian buat mengejar semua impian
+                            kamu. Kalau ada hari yang terasa berat,
+                            semoga kamu selalu ingat kalau kamu sudah
+                            berusaha sejauh ini dan kamu pantas
+                            mendapatkan banyak kebahagiaan.
+                        </p>
+
+                        <p>
+                            Semoga ke depannya kita juga bisa terus
+                            belajar bareng, saling memahami, saling
+                            mendukung, dan bikin lebih banyak kenangan
+                            indah. Aku pengin kita nggak cuma menikmati
+                            hari-hari bahagia, tapi juga belajar
+                            menghadapi hari yang nggak mudah dengan
+                            lebih dewasa.
+                        </p>
+
+                        <p>
+                            Sekali lagi, selamat ulang tahun, sayangku.
+                            Semoga tahun ini jadi awal dari banyak hal
+                            baik yang datang ke hidup kamu. Jangan lupa
+                            bahagia, jangan terlalu keras sama diri
+                            sendiri, dan tetap jadi kamu yang punya
+                            banyak hal indah di dalam dirinya. 🤎
+                        </p>
+
+                        <p class="letter-ending">
+                            I love you more and more, sayangku ❤️
+                        </p>
+                    </div>
+
+                    <div class="letter-signature">
+                        <span>With all my love,</span>
+                        <h3>Dari aku, untuk kamu ♡</h3>
+                    </div>
+
+                    <div class="letter-bottom">♡ &nbsp; ♡ &nbsp; ♡</div>
+
+                    <button class="letter-close-button"
+                            id="closeLetter">
+                        TUTUP SURAT ↑
+                    </button>
                 </div>
 
-                <div class="letter-bottom">♡ &nbsp; ♡ &nbsp; ♡</div>
             </div>
         </div>
     </section>
@@ -1245,9 +1381,7 @@ button, a {
         <div class="section-inner">
             <p class="hero-eyebrow">One more thing</p>
 
-            <h2 class="closing-title">
-                To more<br>memories ♡
-            </h2>
+            <h2 class="closing-title">To more<br>memories ♡</h2>
 
             <p>
                 Semoga ada lebih banyak hari bahagia,<br>
@@ -1273,7 +1407,6 @@ openButton.addEventListener("click", async function () {
     opening.classList.add("closed");
     musicButton.classList.add("visible");
 
-    /* Mulai dari atas setelah undangan dibuka */
     window.scrollTo({
         top: 0,
         behavior: "smooth"
@@ -1304,6 +1437,40 @@ musicButton.addEventListener("click", async function () {
         musicButton.textContent = "♪";
         musicButton.setAttribute("aria-label", "Putar musik");
     }
+});
+
+/* BUKA DAN TUTUP KARTU UCAPAN */
+const letterCover = document.getElementById("letterCover");
+const letterPaper = document.getElementById("letterPaper");
+const openLetterButton = document.getElementById("openLetter");
+const closeLetterButton = document.getElementById("closeLetter");
+
+openLetterButton.addEventListener("click", function () {
+    letterCover.style.display = "none";
+    letterPaper.classList.add("show");
+    letterPaper.setAttribute("aria-hidden", "false");
+    openLetterButton.setAttribute("aria-expanded", "true");
+
+    // Geser perlahan menuju isi surat
+    setTimeout(function () {
+        letterPaper.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }, 100);
+});
+
+closeLetterButton.addEventListener("click", function () {
+    letterPaper.classList.remove("show");
+    letterPaper.style.display = "none";
+    letterPaper.setAttribute("aria-hidden", "true");
+    letterCover.style.display = "block";
+    openLetterButton.setAttribute("aria-expanded", "false");
+
+    letterCover.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
 });
 
 /* COUNTDOWN: 25 OKTOBER 2026, 19.00 WIB */
