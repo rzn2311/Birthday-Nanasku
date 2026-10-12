@@ -1,0 +1,1351 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#593b2c">
+<title>Birthday Celebration ♡</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --cream: #f8f1e8;
+    --cream-dark: #eee0cf;
+    --brown: #593b2c;
+    --brown-dark: #352219;
+    --brown-light: #a78366;
+    --white: #fffaf4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 15px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--cream);
+    color: var(--brown-dark);
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+}
+
+button, a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.serif {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* =========================
+   SAMPUL PEMBUKA
+========================= */
+
+.opening {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    background: var(--cream);
+    transition: opacity .7s ease, visibility .7s ease;
+}
+
+.opening.closed {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.opening-card {
+    width: min(100%, 430px);
+    max-height: 90dvh;
+    overflow-y: auto;
+    padding: 30px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: var(--white);
+    border: 1px solid #cdb69e;
+    outline: 1px solid #cdb69e;
+    outline-offset: 5px;
+}
+
+.opening-top {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--brown-light);
+    margin-bottom: 20px;
+}
+
+.opening-photo {
+    display: block;
+    width: min(65%, 210px);
+    height: 245px;
+    object-fit: contain;
+    object-position: center;
+    background: var(--cream-dark);
+    border: 5px solid white;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 24px #593b2c20;
+}
+
+.opening h1 {
+    font-size: clamp(43px, 10vw, 60px);
+    font-weight: 500;
+    line-height: .9;
+    margin-bottom: 17px;
+}
+
+.opening-subtitle {
+    font-size: 11px;
+    line-height: 1.9;
+    color: #866b56;
+    margin-bottom: 22px;
+}
+
+.open-button {
+    padding: 13px 22px;
+    border: 1px solid var(--brown);
+    background: var(--brown);
+    color: white;
+    font-family: inherit;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+}
+
+.open-button:hover {
+    background: var(--brown-dark);
+}
+
+.open-button:active {
+    transform: scale(.97);
+}
+
+/* =========================
+   BAGIAN WEBSITE
+========================= */
+
+#presentation {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: visible;
+}
+
+.section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 65px 24px;
+    overflow: hidden;
+    scroll-margin-top: 0;
+}
+
+.section-inner {
+    width: min(100%, 1000px);
+    margin: 0 auto;
+}
+
+.section-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--brown-light);
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 7vw, 67px);
+    font-weight: 500;
+    text-align: center;
+    line-height: .98;
+    margin-bottom: 20px;
+}
+
+.section-text {
+    font-size: 12px;
+    line-height: 2;
+    color: #806853;
+    text-align: center;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.divider {
+    width: 65px;
+    height: 1px;
+    background: #bda38a;
+    margin: 25px auto;
+}
+
+/* =========================
+   1. BIRTHDAY CELEBRATION
+========================= */
+
+.hero-section {
+    color: var(--white);
+    text-align: center;
+    background:
+        radial-gradient(ellipse at 15% 10%, #8c6850 0%, transparent 42%),
+        radial-gradient(ellipse at 85% 90%, #684633 0%, transparent 45%),
+        linear-gradient(135deg, #4b3023, #76543e 50%, #3d281e);
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid #ffffff75;
+    pointer-events: none;
+}
+
+.hero-section .section-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 10px;
+    margin-bottom: 28px;
+}
+
+.hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(58px, 11vw, 105px);
+    font-weight: 500;
+    line-height: .84;
+    margin-bottom: 28px;
+}
+
+.hero-description {
+    font-size: 12px;
+    line-height: 2;
+    margin-bottom: 30px;
+    color: #fff5e9;
+}
+
+.hero-date {
+    display: inline-block;
+    padding: 14px 20px;
+    border-top: 1px solid #ffffff90;
+    border-bottom: 1px solid #ffffff90;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.hero-decoration {
+    margin-top: 42px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #e5cbb0;
+}
+
+/* =========================
+   2. INTRO
+========================= */
+
+.intro-section {
+    background: var(--cream);
+    text-align: center;
+}
+
+.intro-heart {
+    color: #9c7157;
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.intro-quote {
+    max-width: 720px;
+    margin: 0 auto;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(33px, 6vw, 55px);
+    line-height: 1.2;
+    color: var(--brown);
+}
+
+/* =========================
+   3. COUNTDOWN
+========================= */
+
+.countdown-section {
+    background: var(--cream-dark);
+}
+
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    max-width: 650px;
+    width: 100%;
+    margin: 35px auto 0;
+}
+
+.countdown-item {
+    text-align: center;
+    padding: 24px 6px;
+    background: #fffaf477;
+    border: 1px solid #d5c0a8;
+}
+
+.countdown-number {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 6vw, 55px);
+    line-height: 1;
+    color: var(--brown);
+}
+
+.countdown-label {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    color: #8a6b52;
+    text-transform: uppercase;
+}
+
+.countdown-message {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.8;
+    color: #806853;
+}
+
+/* =========================
+   4. DETAIL ACARA
+========================= */
+
+.details-section {
+    background: var(--white);
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 35px;
+}
+
+.detail-card {
+    padding: 28px 17px;
+    border: 1px solid #e3d3c1;
+    text-align: center;
+    background: #fffdf9;
+}
+
+.detail-icon {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.detail-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 29px;
+    font-weight: 600;
+    margin-bottom: 11px;
+}
+
+.detail-card p {
+    font-size: 11px;
+    line-height: 1.9;
+    color: #806853;
+}
+
+.map-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 11px 13px;
+    text-decoration: none;
+    font-size: 9px;
+    letter-spacing: .5px;
+    color: white;
+    background: var(--brown);
+    transition: background .2s;
+}
+
+.map-button:hover {
+    background: var(--brown-dark);
+}
+
+/* =========================
+   5. OUR MEMORIES
+========================= */
+
+.gallery-section {
+    background: var(--cream);
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: 18px;
+    margin-top: 32px;
+}
+
+.gallery-item {
+    min-width: 0;
+    background: var(--white);
+    border: 1px solid #e2d0bc;
+    padding: 7px;
+    box-shadow: 0 5px 16px #3522190a;
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    object-position: center;
+    background: #e8d8c5;
+}
+
+.gallery-caption {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    text-align: center;
+    color: var(--brown);
+    padding: 10px 2px 5px;
+}
+
+/* =========================
+   6. LITTLE MOMENTS
+========================= */
+
+.memory-section {
+    background: var(--cream-dark);
+}
+
+.memory-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(22px, 5vw, 55px);
+    width: 100%;
+}
+
+.memory-layout + .memory-layout {
+    margin-top: 65px;
+}
+
+.memory-frame {
+    min-width: 0;
+    padding: 7px;
+    background: var(--white);
+    box-shadow: 0 8px 25px #35221912;
+}
+
+.memory-photo {
+    display: block;
+    width: 100%;
+    height: 370px;
+    object-fit: contain;
+    object-position: center;
+    background: #e8d8c5;
+}
+
+.memory-copy {
+    min-width: 0;
+}
+
+.memory-copy h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(33px, 4vw, 49px);
+    line-height: 1.05;
+    font-weight: 500;
+    margin-bottom: 18px;
+    color: var(--brown-dark);
+}
+
+.memory-copy p {
+    font-size: 12px;
+    line-height: 2;
+    color: #806853;
+}
+
+.memory-copy p + p {
+    margin-top: 16px;
+}
+
+/* =========================
+   7. SURAT ULANG TAHUN
+========================= */
+
+.letter-section {
+    background: var(--cream);
+}
+
+.letter-container {
+    width: min(100%, 700px);
+    margin: 0 auto;
+    padding: clamp(26px, 5vw, 58px);
+    background: var(--white);
+    border: 1px solid #d8c3ad;
+    outline: 1px solid #d8c3ad;
+    outline-offset: 5px;
+}
+
+.letter-heart {
+    font-size: 30px;
+    color: var(--brown-light);
+    text-align: center;
+    margin: 12px 0;
+}
+
+.letter-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(43px, 8vw, 68px);
+    font-weight: 500;
+    line-height: .95;
+    color: var(--brown);
+    text-align: center;
+}
+
+.letter-content {
+    color: #705744;
+    font-size: 12px;
+    line-height: 2.1;
+    overflow-wrap: anywhere;
+}
+
+.letter-content p {
+    margin-bottom: 19px;
+}
+
+.letter-ending {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(25px, 5vw, 36px);
+    line-height: 1.3;
+    color: var(--brown);
+    text-align: center;
+    margin-top: 27px;
+}
+
+.letter-signature {
+    margin-top: 30px;
+    text-align: center;
+    color: #8a6b52;
+}
+
+.letter-signature span {
+    font-size: 11px;
+    font-style: italic;
+}
+
+.letter-signature h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 31px;
+    font-weight: 500;
+    margin-top: 7px;
+    color: var(--brown);
+}
+
+.letter-bottom {
+    margin-top: 27px;
+    text-align: center;
+    color: var(--brown-light);
+    letter-spacing: 5px;
+}
+
+/* =========================
+   8. PENUTUP
+========================= */
+
+.closing-section {
+    min-height: 75vh;
+    min-height: 75dvh;
+    color: var(--white);
+    text-align: center;
+    background:
+        radial-gradient(ellipse at 20% 10%, #8c6850 0%, transparent 45%),
+        linear-gradient(135deg, #4b3023, #76543e 55%, #3d281e);
+}
+
+.closing-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(55px, 10vw, 85px);
+    line-height: .93;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.closing-section p {
+    font-size: 12px;
+    line-height: 2;
+    color: #f2dfcc;
+}
+
+/* =========================
+   TOMBOL MUSIK
+========================= */
+
+.music-button {
+    position: fixed;
+    z-index: 200;
+    right: 18px;
+    bottom: 18px;
+    width: 47px;
+    height: 47px;
+    border: 1px solid #bda38a;
+    border-radius: 50%;
+    background: var(--brown);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px #35221925;
+}
+
+.music-button.visible {
+    display: flex;
+}
+
+.music-button:active {
+    transform: scale(.95);
+}
+
+/* =========================
+   RESPONSIVE TABLET
+========================= */
+
+@media (max-width: 800px) {
+    .section {
+        padding: 55px 22px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .gallery-item img {
+        height: auto;
+        max-height: 380px;
+        aspect-ratio: auto;
+        object-fit: contain;
+    }
+
+    .memory-photo {
+        height: 310px;
+    }
+}
+
+/* =========================
+   RESPONSIVE HP
+========================= */
+
+@media (max-width: 520px) {
+    .section {
+        padding: 48px 17px;
+    }
+
+    .section-title {
+        font-size: clamp(40px, 11vw, 54px);
+    }
+
+    .opening {
+        padding: 20px;
+    }
+
+    .opening-card {
+        padding: 25px 18px;
+    }
+
+    .opening-photo {
+        width: min(65%, 185px);
+        height: 220px;
+    }
+
+    .opening h1 {
+        font-size: clamp(43px, 12vw, 55px);
+    }
+
+    .hero-title {
+        font-size: clamp(54px, 14vw, 76px);
+    }
+
+    .hero-eyebrow {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .hero-date {
+        font-size: 9px;
+        padding: 12px;
+        letter-spacing: 1.2px;
+    }
+
+    .hero-decoration {
+        margin-top: 30px;
+    }
+
+    .intro-quote {
+        font-size: clamp(32px, 9vw, 43px);
+    }
+
+    .countdown {
+        gap: 7px;
+        margin-top: 28px;
+    }
+
+    .countdown-item {
+        padding: 19px 3px;
+    }
+
+    .countdown-number {
+        font-size: clamp(27px, 8vw, 40px);
+    }
+
+    .countdown-label {
+        font-size: 8px;
+        letter-spacing: .3px;
+    }
+
+    .details-grid {
+        gap: 10px;
+        margin-top: 27px;
+    }
+
+    .detail-card {
+        padding: 21px 9px;
+    }
+
+    .detail-card h3 {
+        font-size: 25px;
+    }
+
+    .detail-card p {
+        font-size: 10px;
+        overflow-wrap: anywhere;
+    }
+
+    .map-button {
+        font-size: 8px;
+        padding: 10px 7px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 25px;
+    }
+
+    .gallery-item {
+        padding: 5px;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+        max-height: 350px;
+        aspect-ratio: auto;
+        object-fit: contain;
+        background: #e8d8c5;
+    }
+
+    .gallery-caption {
+        font-size: 15px;
+        padding: 8px 1px 4px;
+    }
+
+    .memory-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+        max-width: 440px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .memory-layout + .memory-layout {
+        margin-top: 45px;
+    }
+
+    .memory-photo {
+        width: 100%;
+        height: auto;
+        max-height: 520px;
+        object-fit: contain;
+    }
+
+    .memory-copy {
+        text-align: center;
+        padding: 0 4px;
+    }
+
+    .memory-copy h3 {
+        font-size: 39px;
+    }
+
+    .memory-copy p {
+        font-size: 11px;
+    }
+
+    .letter-container {
+        padding: 29px 21px;
+    }
+
+    .letter-content {
+        font-size: 11px;
+        line-height: 2.05;
+    }
+
+    .letter-title {
+        font-size: clamp(43px, 12vw, 58px);
+    }
+
+    .closing-section {
+        min-height: 70vh;
+        min-height: 70dvh;
+    }
+
+    .music-button {
+        right: 13px;
+        bottom: 13px;
+        width: 43px;
+        height: 43px;
+    }
+}
+
+/* HP KECIL */
+@media (max-width: 360px) {
+    .section {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    .gallery {
+        gap: 8px;
+    }
+
+    .gallery-caption {
+        font-size: 13px;
+    }
+
+    .countdown {
+        gap: 5px;
+    }
+
+    .countdown-label {
+        font-size: 7px;
+    }
+
+    .letter-container {
+        padding: 24px 16px;
+    }
+}
+
+/* LAYAR PENDEK */
+@media (max-height: 650px) and (min-width: 521px) {
+    .section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .opening-card {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .opening-photo {
+        height: 170px;
+    }
+}
+
+/* AKSESIBILITAS */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- FILE MUSIK -->
+<audio id="backgroundMusic" src="musik.wav" loop preload="auto"></audio>
+
+<!-- SAMPUL PEMBUKA -->
+<div class="opening" id="opening">
+    <div class="opening-card">
+        <p class="opening-top">A little invitation for you</p>
+
+        <img
+            src="images/foto-12.jpg"
+            alt="Foto spesial"
+            class="opening-photo"
+        >
+
+        <h1 class="serif">You're<br>Invited ♡</h1>
+
+        <p class="opening-subtitle">
+            Untuk seseorang yang selalu istimewa buat aku ♡<br>
+            Ada hari spesial yang ingin aku rayakan bersamamu.
+        </p>
+
+        <button class="open-button" id="openInvitation">
+            BUKA UNDANGAN ♡
+        </button>
+    </div>
+</div>
+
+<!-- TOMBOL MUSIK -->
+<button
+    class="music-button"
+    id="musicButton"
+    aria-label="Putar atau hentikan musik"
+    title="Musik"
+>♫</button>
+
+<main id="presentation">
+
+    <!-- 1. BIRTHDAY CELEBRATION -->
+    <section class="section hero-section" id="birthday">
+        <div class="section-inner">
+            <p class="hero-eyebrow">A special day · A special person</p>
+
+            <h1 class="hero-title">
+                Birthday<br>Celebration
+            </h1>
+
+            <p class="hero-description">
+                Dengan penuh rasa bahagia,<br>
+                aku ingin mengajakmu merayakan hari spesial ini.
+            </p>
+
+            <div class="hero-date">
+                SUNDAY · 25 OCTOBER 2026
+            </div>
+
+            <p class="hero-decoration">SCROLL TO EXPLORE ↓</p>
+        </div>
+    </section>
+
+    <!-- 2. INTRO -->
+    <section class="section intro-section" id="intro">
+        <div class="section-inner">
+            <div class="intro-heart">♡</div>
+
+            <p class="section-label">A little note for you</p>
+
+            <h2 class="intro-quote">
+                "Untuk seseorang yang selalu istimewa buat aku ♡"
+            </h2>
+
+            <div class="divider"></div>
+
+            <p class="section-text">
+                Ada banyak hal sederhana yang jadi berharga karena kamu.
+                Kali ini, aku ingin membuat satu kenangan kecil yang bisa
+                kita ingat bersama. Semoga hari ini jadi salah satu cerita
+                manis kita.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. COUNTDOWN -->
+    <section class="section countdown-section" id="countdown">
+        <div class="section-inner">
+            <p class="section-label">Save the date</p>
+
+            <h2 class="section-title">Counting the Days</h2>
+
+            <p class="section-text">
+                Waktu menuju hari spesial kita ♡
+            </p>
+
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">Hari</span>
+                </div>
+
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Jam</span>
+                </div>
+
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Menit</span>
+                </div>
+
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Detik</span>
+                </div>
+            </div>
+
+            <p class="countdown-message" id="countdownMessage">
+                Sampai bertemu di hari spesial ♡
+            </p>
+        </div>
+    </section>
+
+    <!-- 4. DETAIL ACARA -->
+    <section class="section details-section" id="details">
+        <div class="section-inner">
+            <p class="section-label">The celebration</p>
+
+            <h2 class="section-title">Event Details</h2>
+
+            <p class="section-text">
+                Catat detail acaranya, ya ♡
+            </p>
+
+            <div class="details-grid">
+                <article class="detail-card">
+                    <div class="detail-icon">♡</div>
+                    <h3>Date</h3>
+                    <p>Minggu<br>25 Oktober 2026</p>
+                </article>
+
+                <article class="detail-card">
+                    <div class="detail-icon">◷</div>
+                    <h3>Time</h3>
+                    <p>19.00–21.00 WIB<br>Evening Celebration</p>
+                </article>
+
+                <article class="detail-card">
+                    <div class="detail-icon">✧</div>
+                    <h3>Dress Code</h3>
+                    <p>Warna Cokelat</p>
+                </article>
+
+                <article class="detail-card">
+                    <div class="detail-icon">⌂</div>
+                    <h3>Our Place</h3>
+                    <p>
+                        La Vida LOCA<br>
+                        Rooftop Resto and Bar
+                    </p>
+
+                    <a
+                        class="map-button"
+                        href="https://www.google.com/maps/search/?api=1&query=La+Vida+LOCA+Rooftop+Resto+and+Bar"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        BUKA GOOGLE MAPS ↗
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. OUR MEMORIES: 8 FOTO -->
+    <section class="section gallery-section" id="memories">
+        <div class="section-inner">
+            <p class="section-label">Little moments</p>
+
+            <h2 class="section-title">Our Memories</h2>
+
+            <p class="section-text">
+                Beberapa potongan cerita yang berarti ♡
+            </p>
+
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="images/foto-04.jpg" alt="Kenangan 1" loading="lazy">
+                    <p class="gallery-caption">A little memory ♡</p>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/foto-05.jpg" alt="Kenangan 2" loading="lazy">
+                    <p class="gallery-caption">A special moment</p>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/foto-06.jpg" alt="Kenangan 3" loading="lazy">
+                    <p class="gallery-caption">Just us</p>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/foto-07.jpg" alt="Kenangan 4" loading="lazy">
+                    <p class="gallery-caption">Sweet memories ♡</p>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/foto-08.jpg" alt="Kenangan 5" loading="lazy">
+                    <p class="gallery-caption">One of my favorites</p>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/foto-09.jpg" alt="Kenangan 6" loading="lazy">
+                    <p class="gallery-caption">Our little world</p>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/foto-10.jpg" alt="Kenangan 7" loading="lazy">
+                    <p class="gallery-caption">Always memorable</p>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/foto-11.jpg" alt="Kenangan 8" loading="lazy">
+                    <p class="gallery-caption">To more memories ♡</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. LITTLE MOMENTS -->
+    <section class="section memory-section" id="little-moments">
+        <div class="section-inner">
+            <p class="section-label">Made with love</p>
+
+            <h2 class="section-title">Little Moments</h2>
+
+            <div class="memory-layout">
+                <div class="memory-frame">
+                    <img
+                        class="memory-photo"
+                        src="images/foto-02.jpg"
+                        alt="Foto kenangan pertama"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="memory-copy">
+                    <h3>Little things,<br>big feelings.</h3>
+
+                    <p>
+                        Nggak semua momen harus mewah untuk jadi berarti.
+                        Kadang, hal-hal sederhana justru jadi kenangan
+                        yang paling ingin kita simpan.
+                    </p>
+
+                    <p>
+                        Semoga hari spesial ini membawa banyak senyum,
+                        cerita baru, dan kenangan manis untuk kita.
+                    </p>
+                </div>
+            </div>
+
+            <div class="memory-layout">
+                <div class="memory-copy">
+                    <h3>Here's to<br>another chapter ♡</h3>
+
+                    <p>
+                        Untuk semua cerita yang sudah kita lewati,
+                        dan semua cerita baik yang masih menunggu
+                        untuk kita temukan.
+                    </p>
+                </div>
+
+                <div class="memory-frame">
+                    <img
+                        class="memory-photo"
+                        src="images/foto-03.jpg"
+                        alt="Foto kenangan kedua"
+                        loading="lazy"
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. SURAT ULANG TAHUN -->
+    <section class="section letter-section" id="letter">
+        <div class="section-inner">
+            <div class="letter-container">
+                <p class="section-label">A letter from me to you</p>
+
+                <div class="letter-heart">♡</div>
+
+                <h2 class="letter-title">
+                    Happy Birthday,<br>Sayangku ♡
+                </h2>
+
+                <div class="divider"></div>
+
+                <div class="letter-content">
+                    <p>
+                        Selamat ulang tahun sayangku, cintaku. Semoga apa
+                        yang kamu inginkan tercapai, semoga hidup kamu jadi
+                        lebih tenang dan bahagia ke depannya, semoga kamu
+                        dilancarkan kuliahnya, rezekinya ditambahin, makin
+                        cantik, lucu, dan imut. 🤎
+                    </p>
+
+                    <p>
+                        Dari aku, aku mau minta maaf sebesar-besarnya karena
+                        dengan adanya aku di hidup kamu, mungkin hidup kamu
+                        jadi nggak tenang, banyak pikiran, dan lain-lain
+                        karena perilaku aku. Aku sadar, hidup kamu harus
+                        lebih diwarnai dengan kebahagiaan.
+                    </p>
+
+                    <p>
+                        Aku masih banyak belajar buat jadi lebih baik.
+                        Terima kasih karena sudah hadir dan menjadi seseorang
+                        yang begitu berarti buat aku. Aku berharap ke
+                        depannya kamu lebih sering ngerasain bahagia, tenang,
+                        dan dikelilingi hal-hal baik.
+                    </p>
+
+                    <p class="letter-ending">
+                        I love you more and more, sayangku ❤️
+                    </p>
+                </div>
+
+                <div class="letter-signature">
+                    <span>With all my love,</span>
+                    <h3>Dari aku, untuk kamu ♡</h3>
+                </div>
+
+                <div class="letter-bottom">♡ &nbsp; ♡ &nbsp; ♡</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. PENUTUP -->
+    <section class="section closing-section" id="closing">
+        <div class="section-inner">
+            <p class="hero-eyebrow">One more thing</p>
+
+            <h2 class="closing-title">
+                To more<br>memories ♡
+            </h2>
+
+            <p>
+                Semoga ada lebih banyak hari bahagia,<br>
+                cerita indah, dan alasan untuk tersenyum.
+            </p>
+
+            <div class="divider" style="background:#e4c9a7"></div>
+
+            <p>Happy Birthday, Sayangku 🤎</p>
+        </div>
+    </section>
+
+</main>
+
+<script>
+const opening = document.getElementById("opening");
+const openButton = document.getElementById("openInvitation");
+const music = document.getElementById("backgroundMusic");
+const musicButton = document.getElementById("musicButton");
+
+/* BUKA UNDANGAN */
+openButton.addEventListener("click", async function () {
+    opening.classList.add("closed");
+    musicButton.classList.add("visible");
+
+    /* Mulai dari atas setelah undangan dibuka */
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    try {
+        await music.play();
+        musicButton.textContent = "♫";
+        musicButton.setAttribute("aria-label", "Matikan musik");
+    } catch (error) {
+        musicButton.textContent = "♪";
+        musicButton.setAttribute("aria-label", "Putar musik");
+    }
+});
+
+/* KONTROL MUSIK */
+musicButton.addEventListener("click", async function () {
+    if (music.paused) {
+        try {
+            await music.play();
+            musicButton.textContent = "♫";
+            musicButton.setAttribute("aria-label", "Matikan musik");
+        } catch (error) {
+            alert("Musik belum bisa diputar. Periksa file musik.wav.");
+        }
+    } else {
+        music.pause();
+        musicButton.textContent = "♪";
+        musicButton.setAttribute("aria-label", "Putar musik");
+    }
+});
+
+/* COUNTDOWN: 25 OKTOBER 2026, 19.00 WIB */
+const eventDate = new Date("2026-10-25T19:00:00+07:00");
+
+function updateCountdown() {
+    const diff = eventDate.getTime() - Date.now();
+
+    const ids = ["days", "hours", "minutes", "seconds"];
+
+    if (diff <= 0) {
+        ids.forEach(function (id) {
+            document.getElementById(id).textContent = "00";
+        });
+
+        document.getElementById("countdownMessage").textContent =
+            diff > -7200000
+                ? "Acaranya sudah dimulai. Selamat merayakan ♡"
+                : "Semoga hari spesial ini menjadi kenangan manis ♡";
+
+        return;
+    }
+
+    const values = [
+        Math.floor(diff / 86400000),
+        Math.floor((diff % 86400000) / 3600000),
+        Math.floor((diff % 3600000) / 60000),
+        Math.floor((diff % 60000) / 1000)
+    ];
+
+    ids.forEach(function (id, index) {
+        document.getElementById(id).textContent =
+            String(values[index]).padStart(2, "0");
+    });
+
+    document.getElementById("countdownMessage").textContent =
+        "Sampai bertemu di hari spesial ♡";
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
