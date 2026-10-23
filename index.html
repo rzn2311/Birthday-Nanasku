@@ -17,7 +17,6 @@
        ========================================================= */
     :root {
       --bg-dark: #1b100a;
-      --wood: #2a1a12;
       --paper: #fbf4e8;
       --paper-dark: #f2e3ce;
       --kraft: #c49a74;
@@ -26,7 +25,6 @@
       --muted: #7a5c4f;
       --rose: #c0586c;
       --rose-dark: #8f2f3f;
-      --gold: #d4af37;
     }
 
     * {
@@ -59,7 +57,7 @@
     .serif { font-family: 'Fraunces', serif; }
     .hand { font-family: 'Caveat', cursive; }
 
-    /* Background Rain */
+    /* Background Rain / Heart */
     .rain {
       position: fixed;
       inset: 0;
@@ -67,7 +65,6 @@
       z-index: 1;
       overflow: hidden;
     }
-
     .rain span {
       position: absolute;
       top: -30px;
@@ -75,16 +72,13 @@
       opacity: 0;
       animation: fall linear infinite;
     }
-
     @keyframes fall {
       0% { transform: translateY(0) rotate(0deg); opacity: 0; }
       20% { opacity: 0.4; }
       100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
     }
 
-    /* =========================================================
-       2. WIDGET MUSIK & AUDIO
-       ========================================================= */
+    /* Music Button */
     .music-btn {
       position: fixed;
       top: 18px;
@@ -103,13 +97,9 @@
       justify-content: center;
       box-shadow: 0 4px 12px rgba(0,0,0,0.5);
       backdrop-filter: blur(4px);
-      transition: transform 0.2s;
     }
-    .music-btn:active { transform: scale(0.92); }
 
-    /* =========================================================
-       3. BUKU SCRAPBOOK (3D FLIP CONTAINER)
-       ========================================================= */
+    /* Container & Book */
     .app-container {
       position: relative;
       z-index: 10;
@@ -119,13 +109,13 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 15px;
+      padding: 10px;
     }
 
     .book-wrapper {
       position: relative;
-      width: min(92vw, 420px);
-      height: min(78vh, 620px);
+      width: min(94vw, 420px);
+      height: min(85vh, 660px);
       perspective: 1600px;
       box-shadow: 0 25px 50px rgba(0,0,0,0.8);
       border-radius: 12px;
@@ -138,7 +128,6 @@
       transform-style: preserve-3d;
     }
 
-    /* Halaman Tunggal */
     .page {
       position: absolute;
       inset: 0;
@@ -147,7 +136,7 @@
       background: var(--paper);
       border-radius: 8px;
       box-shadow: inset 0 0 30px rgba(146, 105, 69, 0.15), 0 4px 15px rgba(0,0,0,0.3);
-      padding: 24px 20px;
+      padding: 16px 14px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -156,16 +145,11 @@
       transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
       overflow: hidden;
       border: 1px solid rgba(196, 154, 116, 0.3);
-      background-image: 
-        repeating-linear-gradient(transparent, transparent 27px, rgba(169, 124, 87, 0.08) 27px, rgba(169, 124, 87, 0.08) 28px);
+      background-image: repeating-linear-gradient(transparent, transparent 27px, rgba(169, 124, 87, 0.08) 27px, rgba(169, 124, 87, 0.08) 28px);
     }
 
-    .page.flipped {
-      transform: rotateY(-180deg);
-      pointer-events: none;
-    }
+    .page.flipped { transform: rotateY(-180deg); pointer-events: none; }
 
-    /* Efek Tekstur Kertas Craft / Vintage */
     .page::before {
       content: "";
       position: absolute;
@@ -175,13 +159,10 @@
       z-index: 2;
     }
 
-    /* Ring binder pinggir buku */
     .page::after {
       content: "";
       position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
+      left: 0; top: 0; bottom: 0;
       width: 12px;
       background: linear-gradient(90deg, rgba(0,0,0,0.25), transparent);
       z-index: 3;
@@ -198,81 +179,55 @@
 
     .page-number {
       position: absolute;
-      bottom: 8px;
-      right: 14px;
+      bottom: 4px;
+      right: 10px;
       font-family: 'Caveat', cursive;
-      font-size: 16px;
+      font-size: 14px;
       color: var(--muted);
       z-index: 4;
     }
 
-    /* =========================================================
-       4. ELEMEN DEKORATIF SCRAPBOOK
-       ========================================================= */
-    /* Selotip */
+    /* Decorative Elements */
     .tape {
       position: absolute;
-      width: 80px;
-      height: 22px;
+      width: 70px; height: 18px;
       background: rgba(228, 196, 150, 0.75);
       backdrop-filter: blur(1px);
       box-shadow: 0 1px 3px rgba(0,0,0,0.2);
       z-index: 5;
       clip-path: polygon(0 5%, 5% 0, 10% 8%, 15% 0, 95% 0, 100% 10%, 95% 100%, 10% 100%, 5% 90%, 0 100%);
     }
-    .tape.top-center { top: -10px; left: 50%; transform: translateX(-50%) rotate(-2deg); }
-    .tape.top-left { top: -8px; left: -10px; transform: rotate(-25deg); }
-    .tape.top-right { top: -8px; right: -10px; transform: rotate(25deg); }
+    .tape.top-center { top: -7px; left: 50%; transform: translateX(-50%) rotate(-2deg); }
+    .tape.top-left { top: -6px; left: -10px; transform: rotate(-25deg); }
+    .tape.top-right { top: -6px; right: -10px; transform: rotate(25deg); }
     .tape.rose { background: rgba(214, 130, 148, 0.75); }
 
-    /* Frame Foto Heart */
     .heart-frame {
       position: relative;
-      width: 170px;
-      height: 170px;
-      margin: 10px auto;
+      width: 150px; height: 150px;
+      margin: 4px auto;
       clip-path: url(#heartClip);
       background: var(--kraft-dark);
       padding: 4px;
       filter: drop-shadow(0 6px 10px rgba(0,0,0,0.3));
     }
-    .heart-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      clip-path: url(#heartClip);
-    }
+    .heart-frame img { width: 100%; height: 100%; object-fit: cover; clip-path: url(#heartClip); }
 
-    /* Frame Polaroid Standard */
     .polaroid {
       background: #fffdf8;
-      padding: 8px 8px 18px 8px;
+      padding: 6px 6px 12px 6px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.25);
       transform: rotate(var(--r, 0deg));
       position: relative;
-      transition: transform 0.3s ease;
     }
-    .polaroid img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      display: block;
-      background: #eee;
-    }
-    .polaroid figcaption {
-      font-family: 'Caveat', cursive;
-      font-size: 18px;
-      text-align: center;
-      margin-top: 6px;
-      color: var(--ink);
-    }
+    .polaroid img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
+    .polaroid figcaption { font-family: 'Caveat', cursive; font-size: 15px; text-align: center; margin-top: 3px; color: var(--ink); }
 
-    /* Envelope Cover (Halaman 1) */
     .cover-card {
       background: var(--kraft-dark);
       color: var(--paper);
       border-radius: 8px;
-      padding: 24px 16px;
+      padding: 20px 14px;
       text-align: center;
       height: 100%;
       display: flex;
@@ -280,241 +235,218 @@
       align-items: center;
       justify-content: center;
       border: 2px dashed rgba(251, 244, 232, 0.3);
-      position: relative;
     }
 
     .wax-seal {
-      width: 70px;
-      height: 70px;
+      width: 60px; height: 60px;
       border-radius: 50%;
       background: radial-gradient(circle at 35% 30%, #c9505f, var(--rose-dark) 70%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 32px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 28px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.4), inset 0 0 0 4px rgba(255,255,255,0.15);
-      margin: 20px 0;
-      cursor: pointer;
+      margin: 14px 0; cursor: pointer;
       animation: pulseSeal 2s infinite;
     }
+    @keyframes pulseSeal { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
 
-    @keyframes pulseSeal {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.06); }
-    }
+    .cd-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 10px 0; }
+    .cd-box { background: #fff9ee; border: 1px solid #e5d2bb; padding: 6px 2px; border-radius: 8px; text-align: center; }
+    .cd-box b { display: block; font-family: 'Fraunces', serif; font-size: 17px; color: var(--ink); }
+    .cd-box span { font-size: 9px; font-weight: 700; color: var(--rose); text-transform: uppercase; }
 
-    /* Countdown Widget */
-    .cd-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 6px;
-      margin: 15px 0;
-    }
-    .cd-box {
-      background: #fff9ee;
-      border: 1px solid #e5d2bb;
-      padding: 10px 2px;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    .cd-box b { display: block; font-family: 'Fraunces', serif; font-size: 20px; color: var(--ink); }
-    .cd-box span { font-size: 10px; font-weight: 700; color: var(--rose); text-transform: uppercase; }
+    /* Pass Header & Ticket */
+    .pass-header { position: relative; text-align: center; padding: 4px 0 8px; margin-bottom: 4px; }
+    .pass-stamp { position: absolute; top: -5px; right: 6px; border: 2px dashed var(--rose); color: var(--rose); padding: 2px 5px; border-radius: 4px; font-size: 9.5px; font-weight: 700; transform: rotate(12deg); }
+    .ticket-stub { background: #fffcf5; border: 1.5px dashed var(--kraft-dark); border-radius: 10px; padding: 12px 10px; position: relative; }
+    .ticket-stub::before, .ticket-stub::after { content: ""; position: absolute; top: 50%; width: 16px; height: 16px; background: var(--paper); border-radius: 50%; transform: translateY(-50%); }
+    .ticket-stub::before { left: -9px; border-right: 1px dashed var(--kraft-dark); }
+    .ticket-stub::after { right: -9px; border-left: 1px dashed var(--kraft-dark); }
+    .ticket-barcode { width: 100%; height: 20px; margin-top: 8px; background: repeating-linear-gradient(90deg, var(--ink) 0 2px, transparent 2px 5px, var(--ink) 5px 8px, transparent 8px 10px); opacity: 0.7; }
+
+    /* Video Frame */
+    .video-frame-box { position: relative; background: #fffdf8; padding: 5px; border-radius: 6px; transform: rotate(-1.5deg); margin: 2px 0 8px; }
+    .video-wrapper { position: relative; width: 100%; aspect-ratio: 16/9; background: #2a1a12; border-radius: 4px; overflow: hidden; }
+    .video-wrapper video { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Hanging Polaroid */
+    .hanging-container { position: relative; width: 100%; height: 330px; margin-top: 4px; }
+    .hanging-string { position: absolute; width: 108%; height: 18px; left: -4%; border-bottom: 2px solid #8b5a2b; border-radius: 0 0 50% 50% / 0 0 20px 20px; z-index: 2; }
+    .hanging-string.string-bottom { top: 170px; }
+    .hanging-string.string-top { top: 8px; }
+    .hanging-item { position: absolute; width: 95px; background: #fffdf8; padding: 4px 4px 8px 4px; box-shadow: 0 5px 12px rgba(0,0,0,0.2); z-index: 3; cursor: pointer; }
+    .hanging-item::before { content: ""; position: absolute; top: -7px; left: 50%; transform: translateX(-50%); width: 7px; height: 14px; background: #c8965a; border-radius: 2px; border: 1px solid #7a4f22; }
+    .polaroid-love-box { width: 100%; height: 75px; background: #f2e3ce; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .polaroid-love-box img { width: 100%; height: 100%; object-fit: cover; clip-path: url(#heartClip); }
+    .hanging-item figcaption { font-family: 'Caveat', cursive; font-size: 12px; text-align: center; margin-top: 2px; }
+    .hang-1 { top: 20px; left: 6px; transform: rotate(-5deg); }
+    .hang-2 { top: 28px; right: 6px; transform: rotate(6deg); }
+    .hang-3 { top: 185px; left: 50%; transform: translateX(-50%) rotate(-3deg); }
+
+    .sticky-note { padding: 6px 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); font-size: 11px; margin-bottom: 5px; border-radius: 2px; }
+    .sticky-note.yellow { background: #fdf0a6; transform: rotate(-1deg); }
+    .sticky-note.pink { background: #f8c8d4; transform: rotate(1deg); }
+    .sticky-note.green { background: #d2ece0; transform: rotate(-0.8deg); }
+
+    .letter-lock-container { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+    .lock-icon { font-size: 38px; color: var(--rose-dark); margin-bottom: 8px; }
+    .letter-body { text-align: left; font-size: 11.5px; line-height: 1.55; color: var(--ink); overflow-y: auto; max-height: 390px; padding-right: 4px; }
+    .letter-body p { margin-bottom: 6px; }
 
     /* =========================================================
-       5. DESIGN TIKET EXCLUSIVE PASS (HALAMAN 4 BARU)
+       6. ESTHETIC SCRAPBOOK PHOTOBOOTH (PAGE 10)
        ========================================================= */
-    .pass-header {
-      position: relative;
-      text-align: center;
-      padding: 10px 0 15px;
-      margin-bottom: 10px;
+    .scrapbook-booth {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+      align-items: center;
+      gap: 4px;
     }
 
-    .pass-stamp {
-      position: absolute;
-      top: -5px;
-      right: 10px;
-      border: 2px dashed var(--rose);
-      color: var(--rose);
-      padding: 4px 8px;
-      border-radius: 4px;
+    .booth-title {
       font-family: 'Fraunces', serif;
-      font-size: 11px;
-      font-weight: 700;
-      transform: rotate(12deg);
-      opacity: 0.85;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      font-size: 18px;
+      text-align: center;
+      color: var(--ink);
+      margin-bottom: 2px;
     }
 
-    .ticket-stub {
-      background: #fffcf5;
-      border: 1.5px dashed var(--kraft-dark);
-      border-radius: 12px;
-      padding: 18px 16px;
-      position: relative;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-      margin-top: 5px;
-    }
-
-    .ticket-stub::before, .ticket-stub::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      width: 20px;
-      height: 20px;
-      background: var(--paper);
-      border-radius: 50%;
-      transform: translateY(-50%);
-      box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
-    }
-    .ticket-stub::before { left: -11px; border-right: 1px dashed var(--kraft-dark); }
-    .ticket-stub::after { right: -11px; border-left: 1px dashed var(--kraft-dark); }
-
-    .ticket-barcode {
+    /* 2 Strip Foto Sejajar Ala Scrapbook */
+    .scrapbook-strips-wrapper {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
       width: 100%;
-      height: 26px;
-      margin-top: 12px;
-      background: repeating-linear-gradient(90deg, var(--ink) 0 2px, transparent 2px 5px, var(--ink) 5px 8px, transparent 8px 10px, var(--ink) 10px 14px, transparent 14px 16px);
-      opacity: 0.7;
-      border-radius: 2px;
     }
 
-    /* =========================================================
-       6. HANGING POLAROID WITH LOVE CUTOUT (PAGE 6)
-       ========================================================= */
-    .hanging-container {
-      position: relative;
-      width: 100%;
-      height: 380px;
-      margin-top: 8px;
-    }
-
-    .hanging-string {
-      position: absolute;
-      width: 108%;
-      height: 24px;
-      left: -4%;
-      border-bottom: 2px solid #8b5a2b;
-      border-radius: 0 0 50% 50% / 0 0 20px 20px;
-      z-index: 2;
-    }
-
-    .hanging-string.string-bottom { top: 195px; }
-    .hanging-string.string-top { top: 15px; }
-
-    .hanging-item {
-      position: absolute;
-      width: 105px;
+    .scrap-strip {
       background: #fffdf8;
-      padding: 6px 6px 12px 6px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
-      z-index: 3;
-      transform-origin: top center;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-
-    .hanging-item::before {
-      content: "";
-      position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 10px;
-      height: 18px;
-      background: #c8965a;
-      border-radius: 2px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-      border: 1px solid #7a4f22;
-      z-index: 5;
-    }
-
-    .hanging-item:hover {
-      transform: scale(1.08) rotate(0deg) !important;
-      z-index: 10;
-    }
-
-    .polaroid-love-box {
-      width: 100%;
-      height: 85px;
-      background: #f2e3ce;
+      padding: 6px 6px 8px 6px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+      border: 1px solid #e5d2bb;
+      flex: 1;
+      max-width: 170px;
+      text-align: center;
+      border-radius: 3px;
       position: relative;
+    }
+
+    .scrap-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .scrap-slot {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #f2e3ce;
+      border: 1.5px dashed var(--kraft-dark);
       overflow: hidden;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
+      border-radius: 2px;
     }
 
-    .polaroid-love-box img {
+    /* Slot Live Kamera di Kotak Pertama */
+    .scrap-slot.live-cam video {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      clip-path: url(#heartClip);
+      transform: scaleX(-1);
     }
 
-    .hanging-item figcaption {
-      font-family: 'Caveat', cursive;
-      font-size: 14px;
-      text-align: center;
-      margin-top: 4px;
-      color: var(--ink);
-    }
-
-    .hang-1 { top: 28px; left: 10px; transform: rotate(-5deg); }
-    .hang-2 { top: 38px; right: 10px; transform: rotate(6deg); }
-    .hang-3 { top: 208px; left: 50%; transform: translateX(-50%) rotate(-3deg); }
-
-    /* Sticky Notes */
-    .sticky-note {
-      padding: 14px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      font-size: 13px;
-      line-height: 1.5;
-      margin-bottom: 12px;
-      position: relative;
-    }
-    .sticky-note.yellow { background: #fdf0a6; transform: rotate(-1.5deg); }
-    .sticky-note.pink { background: #f8c8d4; transform: rotate(1.5deg); }
-    .sticky-note.green { background: #d2ece0; transform: rotate(-1deg); }
-
-    /* Lock Screen Surat (Tanggal 25) */
-    .letter-lock-container {
+    .scrap-slot img {
+      width: 100%;
       height: 100%;
-      display: flex;
-      flex-direction: column;
+      object-fit: cover;
+      display: none;
+      filter: sepia(0.15) contrast(1.05);
+    }
+
+    .scrap-slot .slot-label {
+      font-size: 9px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .slot-countdown {
+      position: absolute;
+      inset: 0;
+      background: rgba(30, 15, 10, 0.55);
+      backdrop-filter: blur(1px);
+      display: none;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 10px;
+      color: #fff;
+      font-family: 'Fraunces', serif;
+      font-size: 32px;
+      font-weight: 700;
+      z-index: 5;
     }
 
-    .lock-icon {
-      font-size: 48px;
-      color: var(--rose-dark);
-      margin-bottom: 12px;
+    .slot-flash {
+      position: absolute;
+      inset: 0;
+      background: #fff;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 6;
     }
 
-    .letter-body {
-      text-align: left;
-      font-size: 12.5px;
-      line-height: 1.65;
+    .scrap-footer {
+      font-family: 'Caveat', cursive;
+      font-size: 12px;
       color: var(--ink);
-      overflow-y: auto;
-      max-height: 420px;
-      padding-right: 4px;
+      margin-top: 4px;
+      line-height: 1;
     }
-    .letter-body p { margin-bottom: 10px; }
 
-    /* Tombol Navigasi Bawah */
+    /* Tombol Aksi Estetik */
+    .booth-action-row {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      width: 100%;
+      margin-top: 2px;
+    }
+
+    .btn-scrap-start {
+      background: var(--rose);
+      color: #fff;
+      border: 0;
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(192, 88, 108, 0.4);
+      transition: transform 0.1s;
+    }
+    .btn-scrap-start:active { transform: scale(0.95); }
+
+    .btn-scrap-dl {
+      background: var(--kraft-dark);
+      color: #fff;
+      border: 0;
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    }
+
+    /* Navigasi */
     .nav-controls {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: min(92vw, 420px);
-      margin-top: 15px;
+      width: min(94vw, 420px);
+      margin-top: 10px;
       z-index: 20;
     }
 
@@ -522,64 +454,28 @@
       background: var(--kraft-dark);
       color: var(--paper);
       border: 0;
-      padding: 10px 20px;
+      padding: 7px 16px;
       border-radius: 25px;
-      font-family: 'Nunito', sans-serif;
+      font-size: 12px;
       font-weight: 700;
-      font-size: 14px;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      transition: background 0.2s, transform 0.1s;
     }
     .btn-nav:disabled { opacity: 0.4; cursor: not-allowed; }
-    .btn-nav:active:not(:disabled) { transform: scale(0.95); }
 
-    /* Modal Lightbox Foto */
+    /* Lightbox Modal */
     #lightbox {
-      position: fixed;
-      inset: 0;
-      z-index: 200;
+      position: fixed; inset: 0; z-index: 200;
       background: rgba(10, 5, 3, 0.9);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+      display: none; align-items: center; justify-content: center; padding: 20px;
       backdrop-filter: blur(4px);
     }
     #lightbox.active { display: flex; }
-    #lightbox figure {
-      background: #fffdf8;
-      padding: 10px 10px 16px;
-      max-width: min(90vw, 400px);
-      width: 100%;
-      border-radius: 4px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.8);
-    }
-    #lightbox img {
-      width: 100%;
-      max-height: 65vh;
-      object-fit: contain;
-      display: block;
-    }
-    #lightbox figcaption {
-      font-family: 'Caveat', cursive;
-      font-size: 24px;
-      text-align: center;
-      margin-top: 8px;
-      color: var(--ink);
-    }
+    #lightbox figure { background: #fffdf8; padding: 10px 10px 16px; max-width: min(90vw, 400px); width: 100%; border-radius: 4px; }
+    #lightbox img { width: 100%; max-height: 65vh; object-fit: contain; }
+    #lightbox figcaption { font-family: 'Caveat', cursive; font-size: 24px; text-align: center; margin-top: 8px; }
 
-    /* Confetti Particle */
-    .confetti {
-      position: fixed;
-      bottom: -20px;
-      z-index: 300;
-      pointer-events: none;
-      animation: riseConfetti linear forwards;
-    }
-    @keyframes riseConfetti {
-      to { transform: translateY(-110vh) rotate(720deg); opacity: 0; }
-    }
+    .confetti { position: fixed; bottom: -20px; z-index: 300; pointer-events: none; animation: riseConfetti linear forwards; }
+    @keyframes riseConfetti { to { transform: translateY(-110vh) rotate(720deg); opacity: 0; } }
   </style>
 </head>
 <body>
@@ -591,10 +487,8 @@
     </clipPath>
   </svg>
 
-  <!-- Latar Belakang Hujan Hati -->
   <div class="rain" id="rain"></div>
 
-  <!-- Audio Background & Controller -->
   <audio id="bgm" src="musik.wav" loop preload="auto"></audio>
   <button class="music-btn" id="musicBtn" aria-label="Toggle Music">♫</button>
 
@@ -609,7 +503,7 @@
             <div class="cover-card">
               <span class="hand" style="font-size: 32px; color: var(--kraft-light);">Special Invitation</span>
               <h2 class="serif" style="font-size: 26px; margin: 12px 0; color: #fff;">Untuk Naswa ♡</h2>
-              <p style="font-size: 13px; color: var(--paper-dark); opacity: 0.9;">Pacarku Cantikku Manisku...</p>
+              <p style="font-size: 13px; color: var(--paper-dark); opacity: 0.9;">Ada sebuah cerita & kejutan kecil di dalamnya...</p>
               
               <div class="wax-seal" id="openBookSeal">♡</div>
               
@@ -623,20 +517,20 @@
         <div class="page" style="z-index: 9;">
           <div class="page-content">
             <span class="tape top-center"></span>
-            <div class="hand" style="font-size: 36px; color: var(--rose); text-align: center;">Dear Naswaku Sayangku,</div>
+            <div class="hand" style="font-size: 36px; color: var(--rose); text-align: center;">Dear Naswa,</div>
             
             <div class="heart-frame">
               <img src="images/foto-12.jpg" alt="Naswa Main Photo">
             </div>
 
-            <h2 class="serif" style="font-size: 20px; text-align: center; margin-top: 6px;">You're Invited!</h2>
-            <p style="font-size: 13px; text-align: center; color: var(--muted); line-height: 1.6;">
-              Dengan bahagia dan penuh syukur, pacarmu ingin mengajakmu merayakan hari ulang tahunmu yang sangat spesial ini.
+            <h2 class="serif" style="font-size: 20px; text-align: center; margin-top: 4px;">You're Invited!</h2>
+            <p style="font-size: 12.5px; text-align: center; color: var(--muted); line-height: 1.5;">
+              Dengan bahagia dan penuh syukur, aku ingin mengajakmu merayakan hari ulang tahunmu yang sangat spesial ini.
             </p>
 
-            <div style="text-align: center; margin-top: 8px;">
-              <p class="serif" style="font-style: italic; font-size: 13px; color: var(--ink);">
-                “Untuk kamu yang selalu menghangatkan hari-hariku.”
+            <div style="text-align: center; margin-top: 6px;">
+              <p class="serif" style="font-style: italic; font-size: 12.5px; color: var(--ink);">
+                “Untuk seseorang yang selalu menghangatkan hari-hariku.”
               </p>
             </div>
           </div>
@@ -647,8 +541,8 @@
         <div class="page" style="z-index: 8;">
           <div class="page-content">
             <span class="tape top-right rose"></span>
-            <h2 class="serif" style="font-size: 22px; text-align: center; margin-bottom: 8px;">Menghitung Hari</h2>
-            <p style="font-size: 13px; text-align: center; color: var(--muted);">Menuju malam selebrasi ulang tahunmu:</p>
+            <h2 class="serif" style="font-size: 20px; text-align: center; margin-bottom: 6px;">Menghitung Hari</h2>
+            <p style="font-size: 12px; text-align: center; color: var(--muted);">Menuju malam selebrasi ulang tahunmu:</p>
 
             <div class="cd-grid">
               <div class="cd-box"><b id="cdDays">00</b><span>Hari</span></div>
@@ -657,43 +551,35 @@
               <div class="cd-box"><b id="cdSeconds">00</b><span>Detik</span></div>
             </div>
 
-            <div style="background: rgba(196, 154, 116, 0.15); padding: 12px; border-radius: 8px; text-align: center; margin-top: 10px;">
-              <span class="hand" style="font-size: 22px; color: var(--rose-dark);">Save The Date!</span>
-              <p style="font-size: 13px; font-weight: 700; color: var(--ink); margin-top: 2px;">Minggu, 25 Oktober 2026</p>
+            <div style="background: rgba(196, 154, 116, 0.15); padding: 10px; border-radius: 8px; text-align: center; margin-top: 8px;">
+              <span class="hand" style="font-size: 20px; color: var(--rose-dark);">Save The Date!</span>
+              <p style="font-size: 12px; font-weight: 700; color: var(--ink); margin-top: 2px;">Minggu, 25 Oktober 2026</p>
             </div>
           </div>
           <span class="page-number">3 / 10</span>
         </div>
 
-        <!-- ================= PAGE 4: BOARDING PASS / TICKET (DIPERBARUI) ================= -->
+        <!-- ================= PAGE 4: BOARDING PASS / TICKET ================= -->
         <div class="page" style="z-index: 7;">
           <div class="page-content">
             <span class="tape top-left"></span>
             
-            <!-- HEADER DEKORATIF UNTUK MENGISI AREA ATAS -->
             <div class="pass-header">
               <div class="pass-stamp">VIP ACCESS</div>
-              <h2 class="serif" style="font-size: 24px; color: var(--ink); margin-bottom: 2px;">Exclusive Pass</h2>
-              <p class="hand" style="font-size: 18px; color: var(--rose-dark);">~ Special Invitation ~</p>
-              
-              <div style="display: flex; justify-content: center; gap: 8px; margin-top: 8px;">
-                <span style="background: #f2e3ce; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; color: var(--kraft-dark); border: 1px dashed var(--kraft-dark);">
-                  ✨ Special Guest: Naswa
-                </span>
-              </div>
+              <h2 class="serif" style="font-size: 22px; color: var(--ink); margin-bottom: 2px;">Exclusive Pass</h2>
+              <p class="hand" style="font-size: 16px; color: var(--rose-dark);">~ Special Invitation ~</p>
             </div>
 
-            <!-- TIKET ACARA -->
             <div class="ticket-stub">
-              <span class="hand" style="font-size: 20px; color: var(--rose);">admit one · Naswa ♡</span>
-              <h3 class="serif" style="font-size: 20px; margin: 4px 0; color: var(--ink);">Birthday Dinner</h3>
-              <hr style="border: 0; border-top: 1px dashed #d9c2a8; margin: 8px 0;">
+              <span class="hand" style="font-size: 18px; color: var(--rose);">admit one · Naswa ♡</span>
+              <h3 class="serif" style="font-size: 18px; margin: 2px 0; color: var(--ink);">Birthday Dinner</h3>
+              <hr style="border: 0; border-top: 1px dashed #d9c2a8; margin: 6px 0;">
               
-              <p style="font-size: 12.5px; margin-bottom: 4px; color: var(--ink);"><b>Waktu:</b> 19.00 – 21.00 WIB</p>
-              <p style="font-size: 12.5px; margin-bottom: 4px; color: var(--ink);"><b>Dress Code:</b> <span style="background: #ffffff; padding: 2px 6px; border-radius: 4px; border: 1px solid #ddd; font-weight: 700; color: #333;">Warna Putih ✨</span></p>
-              <p style="font-size: 12.5px; margin-bottom: 10px; color: var(--ink);"><b>Lokasi:</b> La Vida LOCA Rooftop Resto and Bar</p>
+              <p style="font-size: 12px; margin-bottom: 4px; color: var(--ink);"><b>Waktu:</b> 19.00 – 21.00 WIB</p>
+              <p style="font-size: 12px; margin-bottom: 4px; color: var(--ink);"><b>Dress Code:</b> <span style="background: #ffffff; padding: 2px 6px; border-radius: 4px; border: 1px solid #ddd; font-weight: 700; color: #333;">Warna Putih ✨</span></p>
+              <p style="font-size: 12px; margin-bottom: 8px; color: var(--ink);"><b>Lokasi:</b> La Vida LOCA Rooftop Resto & Bar</p>
               
-              <a href="https://www.google.com/maps/search/?api=1&query=La+Vida+LOCA+Rooftop+Resto+and+Bar" target="_blank" rel="noopener" style="display: inline-block; background: var(--rose); color: #fff; text-decoration: none; font-size: 11px; font-weight: 700; padding: 7px 14px; border-radius: 15px; box-shadow: 0 3px 8px rgba(192, 88, 108, 0.3);">Petunjuk Lokasi (Maps) 📍</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=La+Vida+LOCA+Rooftop+Resto+and+Bar" target="_blank" rel="noopener" style="display: inline-block; background: var(--rose); color: #fff; text-decoration: none; font-size: 11px; font-weight: 700; padding: 6px 12px; border-radius: 15px;">Petunjuk Lokasi (Maps) 📍</a>
 
               <div class="ticket-barcode"></div>
             </div>
@@ -701,25 +587,34 @@
           <span class="page-number">4 / 10</span>
         </div>
 
-        <!-- ================= PAGE 5: MEMORY STATS ================= -->
+        <!-- ================= PAGE 5: VIDEO & MEMORY STATS ================= -->
         <div class="page" style="z-index: 6;">
           <div class="page-content">
-            <h2 class="serif" style="font-size: 22px; text-align: center; margin-bottom: 12px;">Langkah Bersama</h2>
+            <h2 class="serif" style="font-size: 18px; text-align: center;">Langkah Bersama</h2>
             
-            <div class="sticky-note yellow">
-              <b class="hand" style="font-size: 24px; color: var(--ink);">365+ Hari</b>
-              <p>Rangkaian tawa, canda, dan cerita manis yang mewarnai hari-hari.</p>
+            <div class="video-frame-box">
+              <span class="tape top-center rose"></span>
+              <div class="video-wrapper">
+                <video id="scrapbookVideo" controls playsinline preload="metadata" poster="images/foto-12.jpg">
+                  <source src="video.mp4" type="video/mp4">
+                  Perangkatmu tidak mendukung pemutaran video.
+                </video>
+              </div>
+              <p class="hand" style="text-align: center; font-size: 14px; margin-top: 3px; color: var(--ink);">momen spesial kita 🎬</p>
             </div>
 
-            <div class="sticky-note pink">
-              <b class="hand" style="font-size: 24px; color: var(--rose-dark);">1000+ Jam</b>
-              <p>Obrolan hangat serta momen saling menemani dalam setiap keadaan.</p>
+            <div>
+              <div class="sticky-note yellow">
+                <b class="hand" style="font-size: 17px; color: var(--ink);">365+ Hari</b> — Canda tawa & cerita manis.
+              </div>
+              <div class="sticky-note pink">
+                <b class="hand" style="font-size: 17px; color: var(--rose-dark);">1000+ Jam</b> — Obrolan hangat setiap waktu.
+              </div>
+              <div class="sticky-note green">
+                <b class="hand" style="font-size: 17px; color: #2c5943;">∞ Rasa Syukur</b> — Selalu bersamamu.
+              </div>
             </div>
 
-            <div class="sticky-note green">
-              <b class="hand" style="font-size: 24px; color: #2c5943;">∞ Rasa Syukur</b>
-              <p>Bisa mengenalmu dan berjalan berdampingan bersamamu.</p>
-            </div>
           </div>
           <span class="page-number">5 / 10</span>
         </div>
@@ -728,30 +623,24 @@
         <div class="page" style="z-index: 5;">
           <div class="page-content">
             <span class="tape top-center rose"></span>
-            <h2 class="serif" style="font-size: 20px; text-align: center;">Hanging Love Notes</h2>
+            <h2 class="serif" style="font-size: 18px; text-align: center;">Hanging Love Notes</h2>
             
             <div class="hanging-container">
               <div class="hanging-string string-top"></div>
               <div class="hanging-string string-bottom"></div>
 
               <figure class="hanging-item hang-1 zoomable">
-                <div class="polaroid-love-box">
-                  <img src="images/foto-04.jpg" alt="sweet moment">
-                </div>
+                <div class="polaroid-love-box"><img src="images/foto-04.jpg" alt="sweet moment"></div>
                 <figcaption>sweet moment</figcaption>
               </figure>
 
               <figure class="hanging-item hang-2 zoomable">
-                <div class="polaroid-love-box">
-                  <img src="images/foto-05.jpg" alt="warm smile">
-                </div>
+                <div class="polaroid-love-box"><img src="images/foto-05.jpg" alt="warm smile"></div>
                 <figcaption>warm smile</figcaption>
               </figure>
 
               <figure class="hanging-item hang-3 zoomable">
-                <div class="polaroid-love-box">
-                  <img src="images/foto-06.jpg" alt="just us">
-                </div>
+                <div class="polaroid-love-box"><img src="images/foto-06.jpg" alt="just us"></div>
                 <figcaption>just us</figcaption>
               </figure>
             </div>
@@ -764,9 +653,9 @@
         <!-- ================= PAGE 7: POLAROID SPREAD 1 ================= -->
         <div class="page" style="z-index: 4;">
           <div class="page-content">
-            <h2 class="serif" style="font-size: 20px; text-align: center; margin-bottom: 8px;">Momen Indah</h2>
+            <h2 class="serif" style="font-size: 18px; text-align: center; margin-bottom: 6px;">Momen Indah</h2>
             
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
               <figure class="polaroid zoomable" style="--r: -3deg;">
                 <img src="images/foto-07.jpg" alt="sweet memories">
                 <figcaption>sweet memories</figcaption>
@@ -777,7 +666,7 @@
               </figure>
             </div>
 
-            <div style="margin-top: 10px;">
+            <div style="margin-top: 8px;">
               <figure class="polaroid zoomable" style="--r: -1deg; width: 80%; margin: 0 auto;">
                 <img src="images/foto-09.jpg" alt="our world" style="aspect-ratio: 16/9;">
                 <figcaption>our world</figcaption>
@@ -790,9 +679,9 @@
         <!-- ================= PAGE 8: POLAROID SPREAD 2 ================= -->
         <div class="page" style="z-index: 3;">
           <div class="page-content">
-            <h2 class="serif" style="font-size: 20px; text-align: center; margin-bottom: 8px;">Cerita Kita</h2>
+            <h2 class="serif" style="font-size: 18px; text-align: center; margin-bottom: 6px;">Cerita Kita</h2>
             
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
               <figure class="polaroid zoomable" style="--r: 2deg;">
                 <img src="images/foto-10.jpg" alt="memorable">
                 <figcaption>memorable</figcaption>
@@ -802,38 +691,36 @@
                 <figcaption>together</figcaption>
               </figure>
               <figure class="polaroid zoomable" style="--r: -3deg;">
-                <img src="images/foto-02.jpg" alt="foto fav aku">
-                <figcaption>foto fav aku</figcaption>
+                <img src="images/foto-02.jpg" alt="hal kecil">
+                <figcaption>hal kecil</figcaption>
               </figure>
               <figure class="polaroid zoomable" style="--r: 3deg;">
-                <img src="images/foto-03.jpg" alt="bareface kamu yang selalu aku tunggu">
-                <figcaption>bareface kamu yang selalu aku tunggu</figcaption>
+                <img src="images/foto-03.jpg" alt="rasa besar">
+                <figcaption>rasa besar</figcaption>
               </figure>
             </div>
           </div>
           <span class="page-number">8 / 10</span>
         </div>
 
-        <!-- ================= PAGE 9: SURAT LENGKAP (TERKUNCI S/D TGL 25) ================= -->
+        <!-- ================= PAGE 9: SURAT LENGKAP ================= -->
         <div class="page" style="z-index: 2;">
           <div class="page-content">
             <span class="tape top-center"></span>
             
-            <!-- Tampilan Jika Terkunci (Sebelum 25 Okt 2026) -->
             <div id="letterLocked" class="letter-lock-container">
               <div class="lock-icon">🔒</div>
-              <h3 class="serif" style="font-size: 20px; margin-bottom: 6px;">Surat Ini Masih Terkunci</h3>
-              <p style="font-size: 13px; color: var(--muted); margin-bottom: 12px;">
+              <h3 class="serif" style="font-size: 18px; margin-bottom: 4px;">Surat Ini Masih Terkunci</h3>
+              <p style="font-size: 12px; color: var(--muted); margin-bottom: 10px;">
                 Surat spesial ini baru bisa dibuka dan dibaca tepat pada tanggal <b>25 Oktober 2026</b>.
               </p>
-              <div style="background: rgba(192, 88, 108, 0.1); padding: 8px 14px; border-radius: 20px; font-size: 12px; color: var(--rose-dark); font-weight: 700;">
+              <div style="background: rgba(192, 88, 108, 0.1); padding: 6px 12px; border-radius: 20px; font-size: 11px; color: var(--rose-dark); font-weight: 700;">
                 Tunggu tanggal mainnya ya, Naswa ♡
               </div>
             </div>
 
-            <!-- Tampilan Isi Surat (Terbuka Otomatis pada 25 Okt 2026) -->
             <div id="letterUnlocked" class="letter-body" style="display: none;">
-              <h2 class="serif" style="font-size: 18px; text-align: center; margin-bottom: 10px; color: var(--rose-dark);">Happy Birthday, Sayangku 🤎</h2>
+              <h2 class="serif" style="font-size: 16px; text-align: center; margin-bottom: 8px; color: var(--rose-dark);">Happy Birthday, Sayangku 🤎</h2>
               
               <p><b>Selamat ulang tahun sayangku, cintaku.</b></p>
               <p>Semoga apa yang kamu inginkan satu per satu bisa tercapai. Semoga hidup kamu ke depannya jadi lebih tenang, lebih bahagia, dan selalu dipertemukan sama hal-hal baik.</p>
@@ -842,27 +729,88 @@
               <p>Aku nggak mau cuma janji lewat kata-kata. Aku pengin terus belajar buat lebih ngerti kamu, lebih menghargai perasaan kamu, dan lebih hati-hati dalam bersikap.</p>
               <p>Terima kasih ya, sayang, karena sudah hadir di hidup aku dan jadi seseorang yang begitu berarti. I love you more and more, sayangku ❤️</p>
               
-              <div class="hand" style="font-size: 28px; text-align: right; color: var(--rose); margin-top: 10px;">with love ♡</div>
+              <div class="hand" style="font-size: 26px; text-align: right; color: var(--rose); margin-top: 8px;">with love ♡</div>
             </div>
 
           </div>
           <span class="page-number">9 / 10</span>
         </div>
 
-        <!-- ================= PAGE 10: BACK COVER & RSVP ================= -->
+        <!-- ================= PAGE 10: SCRAPBOOK PHOTOBOOTH (LIVE CAM DI KOTAK PERTAMA) ================= -->
         <div class="page" style="z-index: 1;">
           <div class="page-content">
-            <div class="cover-card" style="background: var(--paper-dark); color: var(--ink); border-color: var(--kraft);">
-              <h2 class="serif" style="font-size: 22px; margin-bottom: 10px;">Kehadiranmu</h2>
-              <p class="hand" style="font-size: 26px; color: var(--rose-dark); margin-bottom: 16px;">Jadi, apakah kamu mau datang?</p>
+            <div class="scrapbook-booth">
+              <span class="tape top-center rose"></span>
+              <div class="booth-title">Naswa's Photo Booth 📸</div>
 
-              <button id="rsvpBtn" class="btn-nav" style="background: var(--rose); padding: 12px 28px; font-size: 15px; box-shadow: 0 6px 15px rgba(192, 88, 108, 0.4);">
-                Mau Banget ♡
-              </button>
+              <!-- 2 LEMBAR STRIP FOTO -->
+              <div class="scrapbook-strips-wrapper">
+                
+                <!-- Strip 1 (Slot 1 ada Live Webcam) -->
+                <div class="scrap-strip">
+                  <div class="scrap-grid">
+                    <!-- Kotak 1: Live Camera / Foto 1 -->
+                    <div class="scrap-slot live-cam" id="slotBox0">
+                      <video id="webcam" autoplay playsinline muted></video>
+                      <img id="pbImg0" alt="Foto 1">
+                      <div class="slot-countdown" id="cd0">3</div>
+                      <div class="slot-flash" id="flash0"></div>
+                      <span class="slot-label" id="lbl0">Live Cam</span>
+                    </div>
+                    <!-- Kotak 2: Foto 2 -->
+                    <div class="scrap-slot" id="slotBox1">
+                      <img id="pbImg1" alt="Foto 2">
+                      <div class="slot-countdown" id="cd1">3</div>
+                      <div class="slot-flash" id="flash1"></div>
+                      <span class="slot-label" id="lbl1">Foto 2</span>
+                    </div>
+                    <!-- Kotak 3: Foto 3 -->
+                    <div class="scrap-slot" id="slotBox2">
+                      <img id="pbImg2" alt="Foto 3">
+                      <div class="slot-countdown" id="cd2">3</div>
+                      <div class="slot-flash" id="flash2"></div>
+                      <span class="slot-label" id="lbl2">Foto 3</span>
+                    </div>
+                  </div>
+                  <div class="scrap-footer">Naswa ♡ Strip #1</div>
+                </div>
 
-              <p id="rsvpDone" class="hand" style="display: none; font-size: 24px; color: var(--rose-dark); margin-top: 15px;">
-                Yey! Sampai ketemu Minggu malam, sayang ♡
-              </p>
+                <!-- Strip 2 (Foto 4, 5, 6) -->
+                <div class="scrap-strip">
+                  <div class="scrap-grid">
+                    <!-- Kotak 4: Foto 4 -->
+                    <div class="scrap-slot" id="slotBox3">
+                      <img id="pbImg3" alt="Foto 4">
+                      <div class="slot-countdown" id="cd3">3</div>
+                      <div class="slot-flash" id="flash3"></div>
+                      <span class="slot-label" id="lbl3">Foto 4</span>
+                    </div>
+                    <!-- Kotak 5: Foto 5 -->
+                    <div class="scrap-slot" id="slotBox4">
+                      <img id="pbImg4" alt="Foto 5">
+                      <div class="slot-countdown" id="cd4">3</div>
+                      <div class="slot-flash" id="flash4"></div>
+                      <span class="slot-label" id="lbl4">Foto 5</span>
+                    </div>
+                    <!-- Kotak 6: Foto 6 -->
+                    <div class="scrap-slot" id="slotBox5">
+                      <img id="pbImg5" alt="Foto 6">
+                      <div class="slot-countdown" id="cd5">3</div>
+                      <div class="slot-flash" id="flash5"></div>
+                      <span class="slot-label" id="lbl5">Foto 6</span>
+                    </div>
+                  </div>
+                  <div class="scrap-footer">Naswa ♡ Strip #2</div>
+                </div>
+
+              </div>
+
+              <!-- TOMBOL KONTROL BAWAH -->
+              <div class="booth-action-row">
+                <button class="btn-scrap-start" id="startPbBtn" onclick="startPhotoSession()">Mulai Foto (6x) 📸</button>
+                <button class="btn-scrap-dl" onclick="downloadStrips()">Download Strip 📥</button>
+              </div>
+
             </div>
           </div>
           <span class="page-number">10 / 10</span>
@@ -871,15 +819,15 @@
       </div>
     </div>
 
-    <!-- NAVBAR CONTROLLER (PREV / NEXT) -->
+    <!-- NAVBAR CONTROLLER -->
     <div class="nav-controls">
       <button class="btn-nav" id="prevBtn" disabled>← Prev</button>
-      <span id="pageIndicator" style="color: var(--kraft-light); font-weight: 700; font-size: 14px;">Hal 1 / 10</span>
+      <span id="pageIndicator" style="color: var(--kraft-light); font-weight: 700; font-size: 13px;">Hal 1 / 10</span>
       <button class="btn-nav" id="nextBtn">Next →</button>
     </div>
   </div>
 
-  <!-- LIGHTBOX MODAL FOTO -->
+  <!-- LIGHTBOX MODAL -->
   <div id="lightbox">
     <figure>
       <img id="lbImg" src="" alt="Zoom Photo">
@@ -887,8 +835,195 @@
     </figure>
   </div>
 
+  <canvas id="snapCanvas" style="display:none;"></canvas>
+
   <!-- ================= JAVASCRIPT LOGIC ================= -->
   <script>
+    var webcamStream = null;
+    var isCapturing = false;
+    var capturedPhotos = [];
+
+    function initCamera() {
+      var video = document.getElementById('webcam');
+      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" }, audio: false })
+          .then(function(stream) {
+            webcamStream = stream;
+            video.srcObject = stream;
+          })
+          .catch(function(err) {
+            alert("Izin kamera diperlukan untuk fitur Photobooth ini.");
+          });
+      }
+    }
+
+    function stopCamera() {
+      if (webcamStream) {
+        webcamStream.getTracks().forEach(function(track) { track.stop(); });
+        webcamStream = null;
+      }
+    }
+
+    /* Sesi Foto Otomatis Berurutan Masuk ke Kotak */
+    function startPhotoSession() {
+      if (isCapturing) return;
+      isCapturing = true;
+      capturedPhotos = [];
+      document.getElementById('startPbBtn').disabled = true;
+
+      // Reset tampilan kotak strip
+      for (let i = 0; i < 6; i++) {
+        let imgElem = document.getElementById('pbImg' + i);
+        let lblElem = document.getElementById('lbl' + i);
+        imgElem.style.display = 'none';
+        if (i === 0) {
+          document.getElementById('webcam').style.display = 'block';
+          lblElem.style.display = 'none';
+        } else {
+          lblElem.style.display = 'block';
+        }
+      }
+
+      var currentPhoto = 0;
+
+      function captureStep() {
+        if (currentPhoto >= 6) {
+          isCapturing = false;
+          document.getElementById('startPbBtn').disabled = false;
+          return;
+        }
+
+        let cdOverlay = document.getElementById('cd0'); // Countdown selalu di kotak 1
+        cdOverlay.style.display = 'flex';
+        let count = 3;
+        cdOverlay.textContent = count;
+
+        let timer = setInterval(function() {
+          count--;
+          if (count > 0) {
+            cdOverlay.textContent = count;
+          } else {
+            clearInterval(timer);
+            cdOverlay.style.display = 'none';
+            takeSnap(currentPhoto);
+            currentPhoto++;
+            setTimeout(captureStep, 1000);
+          }
+        }, 1000);
+      }
+
+      captureStep();
+    }
+
+    function takeSnap(index) {
+      var video = document.getElementById('webcam');
+      var canvas = document.getElementById('snapCanvas');
+      var ctx = canvas.getContext('2d');
+
+      canvas.width = video.videoWidth || 640;
+      canvas.height = video.videoHeight || 480;
+
+      ctx.translate(canvas.width, 0);
+      ctx.scale(-1, 1);
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+      var dataUrl = canvas.toDataURL('image/jpeg');
+      capturedPhotos[index] = dataUrl;
+
+      var imgElem = document.getElementById('pbImg' + index);
+      imgElem.src = dataUrl;
+      imgElem.style.display = 'block';
+
+      // Sembunyikan label atau video live di kotak tersebut agar foto hasil jepretan tampil
+      document.getElementById('lbl' + index).style.display = 'none';
+      if (index === 0) {
+        video.style.display = 'none'; // Matikan live cam di kotak 1 setelah terambil fotonya
+      }
+
+      // Efek Flash
+      var flash = document.getElementById('flash' + index);
+      flash.style.opacity = '0.85';
+      setTimeout(function() { flash.style.opacity = '0'; }, 150);
+    }
+
+    /* Download 2 Strip PNG High-Res */
+    function downloadStrips() {
+      if (capturedPhotos.length < 6) {
+        alert("Silakan tekan 'Mulai Foto (6x)' dan selesaikan sesi fotonya terlebih dahulu!");
+        return;
+      }
+
+      exportSingleStrip([capturedPhotos[0], capturedPhotos[1], capturedPhotos[2]], "Strip_Naswa_1.png", "Naswa ♡ Strip #1");
+      setTimeout(function() {
+        exportSingleStrip([capturedPhotos[3], capturedPhotos[4], capturedPhotos[5]], "Strip_Naswa_2.png", "Naswa ♡ Strip #2");
+      }, 500);
+    }
+
+    function exportSingleStrip(photoArray, fileName, titleText) {
+      var canvas = document.createElement('canvas');
+      var ctx = canvas.getContext('2d');
+
+      var width = 450;
+      var padding = 20;
+      var slotHeight = 290;
+      var gap = 12;
+      var footerHeight = 70;
+      var totalHeight = (padding * 2) + (3 * slotHeight) + (2 * gap) + footerHeight;
+
+      canvas.width = width;
+      canvas.height = totalHeight;
+
+      ctx.fillStyle = "#fffdf8";
+      ctx.fillRect(0, 0, width, totalHeight);
+
+      ctx.strokeStyle = "#e5d2bb";
+      ctx.lineWidth = 3;
+      ctx.strokeRect(6, 6, width - 12, totalHeight - 12);
+
+      var loaded = 0;
+      var imgs = [];
+
+      for (var i = 0; i < 3; i++) {
+        (function(idx) {
+          var img = new Image();
+          img.onload = function() {
+            imgs[idx] = img;
+            loaded++;
+            if (loaded === 3) {
+              var slotW = width - (padding * 2);
+              for (var j = 0; j < 3; j++) {
+                var y = padding + (j * (slotHeight + gap));
+                var m = imgs[j];
+
+                var scale = Math.max(slotW / m.width, slotHeight / m.height);
+                var sw = slotW / scale;
+                var sh = slotHeight / scale;
+                var sx = (m.width - sw) / 2;
+                var sy = (m.height - sh) / 2;
+
+                ctx.drawImage(m, sx, sy, sw, sh, padding, y, slotW, slotHeight);
+
+                ctx.fillStyle = "rgba(180, 130, 90, 0.08)";
+                ctx.fillRect(padding, y, slotW, slotHeight);
+              }
+
+              ctx.fillStyle = "#3b2319";
+              ctx.font = "bold 26px 'Caveat', cursive, sans-serif";
+              ctx.textAlign = "center";
+              ctx.fillText(titleText + " · 25.10.2026", width / 2, totalHeight - 25);
+
+              var link = document.createElement('a');
+              link.download = fileName;
+              link.href = canvas.toDataURL('image/png');
+              link.click();
+            }
+          };
+          img.src = photoArray[idx];
+        })(i);
+      }
+    }
+
+    /* Flipbook Engine */
     (function () {
       var currentPage = 0;
       var totalPages = 10;
@@ -898,9 +1033,9 @@
       var pageIndicator = document.getElementById('pageIndicator');
       var bgm = document.getElementById('bgm');
       var musicBtn = document.getElementById('musicBtn');
+      var videoElem = document.getElementById('scrapbookVideo');
       var isPlaying = false;
 
-      /* ---------- 1. Animasi Hujan Hati ---------- */
       var rainContainer = document.getElementById('rain');
       for (var i = 0; i < 20; i++) {
         var drop = document.createElement('span');
@@ -912,15 +1047,20 @@
         rainContainer.appendChild(drop);
       }
 
-      /* ---------- 2. Logic Flip Book ---------- */
       function updateBookUI() {
         pages.forEach(function (page, idx) {
-          if (idx < currentPage) {
-            page.classList.add('flipped');
-          } else {
-            page.classList.remove('flipped');
-          }
+          if (idx < currentPage) { page.classList.add('flipped'); }
+          else { page.classList.remove('flipped'); }
         });
+
+        if (currentPage !== 4 && videoElem) { videoElem.pause(); }
+
+        if (currentPage === 9) {
+          initCamera();
+          document.getElementById('webcam').style.display = 'block';
+        } else {
+          stopCamera();
+        }
 
         prevBtn.disabled = currentPage === 0;
         nextBtn.disabled = currentPage === totalPages - 1;
@@ -944,86 +1084,52 @@
 
       nextBtn.addEventListener('click', nextPage);
       prevBtn.addEventListener('click', prevPage);
+      document.getElementById('openBookSeal').addEventListener('click', nextPage);
 
-      document.getElementById('openBookSeal').addEventListener('click', function() {
-        nextPage();
-      });
-
-      /* Touch Swipe Gesture untuk HP */
       var startX = 0;
       var bookElem = document.getElementById('book');
-      bookElem.addEventListener('touchstart', function(e) {
-        startX = e.touches[0].clientX;
-      }, { passive: true });
-
+      bookElem.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
       bookElem.addEventListener('touchend', function(e) {
-        var endX = e.changedTouches[0].clientX;
-        var diffX = startX - endX;
+        var diffX = startX - e.changedTouches[0].clientX;
         if (diffX > 50) { nextPage(); }
         else if (diffX < -50) { prevPage(); }
       }, { passive: true });
 
-      /* ---------- 3. Logic Audio Background ---------- */
       function playAudioOnFirstNav() {
-        if (!isPlaying) {
-          bgm.play().then(function() {
-            isPlaying = true;
-            musicBtn.textContent = '♫';
-          }).catch(function() {});
+        if (!isPlaying && (!videoElem || videoElem.paused)) {
+          bgm.play().then(function() { isPlaying = true; musicBtn.textContent = '♫'; }).catch(function() {});
         }
       }
 
       musicBtn.addEventListener('click', function() {
-        if (isPlaying) {
-          bgm.pause();
-          isPlaying = false;
-          musicBtn.textContent = '✕';
-        } else {
-          bgm.play();
-          isPlaying = true;
-          musicBtn.textContent = '♫';
-        }
+        if (isPlaying) { bgm.pause(); isPlaying = false; musicBtn.textContent = '✕'; }
+        else { if (videoElem) videoElem.pause(); bgm.play(); isPlaying = true; musicBtn.textContent = '♫'; }
       });
 
-      /* ---------- 4. Countdown Timer ---------- */
       var targetDate = new Date('2026-10-25T19:00:00+07:00').getTime();
       function updateCountdown() {
-        var now = new Date().getTime();
-        var diff = Math.max(0, targetDate - now);
-
-        var days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-        document.getElementById('cdDays').textContent = String(days).padStart(2, '0');
-        document.getElementById('cdHours').textContent = String(hours).padStart(2, '0');
-        document.getElementById('cdMinutes').textContent = String(minutes).padStart(2, '0');
-        document.getElementById('cdSeconds').textContent = String(seconds).padStart(2, '0');
+        var diff = Math.max(0, targetDate - new Date().getTime());
+        document.getElementById('cdDays').textContent = String(Math.floor(diff / (864e5))).padStart(2, '0');
+        document.getElementById('cdHours').textContent = String(Math.floor((diff % 864e5) / 36e5)).padStart(2, '0');
+        document.getElementById('cdMinutes').textContent = String(Math.floor((diff % 36e5) / 6e4)).padStart(2, '0');
+        document.getElementById('cdSeconds').textContent = String(Math.floor((diff % 6e4) / 1e3)).padStart(2, '0');
       }
       setInterval(updateCountdown, 1000);
       updateCountdown();
 
-      /* ---------- 5. Logic Kunci Surat (Hanya Buka Tanggal 25 Okt 2026) ---------- */
       function checkLetterLock() {
         var now = new Date();
-        // Tanggal rilis: 25 Oktober 2026
         var unlockDate = new Date('2026-10-25T00:00:00+07:00');
-
-        var lockedElem = document.getElementById('letterLocked');
-        var unlockedElem = document.getElementById('letterUnlocked');
-
         if (now >= unlockDate) {
-          lockedElem.style.display = 'none';
-          unlockedElem.style.display = 'block';
+          document.getElementById('letterLocked').style.display = 'none';
+          document.getElementById('letterUnlocked').style.display = 'block';
         } else {
-          lockedElem.style.display = 'flex';
-          unlockedElem.style.display = 'none';
+          document.getElementById('letterLocked').style.display = 'flex';
+          document.getElementById('letterUnlocked').style.display = 'none';
         }
       }
       checkLetterLock();
 
-      /* ---------- 6. Lightbox Image Viewer ---------- */
       var lightbox = document.getElementById('lightbox');
       var lbImg = document.getElementById('lbImg');
       var lbCap = document.getElementById('lbCap');
@@ -1041,30 +1147,7 @@
         });
       });
 
-      lightbox.addEventListener('click', function() {
-        lightbox.classList.remove('active');
-      });
-
-      /* ---------- 7. RSVP Confetti Effect ---------- */
-      document.getElementById('rsvpBtn').addEventListener('click', function() {
-        this.style.display = 'none';
-        document.getElementById('rsvpDone').style.display = 'block';
-
-        for (var i = 0; i < 40; i++) {
-          var confetti = document.createElement('span');
-          confetti.className = 'confetti';
-          confetti.textContent = i % 2 === 0 ? '♥' : '♡';
-          confetti.style.left = Math.random() * 100 + '%';
-          confetti.style.fontSize = (14 + Math.random() * 20) + 'px';
-          confetti.style.color = i % 3 === 0 ? '#c0586c' : '#fdf0a6';
-          confetti.style.animationDuration = (2.5 + Math.random() * 2) + 's';
-          confetti.style.animationDelay = (Math.random() * 0.5) + 's';
-          document.body.appendChild(confetti);
-
-          setTimeout(function(el) { el.remove(); }, 5000, confetti);
-        }
-      });
-
+      lightbox.addEventListener('click', function() { lightbox.classList.remove('active'); });
     })();
   </script>
 </body>
