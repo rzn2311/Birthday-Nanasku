@@ -1,1518 +1,1071 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#593b2c">
-<title>Birthday Celebration ♡</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<style>
-:root {
-    --cream: #f8f1e8;
-    --cream-dark: #eee0cf;
-    --brown: #593b2c;
-    --brown-dark: #352219;
-    --brown-light: #a78366;
-    --white: #fffaf4;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 15px;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background: var(--cream);
-    color: var(--brown-dark);
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-}
-
-img {
-    max-width: 100%;
-}
-
-button, a {
-    -webkit-tap-highlight-color: transparent;
-}
-
-.serif {
-    font-family: 'Cormorant Garamond', serif;
-}
-
-/* SAMPUL PEMBUKA */
-.opening {
-    position: fixed;
-    inset: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 24px;
-    background: var(--cream);
-    transition: opacity .7s ease, visibility .7s ease;
-}
-
-.opening.closed {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-.opening-card {
-    width: min(100%, 430px);
-    max-height: 90dvh;
-    overflow-y: auto;
-    padding: 30px 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background: var(--white);
-    border: 1px solid #cdb69e;
-    outline: 1px solid #cdb69e;
-    outline-offset: 5px;
-}
-
-.opening-top {
-    font-size: 10px;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: var(--brown-light);
-    margin-bottom: 20px;
-}
-
-.opening-photo {
-    display: block;
-    width: min(65%, 210px);
-    height: 245px;
-    object-fit: contain;
-    object-position: center;
-    background: var(--cream-dark);
-    border: 5px solid white;
-    margin-bottom: 20px;
-    box-shadow: 0 8px 24px #593b2c20;
-}
-
-.opening h1 {
-    font-size: clamp(43px, 10vw, 60px);
-    font-weight: 500;
-    line-height: .9;
-    margin-bottom: 17px;
-}
-
-.opening-subtitle {
-    font-size: 11px;
-    line-height: 1.9;
-    color: #866b56;
-    margin-bottom: 22px;
-}
-
-.open-button {
-    padding: 13px 22px;
-    border: 1px solid var(--brown);
-    background: var(--brown);
-    color: white;
-    font-family: inherit;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    cursor: pointer;
-    transition: .2s;
-}
-
-.open-button:hover {
-    background: var(--brown-dark);
-}
-
-.open-button:active {
-    transform: scale(.97);
-}
-
-/* BAGIAN WEBSITE */
-#presentation {
-    width: 100%;
-    min-height: 100vh;
-    min-height: 100dvh;
-}
-
-.section {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 100vh;
-    min-height: 100dvh;
-    padding: 65px 24px;
-    overflow: hidden;
-}
-
-.section-inner {
-    width: min(100%, 1000px);
-    margin: 0 auto;
-}
-
-.section-label {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--brown-light);
-    text-align: center;
-    margin-bottom: 14px;
-}
-
-.section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(42px, 7vw, 67px);
-    font-weight: 500;
-    text-align: center;
-    line-height: .98;
-    margin-bottom: 20px;
-}
-
-.section-text {
-    font-size: 12px;
-    line-height: 2;
-    color: #806853;
-    text-align: center;
-    max-width: 650px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.divider {
-    width: 65px;
-    height: 1px;
-    background: #bda38a;
-    margin: 25px auto;
-}
-
-/* 1. HERO */
-.hero-section {
-    color: var(--white);
-    text-align: center;
-    background:
-        radial-gradient(ellipse at 15% 10%, #8c6850 0%, transparent 42%),
-        radial-gradient(ellipse at 85% 90%, #684633 0%, transparent 45%),
-        linear-gradient(135deg, #4b3023, #76543e 50%, #3d281e);
-}
-
-.hero-section::before {
-    content: "";
-    position: absolute;
-    inset: 12px;
-    border: 1px solid #ffffff75;
-    pointer-events: none;
-}
-
-.hero-section .section-inner {
-    position: relative;
-    z-index: 1;
-}
-
-.hero-eyebrow {
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 10px;
-    margin-bottom: 28px;
-}
-
-.hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(58px, 11vw, 105px);
-    font-weight: 500;
-    line-height: .84;
-    margin-bottom: 28px;
-}
-
-.hero-description {
-    font-size: 12px;
-    line-height: 2;
-    margin-bottom: 30px;
-    color: #fff5e9;
-}
-
-.hero-date {
-    display: inline-block;
-    padding: 14px 20px;
-    border-top: 1px solid #ffffff90;
-    border-bottom: 1px solid #ffffff90;
-    font-size: 10px;
-    letter-spacing: 2px;
-}
-
-.hero-decoration {
-    margin-top: 42px;
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: #e5cbb0;
-}
-
-/* 2. INTRO */
-.intro-section {
-    background: var(--cream);
-    text-align: center;
-}
-
-.intro-heart {
-    color: #9c7157;
-    font-size: 30px;
-    margin-bottom: 18px;
-}
-
-.intro-quote {
-    max-width: 720px;
-    margin: 0 auto;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(33px, 6vw, 55px);
-    line-height: 1.2;
-    color: var(--brown);
-}
-
-/* 3. COUNTDOWN */
-.countdown-section {
-    background: var(--cream-dark);
-}
-
-.countdown {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
-    max-width: 650px;
-    width: 100%;
-    margin: 35px auto 0;
-}
-
-.countdown-item {
-    text-align: center;
-    padding: 24px 6px;
-    background: #fffaf477;
-    border: 1px solid #d5c0a8;
-}
-
-.countdown-number {
-    display: block;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(32px, 6vw, 55px);
-    line-height: 1;
-    color: var(--brown);
-}
-
-.countdown-label {
-    display: block;
-    font-size: 9px;
-    letter-spacing: 1px;
-    margin-top: 10px;
-    color: #8a6b52;
-    text-transform: uppercase;
-}
-
-.countdown-message {
-    margin-top: 25px;
-    text-align: center;
-    font-size: 12px;
-    line-height: 1.8;
-    color: #806853;
-}
-
-/* 4. DETAIL ACARA */
-.details-section {
-    background: var(--white);
-}
-
-.details-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-    margin-top: 35px;
-}
-
-.detail-card {
-    padding: 28px 17px;
-    border: 1px solid #e3d3c1;
-    text-align: center;
-    background: #fffdf9;
-}
-
-.detail-icon {
-    font-size: 24px;
-    margin-bottom: 12px;
-}
-
-.detail-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 29px;
-    font-weight: 600;
-    margin-bottom: 11px;
-}
-
-.detail-card p {
-    font-size: 11px;
-    line-height: 1.9;
-    color: #806853;
-}
-
-.map-button {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 11px 13px;
-    text-decoration: none;
-    font-size: 9px;
-    letter-spacing: .5px;
-    color: white;
-    background: var(--brown);
-    transition: background .2s;
-}
-
-.map-button:hover {
-    background: var(--brown-dark);
-}
-
-/* 5. GALERI */
-.gallery-section {
-    background: var(--cream);
-}
-
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-items: start;
-    gap: 18px;
-    margin-top: 32px;
-}
-
-.gallery-item {
-    min-width: 0;
-    background: var(--white);
-    border: 1px solid #e2d0bc;
-    padding: 7px;
-    box-shadow: 0 5px 16px #3522190a;
-}
-
-.gallery-item img {
-    display: block;
-    width: 100%;
-    height: 300px;
-    object-fit: contain;
-    object-position: center;
-    background: #e8d8c5;
-}
-
-.gallery-caption {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    text-align: center;
-    color: var(--brown);
-    padding: 10px 2px 5px;
-}
-
-/* 6. LITTLE MOMENTS */
-.memory-section {
-    background: var(--cream-dark);
-}
-
-.memory-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    align-items: center;
-    gap: clamp(22px, 5vw, 55px);
-    width: 100%;
-}
-
-.memory-layout + .memory-layout {
-    margin-top: 65px;
-}
-
-.memory-frame {
-    min-width: 0;
-    padding: 7px;
-    background: var(--white);
-    box-shadow: 0 8px 25px #35221912;
-}
-
-.memory-photo {
-    display: block;
-    width: 100%;
-    height: 370px;
-    object-fit: contain;
-    object-position: center;
-    background: #e8d8c5;
-}
-
-.memory-copy {
-    min-width: 0;
-}
-
-.memory-copy h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(33px, 4vw, 49px);
-    line-height: 1.05;
-    font-weight: 500;
-    margin-bottom: 18px;
-    color: var(--brown-dark);
-}
-
-.memory-copy p {
-    font-size: 12px;
-    line-height: 2;
-    color: #806853;
-}
-
-.memory-copy p + p {
-    margin-top: 16px;
-}
-
-/* 7. KARTU UCAPAN */
-.letter-section {
-    background: var(--cream);
-}
-
-.letter-container {
-    width: min(100%, 700px);
-    margin: 0 auto;
-}
-
-/* Sampul surat sebelum diklik */
-.letter-cover {
-    position: relative;
-    overflow: hidden;
-    padding: 48px 25px;
-    text-align: center;
-    background: var(--white);
-    border: 1px solid #d8c3ad;
-    outline: 1px solid #d8c3ad;
-    outline-offset: 5px;
-    transition: background .3s, transform .3s;
-}
-
-.letter-cover:hover {
-    background: #fffdf9;
-    transform: translateY(-3px);
-}
-
-.cover-heart {
-    font-size: 45px;
-    color: var(--brown-light);
-    margin-bottom: 18px;
-    animation: heartbeat 2s infinite;
-}
-
-@keyframes heartbeat {
-    0%, 100% { transform: scale(1); }
-    10%, 30% { transform: scale(1.08); }
-    20%, 40% { transform: scale(1); }
-}
-
-.letter-cover h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(42px, 8vw, 64px);
-    line-height: 1;
-    font-weight: 500;
-    color: var(--brown);
-    margin-bottom: 18px;
-}
-
-.letter-cover p {
-    font-size: 12px;
-    line-height: 2;
-    color: #806853;
-}
-
-.letter-open-button {
-    margin-top: 25px;
-    padding: 13px 24px;
-    border: 1px solid var(--brown);
-    background: var(--brown);
-    color: white;
-    font-family: inherit;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    cursor: pointer;
-    transition: .25s;
-}
-
-.letter-open-button:hover {
-    background: var(--brown-dark);
-    transform: translateY(-2px);
-}
-
-.letter-hint {
-    margin-top: 16px;
-    font-size: 9px !important;
-    letter-spacing: 1px;
-    color: var(--brown-light) !important;
-}
-
-/* Isi surat disembunyikan sebelum tombol diklik */
-.letter-paper {
-    display: none;
-    padding: clamp(26px, 5vw, 58px);
-    background: var(--white);
-    border: 1px solid #d8c3ad;
-    outline: 1px solid #d8c3ad;
-    outline-offset: 5px;
-    transform-origin: top center;
-}
-
-.letter-paper.show {
-    display: block;
-    animation: letterReveal .85s ease both;
-}
-
-@keyframes letterReveal {
-    0% {
-        opacity: 0;
-        transform: translateY(25px) scale(.97);
-    }
-    60% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-.letter-heart {
-    font-size: 30px;
-    color: var(--brown-light);
-    text-align: center;
-    margin: 12px 0;
-}
-
-.letter-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(43px, 8vw, 68px);
-    font-weight: 500;
-    line-height: .95;
-    color: var(--brown);
-    text-align: center;
-}
-
-.letter-content {
-    color: #705744;
-    font-size: 12px;
-    line-height: 2.1;
-    overflow-wrap: anywhere;
-}
-
-.letter-content p {
-    margin-bottom: 19px;
-}
-
-.letter-ending {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(25px, 5vw, 36px);
-    line-height: 1.3;
-    color: var(--brown);
-    text-align: center;
-    margin-top: 27px;
-}
-
-.letter-signature {
-    margin-top: 30px;
-    text-align: center;
-    color: #8a6b52;
-}
-
-.letter-signature span {
-    font-size: 11px;
-    font-style: italic;
-}
-
-.letter-signature h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 31px;
-    font-weight: 500;
-    margin-top: 7px;
-    color: var(--brown);
-}
-
-.letter-bottom {
-    margin-top: 27px;
-    text-align: center;
-    color: var(--brown-light);
-    letter-spacing: 5px;
-}
-
-.letter-close-button {
-    display: block;
-    margin: 28px auto 0;
-    padding: 11px 18px;
-    background: transparent;
-    border: 1px solid #cdb69e;
-    color: var(--brown);
-    font-family: inherit;
-    font-size: 10px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: .2s;
-}
-
-.letter-close-button:hover {
-    background: var(--cream-dark);
-}
-
-/* 8. PENUTUP */
-.closing-section {
-    min-height: 75vh;
-    min-height: 75dvh;
-    color: var(--white);
-    text-align: center;
-    background:
-        radial-gradient(ellipse at 20% 10%, #8c6850 0%, transparent 45%),
-        linear-gradient(135deg, #4b3023, #76543e 55%, #3d281e);
-}
-
-.closing-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(55px, 10vw, 85px);
-    line-height: .93;
-    font-weight: 500;
-    margin-bottom: 25px;
-}
-
-.closing-section p {
-    font-size: 12px;
-    line-height: 2;
-    color: #f2dfcc;
-}
-
-/* TOMBOL MUSIK */
-.music-button {
-    position: fixed;
-    z-index: 200;
-    right: 18px;
-    bottom: 18px;
-    width: 47px;
-    height: 47px;
-    border: 1px solid #bda38a;
-    border-radius: 50%;
-    background: var(--brown);
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 5px 15px #35221925;
-}
-
-.music-button.visible {
-    display: flex;
-}
-
-.music-button:active {
-    transform: scale(.95);
-}
-
-/* RESPONSIVE */
-@media (max-width: 800px) {
-    .section {
-        padding: 55px 22px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#21130d">
+  <title>Scrapbook untuk Naswa ♡</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       1. VARIABEL & RESET
+       ========================================================= */
+    :root {
+      --bg-dark: #1b100a;
+      --wood: #2a1a12;
+      --paper: #fbf4e8;
+      --paper-dark: #f2e3ce;
+      --kraft: #c49a74;
+      --kraft-dark: #926945;
+      --ink: #3b2319;
+      --muted: #7a5c4f;
+      --rose: #c0586c;
+      --rose-dark: #8f2f3f;
+      --gold: #d4af37;
     }
 
-    .gallery {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 15px;
-        max-width: 650px;
-        margin-left: auto;
-        margin-right: auto;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
     }
 
-    .gallery-item img {
-        height: auto;
-        max-height: 380px;
-        object-fit: contain;
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Nunito', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--ink);
     }
 
-    .memory-photo {
-        height: 310px;
-    }
-}
-
-@media (max-width: 520px) {
-    .section {
-        padding: 48px 17px;
-    }
-
-    .section-title {
-        font-size: clamp(40px, 11vw, 54px);
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-image: 
+        radial-gradient(circle at 50% 30%, #3a2216 0%, #150b07 100%),
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px);
     }
 
-    .opening {
-        padding: 20px;
+    .serif { font-family: 'Fraunces', serif; }
+    .hand { font-family: 'Caveat', cursive; }
+
+    /* Background Rain */
+    .rain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
     }
 
-    .opening-card {
-        padding: 25px 18px;
+    .rain span {
+      position: absolute;
+      top: -30px;
+      color: var(--rose);
+      opacity: 0;
+      animation: fall linear infinite;
     }
 
-    .opening-photo {
-        width: min(65%, 185px);
-        height: 220px;
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+      20% { opacity: 0.4; }
+      100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
     }
 
-    .opening h1 {
-        font-size: clamp(43px, 12vw, 55px);
+    /* =========================================================
+       2. WIDGET MUSIK & AUDIO
+       ========================================================= */
+    .music-btn {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 100;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(30, 16, 10, 0.85);
+      color: var(--kraft);
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      transition: transform 0.2s;
+    }
+    .music-btn:active { transform: scale(0.92); }
+
+    /* =========================================================
+       3. BUKU SCRAPBOOK (3D FLIP CONTAINER)
+       ========================================================= */
+    .app-container {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
     }
 
-    .hero-title {
-        font-size: clamp(54px, 14vw, 76px);
+    .book-wrapper {
+      position: relative;
+      width: min(92vw, 420px);
+      height: min(78vh, 620px);
+      perspective: 1600px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+      border-radius: 12px;
     }
 
-    .hero-eyebrow {
-        font-size: 9px;
-        letter-spacing: 2px;
+    .book {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
     }
 
-    .hero-date {
-        font-size: 9px;
-        padding: 12px;
-        letter-spacing: 1.2px;
+    /* Halaman Tunggal */
+    .page {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--paper);
+      border-radius: 8px;
+      box-shadow: inset 0 0 30px rgba(146, 105, 69, 0.15), 0 4px 15px rgba(0,0,0,0.3);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backface-visibility: hidden;
+      transform-origin: left center;
+      transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+      overflow: hidden;
+      border: 1px solid rgba(196, 154, 116, 0.3);
+      background-image: 
+        repeating-linear-gradient(transparent, transparent 27px, rgba(169, 124, 87, 0.08) 27px, rgba(169, 124, 87, 0.08) 28px);
     }
 
-    .hero-decoration {
-        margin-top: 30px;
+    .page.flipped {
+      transform: rotateY(-180deg);
+      pointer-events: none;
     }
 
-    .intro-quote {
-        font-size: clamp(32px, 9vw, 43px);
+    /* Efek Tekstur Kertas Craft / Vintage */
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, transparent 60%, rgba(130, 85, 45, 0.12) 100%);
+      pointer-events: none;
+      z-index: 2;
     }
 
-    .countdown {
-        gap: 7px;
-        margin-top: 28px;
+    /* Ring binder pinggir buku */
+    .page::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 12px;
+      background: linear-gradient(90deg, rgba(0,0,0,0.25), transparent);
+      z-index: 3;
     }
 
-    .countdown-item {
-        padding: 19px 3px;
+    .page-content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .countdown-number {
-        font-size: clamp(27px, 8vw, 40px);
+    .page-number {
+      position: absolute;
+      bottom: 8px;
+      right: 14px;
+      font-family: 'Caveat', cursive;
+      font-size: 16px;
+      color: var(--muted);
+      z-index: 4;
     }
 
-    .countdown-label {
-        font-size: 8px;
-        letter-spacing: .3px;
+    /* =========================================================
+       4. ELEMEN DEKORATIF SCRAPBOOK
+       ========================================================= */
+    /* Selotip */
+    .tape {
+      position: absolute;
+      width: 80px;
+      height: 22px;
+      background: rgba(228, 196, 150, 0.75);
+      backdrop-filter: blur(1px);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      z-index: 5;
+      clip-path: polygon(0 5%, 5% 0, 10% 8%, 15% 0, 95% 0, 100% 10%, 95% 100%, 10% 100%, 5% 90%, 0 100%);
+    }
+    .tape.top-center { top: -10px; left: 50%; transform: translateX(-50%) rotate(-2deg); }
+    .tape.top-left { top: -8px; left: -10px; transform: rotate(-25deg); }
+    .tape.top-right { top: -8px; right: -10px; transform: rotate(25deg); }
+    .tape.rose { background: rgba(214, 130, 148, 0.75); }
+
+    /* Frame Foto Heart */
+    .heart-frame {
+      position: relative;
+      width: 170px;
+      height: 170px;
+      margin: 10px auto;
+      clip-path: url(#heartClip);
+      background: var(--kraft-dark);
+      padding: 4px;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.3));
+    }
+    .heart-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      clip-path: url(#heartClip);
     }
 
-    .details-grid {
-        gap: 10px;
-        margin-top: 27px;
+    /* Frame Polaroid Standard */
+    .polaroid {
+      background: #fffdf8;
+      padding: 8px 8px 18px 8px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+      transform: rotate(var(--r, 0deg));
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+    .polaroid img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      background: #eee;
+    }
+    .polaroid figcaption {
+      font-family: 'Caveat', cursive;
+      font-size: 18px;
+      text-align: center;
+      margin-top: 6px;
+      color: var(--ink);
     }
 
-    .detail-card {
-        padding: 21px 9px;
+    /* Envelope Cover (Halaman 1) */
+    .cover-card {
+      background: var(--kraft-dark);
+      color: var(--paper);
+      border-radius: 8px;
+      padding: 24px 16px;
+      text-align: center;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 2px dashed rgba(251, 244, 232, 0.3);
+      position: relative;
     }
 
-    .detail-card h3 {
-        font-size: 25px;
+    .wax-seal {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #c9505f, var(--rose-dark) 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 32px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4), inset 0 0 0 4px rgba(255,255,255,0.15);
+      margin: 20px 0;
+      cursor: pointer;
+      animation: pulseSeal 2s infinite;
     }
 
-    .detail-card p {
-        font-size: 10px;
-        overflow-wrap: anywhere;
+    @keyframes pulseSeal {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
     }
 
-    .map-button {
-        font-size: 8px;
-        padding: 10px 7px;
+    /* Countdown Widget */
+    .cd-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin: 15px 0;
+    }
+    .cd-box {
+      background: #fff9ee;
+      border: 1px solid #e5d2bb;
+      padding: 10px 2px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .cd-box b { display: block; font-family: 'Fraunces', serif; font-size: 20px; color: var(--ink); }
+    .cd-box span { font-size: 10px; font-weight: 700; color: var(--rose); text-transform: uppercase; }
+
+    /* =========================================================
+       5. DESIGN TIKET EXCLUSIVE PASS (HALAMAN 4 BARU)
+       ========================================================= */
+    .pass-header {
+      position: relative;
+      text-align: center;
+      padding: 10px 0 15px;
+      margin-bottom: 10px;
     }
 
-    .gallery {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-        margin-top: 25px;
+    .pass-stamp {
+      position: absolute;
+      top: -5px;
+      right: 10px;
+      border: 2px dashed var(--rose);
+      color: var(--rose);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-family: 'Fraunces', serif;
+      font-size: 11px;
+      font-weight: 700;
+      transform: rotate(12deg);
+      opacity: 0.85;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    .gallery-item {
-        padding: 5px;
+    .ticket-stub {
+      background: #fffcf5;
+      border: 1.5px dashed var(--kraft-dark);
+      border-radius: 12px;
+      padding: 18px 16px;
+      position: relative;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      margin-top: 5px;
     }
 
-    .gallery-item img {
-        width: 100%;
-        height: auto;
-        max-height: 350px;
-        object-fit: contain;
-        background: #e8d8c5;
+    .ticket-stub::before, .ticket-stub::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 20px;
+      height: 20px;
+      background: var(--paper);
+      border-radius: 50%;
+      transform: translateY(-50%);
+      box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+    }
+    .ticket-stub::before { left: -11px; border-right: 1px dashed var(--kraft-dark); }
+    .ticket-stub::after { right: -11px; border-left: 1px dashed var(--kraft-dark); }
+
+    .ticket-barcode {
+      width: 100%;
+      height: 26px;
+      margin-top: 12px;
+      background: repeating-linear-gradient(90deg, var(--ink) 0 2px, transparent 2px 5px, var(--ink) 5px 8px, transparent 8px 10px, var(--ink) 10px 14px, transparent 14px 16px);
+      opacity: 0.7;
+      border-radius: 2px;
     }
 
-    .gallery-caption {
-        font-size: 15px;
-        padding: 8px 1px 4px;
+    /* =========================================================
+       6. HANGING POLAROID WITH LOVE CUTOUT (PAGE 6)
+       ========================================================= */
+    .hanging-container {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      margin-top: 8px;
     }
 
-    .memory-layout {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 22px;
-        max-width: 440px;
-        margin-left: auto;
-        margin-right: auto;
+    .hanging-string {
+      position: absolute;
+      width: 108%;
+      height: 24px;
+      left: -4%;
+      border-bottom: 2px solid #8b5a2b;
+      border-radius: 0 0 50% 50% / 0 0 20px 20px;
+      z-index: 2;
     }
 
-    .memory-layout + .memory-layout {
-        margin-top: 45px;
+    .hanging-string.string-bottom { top: 195px; }
+    .hanging-string.string-top { top: 15px; }
+
+    .hanging-item {
+      position: absolute;
+      width: 105px;
+      background: #fffdf8;
+      padding: 6px 6px 12px 6px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+      z-index: 3;
+      transform-origin: top center;
+      transition: transform 0.3s ease;
+      cursor: pointer;
     }
 
-    .memory-photo {
-        width: 100%;
-        height: auto;
-        max-height: 520px;
-        object-fit: contain;
+    .hanging-item::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 18px;
+      background: #c8965a;
+      border-radius: 2px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      border: 1px solid #7a4f22;
+      z-index: 5;
     }
 
-    .memory-copy {
-        text-align: center;
-        padding: 0 4px;
+    .hanging-item:hover {
+      transform: scale(1.08) rotate(0deg) !important;
+      z-index: 10;
     }
 
-    .memory-copy h3 {
-        font-size: 39px;
+    .polaroid-love-box {
+      width: 100%;
+      height: 85px;
+      background: #f2e3ce;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .memory-copy p {
-        font-size: 11px;
+    .polaroid-love-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      clip-path: url(#heartClip);
     }
 
-    .letter-cover {
-        padding: 38px 19px;
+    .hanging-item figcaption {
+      font-family: 'Caveat', cursive;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 4px;
+      color: var(--ink);
     }
 
-    .letter-cover h2 {
-        font-size: clamp(42px, 12vw, 56px);
+    .hang-1 { top: 28px; left: 10px; transform: rotate(-5deg); }
+    .hang-2 { top: 38px; right: 10px; transform: rotate(6deg); }
+    .hang-3 { top: 208px; left: 50%; transform: translateX(-50%) rotate(-3deg); }
+
+    /* Sticky Notes */
+    .sticky-note {
+      padding: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      font-size: 13px;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .sticky-note.yellow { background: #fdf0a6; transform: rotate(-1.5deg); }
+    .sticky-note.pink { background: #f8c8d4; transform: rotate(1.5deg); }
+    .sticky-note.green { background: #d2ece0; transform: rotate(-1deg); }
+
+    /* Lock Screen Surat (Tanggal 25) */
+    .letter-lock-container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px;
     }
 
-    .letter-paper {
-        padding: 29px 21px;
+    .lock-icon {
+      font-size: 48px;
+      color: var(--rose-dark);
+      margin-bottom: 12px;
     }
 
-    .letter-content {
-        font-size: 11px;
-        line-height: 2.05;
+    .letter-body {
+      text-align: left;
+      font-size: 12.5px;
+      line-height: 1.65;
+      color: var(--ink);
+      overflow-y: auto;
+      max-height: 420px;
+      padding-right: 4px;
+    }
+    .letter-body p { margin-bottom: 10px; }
+
+    /* Tombol Navigasi Bawah */
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: min(92vw, 420px);
+      margin-top: 15px;
+      z-index: 20;
     }
 
-    .letter-title {
-        font-size: clamp(43px, 12vw, 58px);
+    .btn-nav {
+      background: var(--kraft-dark);
+      color: var(--paper);
+      border: 0;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-nav:disabled { opacity: 0.4; cursor: not-allowed; }
+    .btn-nav:active:not(:disabled) { transform: scale(0.95); }
+
+    /* Modal Lightbox Foto */
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(10, 5, 3, 0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(4px);
+    }
+    #lightbox.active { display: flex; }
+    #lightbox figure {
+      background: #fffdf8;
+      padding: 10px 10px 16px;
+      max-width: min(90vw, 400px);
+      width: 100%;
+      border-radius: 4px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+    }
+    #lightbox img {
+      width: 100%;
+      max-height: 65vh;
+      object-fit: contain;
+      display: block;
+    }
+    #lightbox figcaption {
+      font-family: 'Caveat', cursive;
+      font-size: 24px;
+      text-align: center;
+      margin-top: 8px;
+      color: var(--ink);
     }
 
-    .closing-section {
-        min-height: 70vh;
-        min-height: 70dvh;
+    /* Confetti Particle */
+    .confetti {
+      position: fixed;
+      bottom: -20px;
+      z-index: 300;
+      pointer-events: none;
+      animation: riseConfetti linear forwards;
     }
-
-    .music-button {
-        right: 13px;
-        bottom: 13px;
-        width: 43px;
-        height: 43px;
+    @keyframes riseConfetti {
+      to { transform: translateY(-110vh) rotate(720deg); opacity: 0; }
     }
-}
-
-@media (max-width: 360px) {
-    .section {
-        padding-left: 13px;
-        padding-right: 13px;
-    }
-
-    .gallery {
-        gap: 8px;
-    }
-
-    .gallery-caption {
-        font-size: 13px;
-    }
-
-    .countdown {
-        gap: 5px;
-    }
-
-    .countdown-label {
-        font-size: 7px;
-    }
-
-    .letter-paper {
-        padding: 24px 16px;
-    }
-}
-
-@media (max-height: 650px) and (min-width: 521px) {
-    .section {
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
-
-    .opening-card {
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-
-    .opening-photo {
-        height: 170px;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    *, *::before, *::after {
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
-    }
-}
-</style>
+  </style>
 </head>
-
 <body>
 
-<!-- FILE MUSIK -->
-<audio id="backgroundMusic" src="musik.wav" loop preload="auto"></audio>
+  <!-- Definition SVG ClipPath Heart -->
+  <svg width="0" height="0" style="position:absolute;" aria-hidden="true">
+    <clipPath id="heartClip" clipPathUnits="objectBoundingBox">
+      <path d="M0.5,1 C0.5,1 0,0.64 0,0.31 C0,0.13 0.13,0 0.28,0 C0.38,0 0.46,0.05 0.5,0.15 C0.54,0.05 0.62,0 0.72,0 C0.87,0 1,0.13 1,0.31 C1,0.64 0.5,1 0.5,1 Z"/>
+    </clipPath>
+  </svg>
 
-<!-- SAMPUL PEMBUKA -->
-<div class="opening" id="opening">
-    <div class="opening-card">
-        <p class="opening-top">A little invitation for you</p>
+  <!-- Latar Belakang Hujan Hati -->
+  <div class="rain" id="rain"></div>
 
-        <img src="images/foto-12.jpg"
-             alt="Foto spesial"
-             class="opening-photo">
+  <!-- Audio Background & Controller -->
+  <audio id="bgm" src="musik.wav" loop preload="auto"></audio>
+  <button class="music-btn" id="musicBtn" aria-label="Toggle Music">♫</button>
 
-        <h1 class="serif">You're<br>Invited ♡</h1>
+  <!-- MAIN APP CONTAINER -->
+  <div class="app-container">
+    <div class="book-wrapper">
+      <div class="book" id="book">
 
-        <p class="opening-subtitle">
-            Untuk seseorang yang selalu istimewa buat aku ♡<br>
-            Ada hari spesial yang ingin aku rayakan bersamamu.
-        </p>
+        <!-- ================= PAGE 1: COVER AMPLOP ================= -->
+        <div class="page" style="z-index: 10;">
+          <div class="page-content">
+            <div class="cover-card">
+              <span class="hand" style="font-size: 32px; color: var(--kraft-light);">Special Invitation</span>
+              <h2 class="serif" style="font-size: 26px; margin: 12px 0; color: #fff;">Untuk Naswa ♡</h2>
+              <p style="font-size: 13px; color: var(--paper-dark); opacity: 0.9;">Pacarku Cantikku Manisku...</p>
+              
+              <div class="wax-seal" id="openBookSeal">♡</div>
+              
+              <p class="hand" style="font-size: 20px; color: var(--kraft-light);">Ketuk segel untuk membuka scrapbook</p>
+            </div>
+          </div>
+          <span class="page-number">1 / 10</span>
+        </div>
 
-        <button class="open-button" id="openInvitation">
-            BUKA UNDANGAN ♡
-        </button>
+        <!-- ================= PAGE 2: DEAR NASWA ================= -->
+        <div class="page" style="z-index: 9;">
+          <div class="page-content">
+            <span class="tape top-center"></span>
+            <div class="hand" style="font-size: 36px; color: var(--rose); text-align: center;">Dear Naswaku Sayangku,</div>
+            
+            <div class="heart-frame">
+              <img src="images/foto-12.jpg" alt="Naswa Main Photo">
+            </div>
+
+            <h2 class="serif" style="font-size: 20px; text-align: center; margin-top: 6px;">You're Invited!</h2>
+            <p style="font-size: 13px; text-align: center; color: var(--muted); line-height: 1.6;">
+              Dengan bahagia dan penuh syukur, pacarmu ingin mengajakmu merayakan hari ulang tahunmu yang sangat spesial ini.
+            </p>
+
+            <div style="text-align: center; margin-top: 8px;">
+              <p class="serif" style="font-style: italic; font-size: 13px; color: var(--ink);">
+                “Untuk kamu yang selalu menghangatkan hari-hariku.”
+              </p>
+            </div>
+          </div>
+          <span class="page-number">2 / 10</span>
+        </div>
+
+        <!-- ================= PAGE 3: COUNTDOWN TIMER ================= -->
+        <div class="page" style="z-index: 8;">
+          <div class="page-content">
+            <span class="tape top-right rose"></span>
+            <h2 class="serif" style="font-size: 22px; text-align: center; margin-bottom: 8px;">Menghitung Hari</h2>
+            <p style="font-size: 13px; text-align: center; color: var(--muted);">Menuju malam selebrasi ulang tahunmu:</p>
+
+            <div class="cd-grid">
+              <div class="cd-box"><b id="cdDays">00</b><span>Hari</span></div>
+              <div class="cd-box"><b id="cdHours">00</b><span>Jam</span></div>
+              <div class="cd-box"><b id="cdMinutes">00</b><span>Menit</span></div>
+              <div class="cd-box"><b id="cdSeconds">00</b><span>Detik</span></div>
+            </div>
+
+            <div style="background: rgba(196, 154, 116, 0.15); padding: 12px; border-radius: 8px; text-align: center; margin-top: 10px;">
+              <span class="hand" style="font-size: 22px; color: var(--rose-dark);">Save The Date!</span>
+              <p style="font-size: 13px; font-weight: 700; color: var(--ink); margin-top: 2px;">Minggu, 25 Oktober 2026</p>
+            </div>
+          </div>
+          <span class="page-number">3 / 10</span>
+        </div>
+
+        <!-- ================= PAGE 4: BOARDING PASS / TICKET (DIPERBARUI) ================= -->
+        <div class="page" style="z-index: 7;">
+          <div class="page-content">
+            <span class="tape top-left"></span>
+            
+            <!-- HEADER DEKORATIF UNTUK MENGISI AREA ATAS -->
+            <div class="pass-header">
+              <div class="pass-stamp">VIP ACCESS</div>
+              <h2 class="serif" style="font-size: 24px; color: var(--ink); margin-bottom: 2px;">Exclusive Pass</h2>
+              <p class="hand" style="font-size: 18px; color: var(--rose-dark);">~ Special Invitation ~</p>
+              
+              <div style="display: flex; justify-content: center; gap: 8px; margin-top: 8px;">
+                <span style="background: #f2e3ce; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; color: var(--kraft-dark); border: 1px dashed var(--kraft-dark);">
+                  ✨ Special Guest: Naswa
+                </span>
+              </div>
+            </div>
+
+            <!-- TIKET ACARA -->
+            <div class="ticket-stub">
+              <span class="hand" style="font-size: 20px; color: var(--rose);">admit one · Naswa ♡</span>
+              <h3 class="serif" style="font-size: 20px; margin: 4px 0; color: var(--ink);">Birthday Dinner</h3>
+              <hr style="border: 0; border-top: 1px dashed #d9c2a8; margin: 8px 0;">
+              
+              <p style="font-size: 12.5px; margin-bottom: 4px; color: var(--ink);"><b>Waktu:</b> 19.00 – 21.00 WIB</p>
+              <p style="font-size: 12.5px; margin-bottom: 4px; color: var(--ink);"><b>Dress Code:</b> <span style="background: #ffffff; padding: 2px 6px; border-radius: 4px; border: 1px solid #ddd; font-weight: 700; color: #333;">Warna Putih ✨</span></p>
+              <p style="font-size: 12.5px; margin-bottom: 10px; color: var(--ink);"><b>Lokasi:</b> La Vida LOCA Rooftop Resto and Bar</p>
+              
+              <a href="https://www.google.com/maps/search/?api=1&query=La+Vida+LOCA+Rooftop+Resto+and+Bar" target="_blank" rel="noopener" style="display: inline-block; background: var(--rose); color: #fff; text-decoration: none; font-size: 11px; font-weight: 700; padding: 7px 14px; border-radius: 15px; box-shadow: 0 3px 8px rgba(192, 88, 108, 0.3);">Petunjuk Lokasi (Maps) 📍</a>
+
+              <div class="ticket-barcode"></div>
+            </div>
+          </div>
+          <span class="page-number">4 / 10</span>
+        </div>
+
+        <!-- ================= PAGE 5: MEMORY STATS ================= -->
+        <div class="page" style="z-index: 6;">
+          <div class="page-content">
+            <h2 class="serif" style="font-size: 22px; text-align: center; margin-bottom: 12px;">Langkah Bersama</h2>
+            
+            <div class="sticky-note yellow">
+              <b class="hand" style="font-size: 24px; color: var(--ink);">365+ Hari</b>
+              <p>Rangkaian tawa, canda, dan cerita manis yang mewarnai hari-hari.</p>
+            </div>
+
+            <div class="sticky-note pink">
+              <b class="hand" style="font-size: 24px; color: var(--rose-dark);">1000+ Jam</b>
+              <p>Obrolan hangat serta momen saling menemani dalam setiap keadaan.</p>
+            </div>
+
+            <div class="sticky-note green">
+              <b class="hand" style="font-size: 24px; color: #2c5943;">∞ Rasa Syukur</b>
+              <p>Bisa mengenalmu dan berjalan berdampingan bersamamu.</p>
+            </div>
+          </div>
+          <span class="page-number">5 / 10</span>
+        </div>
+
+        <!-- ================= PAGE 6: HANGING LOVE POLAROID ================= -->
+        <div class="page" style="z-index: 5;">
+          <div class="page-content">
+            <span class="tape top-center rose"></span>
+            <h2 class="serif" style="font-size: 20px; text-align: center;">Hanging Love Notes</h2>
+            
+            <div class="hanging-container">
+              <div class="hanging-string string-top"></div>
+              <div class="hanging-string string-bottom"></div>
+
+              <figure class="hanging-item hang-1 zoomable">
+                <div class="polaroid-love-box">
+                  <img src="images/foto-04.jpg" alt="sweet moment">
+                </div>
+                <figcaption>sweet moment</figcaption>
+              </figure>
+
+              <figure class="hanging-item hang-2 zoomable">
+                <div class="polaroid-love-box">
+                  <img src="images/foto-05.jpg" alt="warm smile">
+                </div>
+                <figcaption>warm smile</figcaption>
+              </figure>
+
+              <figure class="hanging-item hang-3 zoomable">
+                <div class="polaroid-love-box">
+                  <img src="images/foto-06.jpg" alt="just us">
+                </div>
+                <figcaption>just us</figcaption>
+              </figure>
+            </div>
+
+            <p style="font-size: 11px; text-align: center; color: var(--muted);">Ketuk foto untuk memperbesar</p>
+          </div>
+          <span class="page-number">6 / 10</span>
+        </div>
+
+        <!-- ================= PAGE 7: POLAROID SPREAD 1 ================= -->
+        <div class="page" style="z-index: 4;">
+          <div class="page-content">
+            <h2 class="serif" style="font-size: 20px; text-align: center; margin-bottom: 8px;">Momen Indah</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <figure class="polaroid zoomable" style="--r: -3deg;">
+                <img src="images/foto-07.jpg" alt="sweet memories">
+                <figcaption>sweet memories</figcaption>
+              </figure>
+              <figure class="polaroid zoomable" style="--r: 2deg;">
+                <img src="images/foto-08.jpg" alt="favorite">
+                <figcaption>favorite</figcaption>
+              </figure>
+            </div>
+
+            <div style="margin-top: 10px;">
+              <figure class="polaroid zoomable" style="--r: -1deg; width: 80%; margin: 0 auto;">
+                <img src="images/foto-09.jpg" alt="our world" style="aspect-ratio: 16/9;">
+                <figcaption>our world</figcaption>
+              </figure>
+            </div>
+          </div>
+          <span class="page-number">7 / 10</span>
+        </div>
+
+        <!-- ================= PAGE 8: POLAROID SPREAD 2 ================= -->
+        <div class="page" style="z-index: 3;">
+          <div class="page-content">
+            <h2 class="serif" style="font-size: 20px; text-align: center; margin-bottom: 8px;">Cerita Kita</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <figure class="polaroid zoomable" style="--r: 2deg;">
+                <img src="images/foto-10.jpg" alt="memorable">
+                <figcaption>memorable</figcaption>
+              </figure>
+              <figure class="polaroid zoomable" style="--r: -2deg;">
+                <img src="images/foto-11.jpg" alt="together">
+                <figcaption>together</figcaption>
+              </figure>
+              <figure class="polaroid zoomable" style="--r: -3deg;">
+                <img src="images/foto-02.jpg" alt="foto fav aku">
+                <figcaption>foto fav aku</figcaption>
+              </figure>
+              <figure class="polaroid zoomable" style="--r: 3deg;">
+                <img src="images/foto-03.jpg" alt="bareface kamu yang selalu aku tunggu">
+                <figcaption>bareface kamu yang selalu aku tunggu</figcaption>
+              </figure>
+            </div>
+          </div>
+          <span class="page-number">8 / 10</span>
+        </div>
+
+        <!-- ================= PAGE 9: SURAT LENGKAP (TERKUNCI S/D TGL 25) ================= -->
+        <div class="page" style="z-index: 2;">
+          <div class="page-content">
+            <span class="tape top-center"></span>
+            
+            <!-- Tampilan Jika Terkunci (Sebelum 25 Okt 2026) -->
+            <div id="letterLocked" class="letter-lock-container">
+              <div class="lock-icon">🔒</div>
+              <h3 class="serif" style="font-size: 20px; margin-bottom: 6px;">Surat Ini Masih Terkunci</h3>
+              <p style="font-size: 13px; color: var(--muted); margin-bottom: 12px;">
+                Surat spesial ini baru bisa dibuka dan dibaca tepat pada tanggal <b>25 Oktober 2026</b>.
+              </p>
+              <div style="background: rgba(192, 88, 108, 0.1); padding: 8px 14px; border-radius: 20px; font-size: 12px; color: var(--rose-dark); font-weight: 700;">
+                Tunggu tanggal mainnya ya, Naswa ♡
+              </div>
+            </div>
+
+            <!-- Tampilan Isi Surat (Terbuka Otomatis pada 25 Okt 2026) -->
+            <div id="letterUnlocked" class="letter-body" style="display: none;">
+              <h2 class="serif" style="font-size: 18px; text-align: center; margin-bottom: 10px; color: var(--rose-dark);">Happy Birthday, Sayangku 🤎</h2>
+              
+              <p><b>Selamat ulang tahun sayangku, cintaku.</b></p>
+              <p>Semoga apa yang kamu inginkan satu per satu bisa tercapai. Semoga hidup kamu ke depannya jadi lebih tenang, lebih bahagia, dan selalu dipertemukan sama hal-hal baik.</p>
+              <p>Semoga kuliahnya dilancarkan, rezekinya ditambahin, segala urusannya dimudahkan, dan kamu selalu punya alasan buat tersenyum. Semoga kamu makin cantik, lucu, imut, dan pastinya selalu jadi diri kamu sendiri yang aku kenal dan sayang. ❤️</p>
+              <p>Dari aku, aku juga mau minta maaf sebesar-besarnya kalau selama ini dengan adanya aku di hidup kamu, mungkin ada hal-hal yang bikin kamu capek, banyak pikiran, atau bahkan sedih karena perilaku aku. Aku sadar aku masih punya banyak kekurangan dan masih harus banyak belajar buat jadi lebih baik.</p>
+              <p>Aku nggak mau cuma janji lewat kata-kata. Aku pengin terus belajar buat lebih ngerti kamu, lebih menghargai perasaan kamu, dan lebih hati-hati dalam bersikap.</p>
+              <p>Terima kasih ya, sayang, karena sudah hadir di hidup aku dan jadi seseorang yang begitu berarti. I love you more and more, sayangku ❤️</p>
+              
+              <div class="hand" style="font-size: 28px; text-align: right; color: var(--rose); margin-top: 10px;">with love ♡</div>
+            </div>
+
+          </div>
+          <span class="page-number">9 / 10</span>
+        </div>
+
+        <!-- ================= PAGE 10: BACK COVER & RSVP ================= -->
+        <div class="page" style="z-index: 1;">
+          <div class="page-content">
+            <div class="cover-card" style="background: var(--paper-dark); color: var(--ink); border-color: var(--kraft);">
+              <h2 class="serif" style="font-size: 22px; margin-bottom: 10px;">Kehadiranmu</h2>
+              <p class="hand" style="font-size: 26px; color: var(--rose-dark); margin-bottom: 16px;">Jadi, apakah kamu mau datang?</p>
+
+              <button id="rsvpBtn" class="btn-nav" style="background: var(--rose); padding: 12px 28px; font-size: 15px; box-shadow: 0 6px 15px rgba(192, 88, 108, 0.4);">
+                Mau Banget ♡
+              </button>
+
+              <p id="rsvpDone" class="hand" style="display: none; font-size: 24px; color: var(--rose-dark); margin-top: 15px;">
+                Yey! Sampai ketemu Minggu malam, sayang ♡
+              </p>
+            </div>
+          </div>
+          <span class="page-number">10 / 10</span>
+        </div>
+
+      </div>
     </div>
-</div>
 
-<!-- TOMBOL MUSIK -->
-<button class="music-button"
-        id="musicButton"
-        aria-label="Putar atau hentikan musik"
-        title="Musik">♫</button>
-
-<main id="presentation">
-
-    <!-- 1. BIRTHDAY CELEBRATION -->
-    <section class="section hero-section" id="birthday">
-        <div class="section-inner">
-            <p class="hero-eyebrow">A special day · A special person</p>
-
-            <h1 class="hero-title">Birthday<br>Celebration</h1>
-
-            <p class="hero-description">
-                Dengan penuh rasa bahagia,<br>
-                aku ingin mengajakmu merayakan hari spesial ini.
-            </p>
-
-            <div class="hero-date">SUNDAY · 25 OCTOBER 2026</div>
-
-            <p class="hero-decoration">SCROLL TO EXPLORE ↓</p>
-        </div>
-    </section>
-
-    <!-- 2. INTRO -->
-    <section class="section intro-section" id="intro">
-        <div class="section-inner">
-            <div class="intro-heart">♡</div>
-            <p class="section-label">A little note for you</p>
-
-            <h2 class="intro-quote">
-                "Untuk seseorang yang selalu istimewa buat aku ♡"
-            </h2>
-
-            <div class="divider"></div>
-
-            <p class="section-text">
-                Ada banyak hal sederhana yang jadi berharga karena kamu.
-                Kali ini, aku ingin membuat satu kenangan kecil yang bisa
-                kita ingat bersama. Semoga hari ini jadi salah satu cerita
-                manis kita.
-            </p>
-        </div>
-    </section>
-
-    <!-- 3. COUNTDOWN -->
-    <section class="section countdown-section" id="countdown">
-        <div class="section-inner">
-            <p class="section-label">Save the date</p>
-            <h2 class="section-title">Counting the Days</h2>
-
-            <p class="section-text">Waktu menuju hari spesial kita ♡</p>
-
-            <div class="countdown">
-                <div class="countdown-item">
-                    <span class="countdown-number" id="days">00</span>
-                    <span class="countdown-label">Hari</span>
-                </div>
-
-                <div class="countdown-item">
-                    <span class="countdown-number" id="hours">00</span>
-                    <span class="countdown-label">Jam</span>
-                </div>
-
-                <div class="countdown-item">
-                    <span class="countdown-number" id="minutes">00</span>
-                    <span class="countdown-label">Menit</span>
-                </div>
-
-                <div class="countdown-item">
-                    <span class="countdown-number" id="seconds">00</span>
-                    <span class="countdown-label">Detik</span>
-                </div>
-            </div>
-
-            <p class="countdown-message" id="countdownMessage">
-                Sampai bertemu di hari spesial ♡
-            </p>
-        </div>
-    </section>
-
-    <!-- 4. DETAIL ACARA -->
-    <section class="section details-section" id="details">
-        <div class="section-inner">
-            <p class="section-label">The celebration</p>
-            <h2 class="section-title">Event Details</h2>
-            <p class="section-text">Catat detail acaranya, ya ♡</p>
-
-            <div class="details-grid">
-                <article class="detail-card">
-                    <div class="detail-icon">♡</div>
-                    <h3>Date</h3>
-                    <p>Minggu<br>25 Oktober 2026</p>
-                </article>
-
-                <article class="detail-card">
-                    <div class="detail-icon">◷</div>
-                    <h3>Time</h3>
-                    <p>19.00–21.00 WIB<br>Evening Celebration</p>
-                </article>
-
-                <article class="detail-card">
-                    <div class="detail-icon">✧</div>
-                    <h3>Dress Code</h3>
-                    <p>Warna Cokelat</p>
-                </article>
-
-                <article class="detail-card">
-                    <div class="detail-icon">⌂</div>
-                    <h3>Our Place</h3>
-                    <p>La Vida LOCA<br>Rooftop Resto and Bar</p>
-
-                    <a class="map-button"
-                       href="https://www.google.com/maps/search/?api=1&query=La+Vida+LOCA+Rooftop+Resto+and+Bar"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        BUKA GOOGLE MAPS ↗
-                    </a>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. OUR MEMORIES -->
-    <section class="section gallery-section" id="memories">
-        <div class="section-inner">
-            <p class="section-label">Little moments</p>
-            <h2 class="section-title">Our Memories</h2>
-            <p class="section-text">Beberapa potongan cerita yang berarti ♡</p>
-
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="images/foto-04.jpg" alt="Kenangan 1" loading="lazy">
-                    <p class="gallery-caption">A little memory ♡</p>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/foto-05.jpg" alt="Kenangan 2" loading="lazy">
-                    <p class="gallery-caption">A special moment</p>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/foto-06.jpg" alt="Kenangan 3" loading="lazy">
-                    <p class="gallery-caption">Just us</p>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/foto-07.jpg" alt="Kenangan 4" loading="lazy">
-                    <p class="gallery-caption">Sweet memories ♡</p>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/foto-08.jpg" alt="Kenangan 5" loading="lazy">
-                    <p class="gallery-caption">One of my favorites</p>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/foto-09.jpg" alt="Kenangan 6" loading="lazy">
-                    <p class="gallery-caption">Our little world</p>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/foto-10.jpg" alt="Kenangan 7" loading="lazy">
-                    <p class="gallery-caption">Always memorable</p>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/foto-11.jpg" alt="Kenangan 8" loading="lazy">
-                    <p class="gallery-caption">To more memories ♡</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. LITTLE MOMENTS -->
-    <section class="section memory-section" id="little-moments">
-        <div class="section-inner">
-            <p class="section-label">Made with love</p>
-            <h2 class="section-title">Little Moments</h2>
-
-            <div class="memory-layout">
-                <div class="memory-frame">
-                    <img class="memory-photo"
-                         src="images/foto-02.jpg"
-                         alt="Foto kenangan pertama"
-                         loading="lazy">
-                </div>
-
-                <div class="memory-copy">
-                    <h3>Little things,<br>big feelings.</h3>
-                    <p>
-                        Nggak semua momen harus mewah untuk jadi berarti.
-                        Kadang, hal-hal sederhana justru jadi kenangan
-                        yang paling ingin kita simpan.
-                    </p>
-                    <p>
-                        Semoga hari spesial ini membawa banyak senyum,
-                        cerita baru, dan kenangan manis untuk kita.
-                    </p>
-                </div>
-            </div>
-
-            <div class="memory-layout">
-                <div class="memory-copy">
-                    <h3>Here's to<br>another chapter ♡</h3>
-                    <p>
-                        Untuk semua cerita yang sudah kita lewati,
-                        dan semua cerita baik yang masih menunggu
-                        untuk kita temukan.
-                    </p>
-                </div>
-
-                <div class="memory-frame">
-                    <img class="memory-photo"
-                         src="images/foto-03.jpg"
-                         alt="Foto kenangan kedua"
-                         loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. KARTU UCAPAN: KLIK UNTUK MEMBUKA -->
-    <section class="section letter-section" id="letter">
-        <div class="section-inner">
-            <div class="letter-container">
-
-                <!-- SAMPUL SURAT -->
-                <div class="letter-cover" id="letterCover">
-                    <p class="section-label">A little surprise for you</p>
-
-                    <div class="cover-heart">♡</div>
-
-                    <h2>For You,<br>My Favorite Person</h2>
-
-                    <div class="divider"></div>
-
-                    <p>
-                        Ada sesuatu yang ingin aku sampaikan
-                        di hari spesial kamu. 🤎
-                    </p>
-
-                    <p>
-                        Mungkin nggak seberapa, tapi semuanya
-                        aku tulis dengan tulus dari hati.
-                    </p>
-
-                    <button class="letter-open-button"
-                            id="openLetter"
-                            aria-controls="letterPaper"
-                            aria-expanded="false">
-                        BUKA SURAT ♡
-                    </button>
-
-                    <p class="letter-hint">♡ A little letter, just for you ♡</p>
-                </div>
-
-                <!-- ISI SURAT: BARU MUNCUL SETELAH DIKLIK -->
-                <div class="letter-paper" id="letterPaper" aria-hidden="true">
-                    <p class="section-label">A letter from me to you</p>
-
-                    <div class="letter-heart">♡</div>
-
-                    <h2 class="letter-title">
-                        Happy Birthday,<br>Sayangku ♡
-                    </h2>
-
-                    <div class="divider"></div>
-
-                    <div class="letter-content">
-                        <p>
-                            Selamat ulang tahun sayangku, cintaku. 🤎
-                            Semoga apa yang kamu inginkan satu per satu
-                            bisa tercapai. Semoga hidup kamu ke depannya
-                            jadi lebih tenang, lebih bahagia, dan selalu
-                            dipertemukan sama hal-hal baik.
-                        </p>
-
-                        <p>
-                            Semoga kuliahnya dilancarkan, rezekinya
-                            ditambahin, segala urusannya dimudahkan,
-                            dan kamu selalu punya alasan buat tersenyum.
-                            Semoga kamu makin cantik, lucu, imut, dan
-                            pastinya selalu jadi diri kamu sendiri yang
-                            aku kenal dan sayang. ❤️
-                        </p>
-
-                        <p>
-                            Dari aku, aku juga mau minta maaf sebesar-
-                            besarnya kalau selama ini dengan adanya aku
-                            di hidup kamu, mungkin ada hal-hal yang bikin
-                            kamu capek, banyak pikiran, atau bahkan sedih
-                            karena perilaku aku. Aku sadar aku masih
-                            punya banyak kekurangan dan masih harus
-                            banyak belajar buat jadi lebih baik.
-                        </p>
-
-                        <p>
-                            Aku nggak mau cuma janji lewat kata-kata.
-                            Aku pengin terus belajar buat lebih ngerti
-                            kamu, lebih menghargai perasaan kamu, dan
-                            lebih hati-hati dalam bersikap. Aku tahu
-                            aku nggak selalu bisa sempurna, tapi aku
-                            mau berusaha supaya kehadiran aku bisa
-                            membawa lebih banyak bahagia daripada sedih.
-                        </p>
-
-                        <p>
-                            Terima kasih ya, sayang, karena sudah hadir
-                            di hidup aku dan jadi seseorang yang begitu
-                            berarti. Terima kasih buat setiap cerita,
-                            waktu, tawa, dan hal-hal sederhana yang
-                            mungkin kelihatannya kecil, tapi punya arti
-                            besar buat aku. Banyak momen yang mungkin
-                            biasa aja buat orang lain, tapi jadi spesial
-                            karena aku ngejalaninnya sama kamu.
-                        </p>
-
-                        <p>
-                            Di umur kamu yang baru ini, aku berharap
-                            kamu selalu diberi kesehatan, hati yang
-                            tenang, orang-orang baik di sekeliling kamu,
-                            dan keberanian buat mengejar semua impian
-                            kamu. Kalau ada hari yang terasa berat,
-                            semoga kamu selalu ingat kalau kamu sudah
-                            berusaha sejauh ini dan kamu pantas
-                            mendapatkan banyak kebahagiaan.
-                        </p>
-
-                        <p>
-                            Semoga ke depannya kita juga bisa terus
-                            belajar bareng, saling memahami, saling
-                            mendukung, dan bikin lebih banyak kenangan
-                            indah. Aku pengin kita nggak cuma menikmati
-                            hari-hari bahagia, tapi juga belajar
-                            menghadapi hari yang nggak mudah dengan
-                            lebih dewasa.
-                        </p>
-
-                        <p>
-                            Sekali lagi, selamat ulang tahun, sayangku.
-                            Semoga tahun ini jadi awal dari banyak hal
-                            baik yang datang ke hidup kamu. Jangan lupa
-                            bahagia, jangan terlalu keras sama diri
-                            sendiri, dan tetap jadi kamu yang punya
-                            banyak hal indah di dalam dirinya. 🤎
-                        </p>
-
-                        <p class="letter-ending">
-                            I love you more and more, sayangku ❤️
-                        </p>
-                    </div>
-
-                    <div class="letter-signature">
-                        <span>With all my love,</span>
-                        <h3>Dari aku, untuk kamu ♡</h3>
-                    </div>
-
-                    <div class="letter-bottom">♡ &nbsp; ♡ &nbsp; ♡</div>
-
-                    <button class="letter-close-button"
-                            id="closeLetter">
-                        TUTUP SURAT ↑
-                    </button>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- 8. PENUTUP -->
-    <section class="section closing-section" id="closing">
-        <div class="section-inner">
-            <p class="hero-eyebrow">One more thing</p>
-
-            <h2 class="closing-title">To more<br>memories ♡</h2>
-
-            <p>
-                Semoga ada lebih banyak hari bahagia,<br>
-                cerita indah, dan alasan untuk tersenyum.
-            </p>
-
-            <div class="divider" style="background:#e4c9a7"></div>
-
-            <p>Happy Birthday, Sayangku 🤎</p>
-        </div>
-    </section>
-
-</main>
-
-<script>
-const opening = document.getElementById("opening");
-const openButton = document.getElementById("openInvitation");
-const music = document.getElementById("backgroundMusic");
-const musicButton = document.getElementById("musicButton");
-
-/* BUKA UNDANGAN */
-openButton.addEventListener("click", async function () {
-    opening.classList.add("closed");
-    musicButton.classList.add("visible");
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
-    try {
-        await music.play();
-        musicButton.textContent = "♫";
-        musicButton.setAttribute("aria-label", "Matikan musik");
-    } catch (error) {
-        musicButton.textContent = "♪";
-        musicButton.setAttribute("aria-label", "Putar musik");
-    }
-});
-
-/* KONTROL MUSIK */
-musicButton.addEventListener("click", async function () {
-    if (music.paused) {
-        try {
-            await music.play();
-            musicButton.textContent = "♫";
-            musicButton.setAttribute("aria-label", "Matikan musik");
-        } catch (error) {
-            alert("Musik belum bisa diputar. Periksa file musik.wav.");
+    <!-- NAVBAR CONTROLLER (PREV / NEXT) -->
+    <div class="nav-controls">
+      <button class="btn-nav" id="prevBtn" disabled>← Prev</button>
+      <span id="pageIndicator" style="color: var(--kraft-light); font-weight: 700; font-size: 14px;">Hal 1 / 10</span>
+      <button class="btn-nav" id="nextBtn">Next →</button>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX MODAL FOTO -->
+  <div id="lightbox">
+    <figure>
+      <img id="lbImg" src="" alt="Zoom Photo">
+      <figcaption id="lbCap"></figcaption>
+    </figure>
+  </div>
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <script>
+    (function () {
+      var currentPage = 0;
+      var totalPages = 10;
+      var pages = document.querySelectorAll('.page');
+      var prevBtn = document.getElementById('prevBtn');
+      var nextBtn = document.getElementById('nextBtn');
+      var pageIndicator = document.getElementById('pageIndicator');
+      var bgm = document.getElementById('bgm');
+      var musicBtn = document.getElementById('musicBtn');
+      var isPlaying = false;
+
+      /* ---------- 1. Animasi Hujan Hati ---------- */
+      var rainContainer = document.getElementById('rain');
+      for (var i = 0; i < 20; i++) {
+        var drop = document.createElement('span');
+        drop.textContent = i % 2 === 0 ? '♡' : '♥';
+        drop.style.left = Math.random() * 100 + '%';
+        drop.style.fontSize = (10 + Math.random() * 14) + 'px';
+        drop.style.animationDuration = (6 + Math.random() * 8) + 's';
+        drop.style.animationDelay = (-Math.random() * 10) + 's';
+        rainContainer.appendChild(drop);
+      }
+
+      /* ---------- 2. Logic Flip Book ---------- */
+      function updateBookUI() {
+        pages.forEach(function (page, idx) {
+          if (idx < currentPage) {
+            page.classList.add('flipped');
+          } else {
+            page.classList.remove('flipped');
+          }
+        });
+
+        prevBtn.disabled = currentPage === 0;
+        nextBtn.disabled = currentPage === totalPages - 1;
+        pageIndicator.textContent = "Hal " + (currentPage + 1) + " / " + totalPages;
+      }
+
+      function nextPage() {
+        if (currentPage < totalPages - 1) {
+          currentPage++;
+          updateBookUI();
+          playAudioOnFirstNav();
         }
-    } else {
-        music.pause();
-        musicButton.textContent = "♪";
-        musicButton.setAttribute("aria-label", "Putar musik");
-    }
-});
+      }
 
-/* BUKA DAN TUTUP KARTU UCAPAN */
-const letterCover = document.getElementById("letterCover");
-const letterPaper = document.getElementById("letterPaper");
-const openLetterButton = document.getElementById("openLetter");
-const closeLetterButton = document.getElementById("closeLetter");
+      function prevPage() {
+        if (currentPage > 0) {
+          currentPage--;
+          updateBookUI();
+        }
+      }
 
-openLetterButton.addEventListener("click", function () {
-    letterCover.style.display = "none";
-    letterPaper.classList.add("show");
-    letterPaper.setAttribute("aria-hidden", "false");
-    openLetterButton.setAttribute("aria-expanded", "true");
+      nextBtn.addEventListener('click', nextPage);
+      prevBtn.addEventListener('click', prevPage);
 
-    // Geser perlahan menuju isi surat
-    setTimeout(function () {
-        letterPaper.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
+      document.getElementById('openBookSeal').addEventListener('click', function() {
+        nextPage();
+      });
+
+      /* Touch Swipe Gesture untuk HP */
+      var startX = 0;
+      var bookElem = document.getElementById('book');
+      bookElem.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+      }, { passive: true });
+
+      bookElem.addEventListener('touchend', function(e) {
+        var endX = e.changedTouches[0].clientX;
+        var diffX = startX - endX;
+        if (diffX > 50) { nextPage(); }
+        else if (diffX < -50) { prevPage(); }
+      }, { passive: true });
+
+      /* ---------- 3. Logic Audio Background ---------- */
+      function playAudioOnFirstNav() {
+        if (!isPlaying) {
+          bgm.play().then(function() {
+            isPlaying = true;
+            musicBtn.textContent = '♫';
+          }).catch(function() {});
+        }
+      }
+
+      musicBtn.addEventListener('click', function() {
+        if (isPlaying) {
+          bgm.pause();
+          isPlaying = false;
+          musicBtn.textContent = '✕';
+        } else {
+          bgm.play();
+          isPlaying = true;
+          musicBtn.textContent = '♫';
+        }
+      });
+
+      /* ---------- 4. Countdown Timer ---------- */
+      var targetDate = new Date('2026-10-25T19:00:00+07:00').getTime();
+      function updateCountdown() {
+        var now = new Date().getTime();
+        var diff = Math.max(0, targetDate - now);
+
+        var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('cdDays').textContent = String(days).padStart(2, '0');
+        document.getElementById('cdHours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('cdMinutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('cdSeconds').textContent = String(seconds).padStart(2, '0');
+      }
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+
+      /* ---------- 5. Logic Kunci Surat (Hanya Buka Tanggal 25 Okt 2026) ---------- */
+      function checkLetterLock() {
+        var now = new Date();
+        // Tanggal rilis: 25 Oktober 2026
+        var unlockDate = new Date('2026-10-25T00:00:00+07:00');
+
+        var lockedElem = document.getElementById('letterLocked');
+        var unlockedElem = document.getElementById('letterUnlocked');
+
+        if (now >= unlockDate) {
+          lockedElem.style.display = 'none';
+          unlockedElem.style.display = 'block';
+        } else {
+          lockedElem.style.display = 'flex';
+          unlockedElem.style.display = 'none';
+        }
+      }
+      checkLetterLock();
+
+      /* ---------- 6. Lightbox Image Viewer ---------- */
+      var lightbox = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lbImg');
+      var lbCap = document.getElementById('lbCap');
+
+      document.querySelectorAll('.zoomable').forEach(function(el) {
+        el.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var img = el.tagName === 'IMG' ? el : el.querySelector('img');
+          var cap = el.querySelector('figcaption');
+          if (img) {
+            lbImg.src = img.src;
+            lbCap.textContent = cap ? cap.textContent : '';
+            lightbox.classList.add('active');
+          }
         });
-    }, 100);
-});
+      });
 
-closeLetterButton.addEventListener("click", function () {
-    letterPaper.classList.remove("show");
-    letterPaper.style.display = "none";
-    letterPaper.setAttribute("aria-hidden", "true");
-    letterCover.style.display = "block";
-    openLetterButton.setAttribute("aria-expanded", "false");
+      lightbox.addEventListener('click', function() {
+        lightbox.classList.remove('active');
+      });
 
-    letterCover.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
-});
+      /* ---------- 7. RSVP Confetti Effect ---------- */
+      document.getElementById('rsvpBtn').addEventListener('click', function() {
+        this.style.display = 'none';
+        document.getElementById('rsvpDone').style.display = 'block';
 
-/* COUNTDOWN: 25 OKTOBER 2026, 19.00 WIB */
-const eventDate = new Date("2026-10-25T19:00:00+07:00");
+        for (var i = 0; i < 40; i++) {
+          var confetti = document.createElement('span');
+          confetti.className = 'confetti';
+          confetti.textContent = i % 2 === 0 ? '♥' : '♡';
+          confetti.style.left = Math.random() * 100 + '%';
+          confetti.style.fontSize = (14 + Math.random() * 20) + 'px';
+          confetti.style.color = i % 3 === 0 ? '#c0586c' : '#fdf0a6';
+          confetti.style.animationDuration = (2.5 + Math.random() * 2) + 's';
+          confetti.style.animationDelay = (Math.random() * 0.5) + 's';
+          document.body.appendChild(confetti);
 
-function updateCountdown() {
-    const diff = eventDate.getTime() - Date.now();
+          setTimeout(function(el) { el.remove(); }, 5000, confetti);
+        }
+      });
 
-    const ids = ["days", "hours", "minutes", "seconds"];
-
-    if (diff <= 0) {
-        ids.forEach(function (id) {
-            document.getElementById(id).textContent = "00";
-        });
-
-        document.getElementById("countdownMessage").textContent =
-            diff > -7200000
-                ? "Acaranya sudah dimulai. Selamat merayakan ♡"
-                : "Semoga hari spesial ini menjadi kenangan manis ♡";
-
-        return;
-    }
-
-    const values = [
-        Math.floor(diff / 86400000),
-        Math.floor((diff % 86400000) / 3600000),
-        Math.floor((diff % 3600000) / 60000),
-        Math.floor((diff % 60000) / 1000)
-    ];
-
-    ids.forEach(function (id, index) {
-        document.getElementById(id).textContent =
-            String(values[index]).padStart(2, "0");
-    });
-
-    document.getElementById("countdownMessage").textContent =
-        "Sampai bertemu di hari spesial ♡";
-}
-
-updateCountdown();
-setInterval(updateCountdown, 1000);
-</script>
-
+    })();
+  </script>
 </body>
 </html>
