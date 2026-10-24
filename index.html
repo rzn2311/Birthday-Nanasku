@@ -263,9 +263,25 @@
     .ticket-stub::after { right: -9px; border-left: 1px dashed var(--kraft-dark); }
     .ticket-barcode { width: 100%; height: 20px; margin-top: 8px; background: repeating-linear-gradient(90deg, var(--ink) 0 2px, transparent 2px 5px, var(--ink) 5px 8px, transparent 8px 10px); opacity: 0.7; }
 
-    /* Video Frame */
-    .video-frame-box { position: relative; background: #fffdf8; padding: 5px; border-radius: 6px; transform: rotate(-1.5deg); margin: 2px 0 8px; }
-    .video-wrapper { position: relative; width: 100%; aspect-ratio: 16/9; background: #2a1a12; border-radius: 4px; overflow: hidden; }
+    /* Video Frame Portrait Style (9:16) */
+    .video-frame-box { 
+      position: relative; 
+      background: #fffdf8; 
+      padding: 6px; 
+      border-radius: 8px; 
+      transform: rotate(-1deg); 
+      margin: 0 auto; 
+      max-width: 230px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .video-wrapper { 
+      position: relative; 
+      width: 100%; 
+      aspect-ratio: 9 / 16; 
+      background: #2a1a12; 
+      border-radius: 6px; 
+      overflow: hidden; 
+    }
     .video-wrapper video { width: 100%; height: 100%; object-fit: cover; }
 
     /* Hanging Polaroid */
@@ -282,7 +298,7 @@
     .hang-2 { top: 28px; right: 6px; transform: rotate(6deg); }
     .hang-3 { top: 185px; left: 50%; transform: translateX(-50%) rotate(-3deg); }
 
-    .sticky-note { padding: 6px 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); font-size: 11px; margin-bottom: 5px; border-radius: 2px; }
+    .sticky-note { padding: 5px 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); font-size: 10.5px; margin-bottom: 4px; border-radius: 2px; }
     .sticky-note.yellow { background: #fdf0a6; transform: rotate(-1deg); }
     .sticky-note.pink { background: #f8c8d4; transform: rotate(1deg); }
     .sticky-note.green { background: #d2ece0; transform: rotate(-0.8deg); }
@@ -293,7 +309,7 @@
     .letter-body p { margin-bottom: 6px; }
 
     /* =========================================================
-       6. FILM ROLL RETRO PHOTOBOOTH (PAGE 10) - RETRO FILM STRIP DESIGN
+       6. FILM ROLL RETRO PHOTOBOOTH (PAGE 10)
        ========================================================= */
     .scrapbook-booth {
       display: flex;
@@ -328,7 +344,6 @@
       margin-top: -1px;
     }
 
-    /* Container 2 Film Strips Side-by-Side */
     .scrapbook-strips-wrapper {
       display: flex;
       gap: 12px;
@@ -337,7 +352,6 @@
       padding: 4px;
     }
 
-    /* RETRO FILM ROLL STRIP DESIGN */
     .scrap-strip {
       flex: 1;
       max-width: 175px;
@@ -350,21 +364,18 @@
       justify-content: space-between;
     }
 
-    /* Strip 1: Vintage Dark Charcoal / Gold Accent */
     .scrap-strip.film-dark {
       background: #1c1c1e;
       color: #ffd700;
       border: 1px solid #333;
     }
 
-    /* Strip 2: Burgundy Vintage / White Accent */
     .scrap-strip.film-red {
       background: #5a1827;
       color: #ffffff;
       border: 1px solid #7a2335;
     }
 
-    /* Ornamen Gerigi Film Roll (Perforations) kiri & kanan */
     .scrap-strip::before,
     .scrap-strip::after {
       content: "";
@@ -385,7 +396,6 @@
     .scrap-strip::before { left: 4px; }
     .scrap-strip::after { right: 4px; }
 
-    /* Film Roll Header Text */
     .film-header-text {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 14px;
@@ -402,7 +412,6 @@
       gap: 6px;
     }
 
-    /* Kotak Frame Foto Klise */
     .scrap-slot {
       width: 100%;
       aspect-ratio: 4 / 3;
@@ -443,7 +452,6 @@
       font-weight: 700;
     }
 
-    /* Overlays Countdown & Flash */
     #slotCountdownOverlay {
       position: absolute;
       inset: 0;
@@ -468,7 +476,6 @@
       transition: opacity 0.15s ease-out;
     }
 
-    /* Film Roll Footer Typography */
     .film-footer-box {
       margin-top: 6px;
       text-align: center;
@@ -499,7 +506,6 @@
       text-transform: uppercase;
     }
 
-    /* Tombol Aksi */
     .booth-action-row {
       display: flex;
       gap: 8px;
@@ -535,7 +541,6 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
-    /* Navigasi */
     .nav-controls {
       display: flex;
       align-items: center;
@@ -557,7 +562,6 @@
     }
     .btn-nav:disabled { opacity: 0.4; cursor: not-allowed; }
 
-    /* Lightbox Modal */
     #lightbox {
       position: fixed; inset: 0; z-index: 200;
       background: rgba(10, 5, 3, 0.9);
@@ -597,8 +601,8 @@
           <div class="page-content">
             <div class="cover-card">
               <span class="hand" style="font-size: 32px; color: var(--kraft-light);">Special Invitation</span>
-              <h2 class="serif" style="font-size: 26px; margin: 12px 0; color: #fff;">Naswa's Birthday ♡</h2>
-              <p style="font-size: 13px; color: var(--paper-dark); opacity: 0.9;">Dari aku, kejutan kecil ini buat kamu...</p>
+              <h2 class="serif" style="font-size: 26px; margin: 12px 0; color: #fff;">Untuk Naswa ♡</h2>
+              <p style="font-size: 13px; color: var(--paper-dark); opacity: 0.9;">Ada sebuah cerita & kejutan kecil di dalamnya...</p>
               
               <div class="wax-seal" id="openBookSeal">♡</div>
               
@@ -612,7 +616,7 @@
         <div class="page" style="z-index: 9;">
           <div class="page-content">
             <span class="tape top-center"></span>
-            <div class="hand" style="font-size: 36px; color: var(--rose); text-align: center;">Dear Naswaku Sayangku Cintaku, Manisku,</div>
+            <div class="hand" style="font-size: 36px; color: var(--rose); text-align: center;">Dear Naswa,</div>
             
             <div class="heart-frame">
               <img src="images/foto-12.jpg" alt="Naswa Main Photo">
@@ -682,31 +686,36 @@
           <span class="page-number">4 / 10</span>
         </div>
 
-        <!-- ================= PAGE 5: VIDEO & MEMORY STATS ================= -->
+        <!-- ================= PAGE 5: PORTRAIT VIDEO & MEMORY STATS ================= -->
         <div class="page" style="z-index: 6;">
           <div class="page-content">
-            <h2 class="serif" style="font-size: 18px; text-align: center;">Short Video</h2>
+            <span class="tape top-center"></span>
             
-            <div class="video-frame-box">
-              <span class="tape top-center rose"></span>
-              <div class="video-wrapper">
-                <video id="scrapbookVideo" controls playsinline preload="metadata" poster="images/foto-12.jpg">
-                  <source src="video.mp4" type="video/mp4">
-                  Perangkatmu tidak mendukung pemutaran video.
-                </video>
+            <div id="videoUnlocked" style="display: flex; height: 100%; flex-direction: column; justify-content: space-between;">
+              <h2 class="serif" style="font-size: 18px; text-align: center;">Short Video 🎬</h2>
+              
+              <!-- Portrait 9:16 Frame -->
+              <div class="video-frame-box">
+                <span class="tape top-center rose"></span>
+                <div class="video-wrapper">
+                  <video id="scrapbookVideo" controls playsinline webkit-playsinline x5-playsinline muted preload="metadata" poster="images/foto-12.jpg">
+                    <source src="video.mp4" type="video/mp4">
+                    Perangkatmu tidak mendukung pemutaran video.
+                  </video>
+                </div>
+                <p class="hand" style="text-align: center; font-size: 13px; margin-top: 2px; color: var(--ink);">momen spesial kita 🎬</p>
               </div>
-              <p class="hand" style="text-align: center; font-size: 14px; margin-top: 3px; color: var(--ink);">momen spesial kita 🎬</p>
-            </div>
 
-            <div>
-              <div class="sticky-note yellow">
-                <b class="hand" style="font-size: 17px; color: var(--ink);">Memory Lane</b> — Sedikit rekaman perjalanan singkat kita.
-              </div>
-              <div class="sticky-note pink">
-                <b class="hand" style="font-size: 17px; color: var(--rose-dark);">Countless Hours</b> — Tempat cerita paling nyaman dari dulu.
-              </div>
-              <div class="sticky-note green">
-                <b class="hand" style="font-size: 17px; color: #2c5943;">Thank You</b> — Makasih ya udah selalu hadir & bertahan.
+              <div style="margin-top: 4px;">
+                <div class="sticky-note yellow">
+                  <b class="hand" style="font-size: 16px; color: var(--ink);">Memory Lane</b> — Sedikit rekaman perjalanan singkat kita.
+                </div>
+                <div class="sticky-note pink">
+                  <b class="hand" style="font-size: 16px; color: var(--rose-dark);">Countless Hours</b> — Tempat cerita paling nyaman dari dulu.
+                </div>
+                <div class="sticky-note green">
+                  <b class="hand" style="font-size: 16px; color: #2c5943;">Thank You</b> — Makasih ya udah selalu hadir & bertahan.
+                </div>
               </div>
             </div>
 
@@ -753,18 +762,18 @@
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
               <figure class="polaroid zoomable" style="--r: -3deg;">
                 <img src="images/foto-07.jpg" alt="sweet memories">
-                <figcaption>foto terlucu dan terimut</figcaption>
+                <figcaption>sweet memories</figcaption>
               </figure>
               <figure class="polaroid zoomable" style="--r: 2deg;">
                 <img src="images/foto-08.jpg" alt="favorite">
-                <figcaption>foto terkeren kamu</figcaption>
+                <figcaption>favorite</figcaption>
               </figure>
             </div>
 
             <div style="margin-top: 8px;">
               <figure class="polaroid zoomable" style="--r: -1deg; width: 80%; margin: 0 auto;">
                 <img src="images/foto-09.jpg" alt="our world" style="aspect-ratio: 16/9;">
-                <figcaption>konser pertama kia hehehe</figcaption>
+                <figcaption>our world</figcaption>
               </figure>
             </div>
           </div>
@@ -779,26 +788,26 @@
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
               <figure class="polaroid zoomable" style="--r: 2deg;">
                 <img src="images/foto-10.jpg" alt="memorable">
-                <figcaption>bareface kamu yang selalu aku suka</figcaption>
+                <figcaption>memorable</figcaption>
               </figure>
               <figure class="polaroid zoomable" style="--r: -2deg;">
                 <img src="images/foto-11.jpg" alt="together">
-                <figcaption>foto ini lucu</figcaption>
+                <figcaption>together</figcaption>
               </figure>
               <figure class="polaroid zoomable" style="--r: -3deg;">
                 <img src="images/foto-02.jpg" alt="hal kecil">
-                <figcaption>foto fav aku</figcaption>
+                <figcaption>hal kecil</figcaption>
               </figure>
               <figure class="polaroid zoomable" style="--r: 3deg;">
                 <img src="images/foto-03.jpg" alt="rasa besar">
-                <figcaption>foto terkeren kamu #2</figcaption>
+                <figcaption>rasa besar</figcaption>
               </figure>
             </div>
           </div>
           <span class="page-number">8 / 10</span>
         </div>
 
-        <!-- ================= PAGE 9: SURAT LENGKAP ================= -->
+        <!-- ================= PAGE 9: SURAT LENGKAP (TERKUNCI) ================= -->
         <div class="page" style="z-index: 2;">
           <div class="page-content">
             <span class="tape top-center"></span>
@@ -834,8 +843,10 @@
         <!-- ================= PAGE 10: RETRO FILM ROLL PHOTOBOOTH ================= -->
         <div class="page" style="z-index: 1;">
           <div class="page-content">
-            <div class="scrapbook-booth">
-              <span class="tape top-center rose"></span>
+            <span class="tape top-center rose"></span>
+
+            <!-- Konten Photobooth (Terbuka Langsung) -->
+            <div id="boothUnlocked" class="scrapbook-booth" style="display: flex;">
               <div class="booth-header-box">
                 <div class="booth-title">RETRO PHOTOBOOTH STRIP 🎞️</div>
                 <div class="booth-subtitle">Naswa's Birthday Special Edition ♡</div>
@@ -846,7 +857,7 @@
                 
                 <!-- Strip 1 (Vintage Charcoal & Gold) -->
                 <div class="scrap-strip film-dark">
-                  <div class="film-header-text">HAPPY BIRTHDAY!! ★</div>
+                  <div class="film-header-text">NASWA PRIDE ★</div>
                   <div class="scrap-grid">
                     <div class="scrap-slot" id="slotBox0">
                       <img id="pbImg0" alt="Foto 1">
@@ -862,8 +873,9 @@
                     </div>
                   </div>
                   <div class="film-footer-box">
-                    <div class="film-footer-title">NASWA'S DAY</div>
-                    <div class="film-footer-sub">BIRTHDAY EDITION</div>
+                    <div class="film-footer-title">CLASS OF</div>
+                    <div class="film-footer-year">2026</div>
+                    <div class="film-footer-sub">SPECIAL EDITION</div>
                   </div>
                 </div>
 
@@ -886,6 +898,7 @@
                   </div>
                   <div class="film-footer-box">
                     <div class="film-footer-title">NASWA'S DAY</div>
+                    <div class="film-footer-year">2026</div>
                     <div class="film-footer-sub">BIRTHDAY EDITION</div>
                   </div>
                 </div>
@@ -897,8 +910,8 @@
                 <button class="btn-scrap-start" id="startPbBtn" onclick="startPhotoSession()">Mulai Foto (6x) 📸</button>
                 <button class="btn-scrap-dl" onclick="downloadCombinedStrips()">Download Strip 📥</button>
               </div>
-
             </div>
+
           </div>
           <span class="page-number">10 / 10</span>
         </div>
@@ -1088,11 +1101,9 @@
       canvas.width = totalWidth;
       canvas.height = totalHeight;
 
-      // Background Canvas Paper Vintage
       ctx.fillStyle = "#f4ebd9";
       ctx.fillRect(0, 0, totalWidth, totalHeight);
 
-      // Header Judul Atas Canvas
       ctx.fillStyle = "#1c1c1e";
       ctx.font = "42px 'Bebas Neue', sans-serif";
       ctx.textAlign = "center";
@@ -1129,27 +1140,23 @@
           var bgColor = isDark ? "#1c1c1e" : "#5a1827";
           var textColor = isDark ? "#ffd700" : "#ffffff";
 
-          // Shadow Strip
           ctx.shadowColor = "rgba(0,0,0,0.35)";
           ctx.shadowBlur = 20;
           ctx.shadowOffsetY = 10;
 
-          // Draw Background Strip
           ctx.fillStyle = bgColor;
           ctx.beginPath();
           ctx.roundRect(startX, startY, singleStripW, stripH, 8);
           ctx.fill();
 
-          ctx.shadowColor = "transparent"; // Reset shadow
+          ctx.shadowColor = "transparent";
 
-          // Render Gerigi Film Roll (Perforations) kiri dan kanan
           ctx.fillStyle = "#ffffff";
           for (let pY = startY + 15; pY < startY + stripH - 15; pY += 20) {
             ctx.fillRect(startX + 8, pY, 12, 12);
             ctx.fillRect(startX + singleStripW - 20, pY, 12, 12);
           }
 
-          // Strip Header Title
           ctx.fillStyle = textColor;
           ctx.font = "24px 'Bebas Neue', sans-serif";
           ctx.textAlign = "center";
@@ -1163,11 +1170,9 @@
             var slotY = startY + 50 + f * (slotHeight + slotGap);
             var m = loadedImages[photoIndex];
 
-            // Border Klise Foto Putih
             ctx.fillStyle = "#ffffff";
             ctx.fillRect(slotX - 3, slotY - 3, slotW + 6, slotHeight + 6);
 
-            // Render Foto Aspect Fill
             var scale = Math.max(slotW / m.width, slotHeight / m.height);
             var sw = slotW / scale;
             var sh = slotHeight / scale;
@@ -1177,7 +1182,6 @@
             ctx.drawImage(m, sx, sy, sw, sh, slotX, slotY, slotW, slotHeight);
           }
 
-          // Film Footer Typography
           var footerY = startY + 50 + (3 * slotHeight) + (2 * slotGap) + 30;
           
           ctx.fillStyle = textColor;
@@ -1191,7 +1195,6 @@
           ctx.fillText(isDark ? "SPECIAL EDITION" : "BIRTHDAY EDITION", startX + (singleStripW / 2), footerY + 52);
         }
 
-        // Auto Download Link
         var link = document.createElement('a');
         link.download = "Retro_FilmStrip_Naswa.png";
         link.href = canvas.toDataURL('image/png');
@@ -1292,9 +1295,11 @@
       setInterval(updateCountdown, 1000);
       updateCountdown();
 
-      function checkLetterLock() {
+      /* Hanya Surat (Hal 9) yang dikunci sampai tanggal 25 Okt 2026 */
+      function checkContentLocks() {
         var now = new Date();
         var unlockDate = new Date('2026-10-25T00:00:00+07:00');
+        
         if (now >= unlockDate) {
           document.getElementById('letterLocked').style.display = 'none';
           document.getElementById('letterUnlocked').style.display = 'block';
@@ -1303,7 +1308,7 @@
           document.getElementById('letterUnlocked').style.display = 'none';
         }
       }
-      checkLetterLock();
+      checkContentLocks();
 
       var lightbox = document.getElementById('lightbox');
       var lbImg = document.getElementById('lbImg');
