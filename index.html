@@ -9,7 +9,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Nunito:wght@400;600;700;800&family=Bebas+Neue&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
 
   <style>
     /* =========================================================
@@ -293,7 +293,7 @@
     .letter-body p { margin-bottom: 6px; }
 
     /* =========================================================
-       6. ESTHETIC SCRAPBOOK PHOTOBOOTH (PAGE 10)
+       6. FILM ROLL RETRO PHOTOBOOTH (PAGE 10) - RETRO FILM STRIP DESIGN
        ========================================================= */
     .scrapbook-booth {
       display: flex;
@@ -301,62 +301,133 @@
       height: 100%;
       justify-content: space-between;
       align-items: center;
-      gap: 4px;
+      gap: 2px;
+      position: relative;
     }
 
-    .booth-title {
-      font-family: 'Fraunces', serif;
-      font-size: 18px;
+    .booth-header-box {
       text-align: center;
-      color: var(--ink);
+      position: relative;
+      margin-top: 1px;
       margin-bottom: 2px;
     }
 
-    /* 2 Strip Foto Sejajar Ala Scrapbook */
+    .booth-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 1.5px;
+      color: #1a1a1a;
+      line-height: 1;
+    }
+
+    .booth-subtitle {
+      font-family: 'Caveat', cursive;
+      font-size: 14px;
+      color: #8f2f3f;
+      font-weight: 700;
+      margin-top: -1px;
+    }
+
+    /* Container 2 Film Strips Side-by-Side */
     .scrapbook-strips-wrapper {
       display: flex;
       gap: 12px;
       justify-content: center;
       width: 100%;
+      padding: 4px;
     }
 
+    /* RETRO FILM ROLL STRIP DESIGN */
     .scrap-strip {
-      background: #fffdf8;
-      padding: 6px 6px 8px 6px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.18);
-      border: 1px solid #e5d2bb;
       flex: 1;
-      max-width: 170px;
-      text-align: center;
-      border-radius: 3px;
+      max-width: 175px;
+      padding: 6px 14px 8px 14px;
+      border-radius: 4px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
       position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Strip 1: Vintage Dark Charcoal / Gold Accent */
+    .scrap-strip.film-dark {
+      background: #1c1c1e;
+      color: #ffd700;
+      border: 1px solid #333;
+    }
+
+    /* Strip 2: Burgundy Vintage / White Accent */
+    .scrap-strip.film-red {
+      background: #5a1827;
+      color: #ffffff;
+      border: 1px solid #7a2335;
+    }
+
+    /* Ornamen Gerigi Film Roll (Perforations) kiri & kanan */
+    .scrap-strip::before,
+    .scrap-strip::after {
+      content: "";
+      position: absolute;
+      top: 8px;
+      bottom: 8px;
+      width: 6px;
+      background-image: repeating-linear-gradient(
+        to bottom,
+        #ffffff 0px,
+        #ffffff 8px,
+        transparent 8px,
+        transparent 14px
+      );
+      border-radius: 2px;
+      opacity: 0.85;
+    }
+    .scrap-strip::before { left: 4px; }
+    .scrap-strip::after { right: 4px; }
+
+    /* Film Roll Header Text */
+    .film-header-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-align: center;
+      line-height: 1.1;
+      margin-bottom: 4px;
+      text-transform: uppercase;
     }
 
     .scrap-grid {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 6px;
     }
 
+    /* Kotak Frame Foto Klise */
     .scrap-slot {
       width: 100%;
       aspect-ratio: 4 / 3;
-      background: #f2e3ce;
-      border: 1.5px dashed var(--kraft-dark);
+      background: #0d0d0d;
+      border: 2px solid #ffffff;
       overflow: hidden;
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 2px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
     }
 
-    /* Slot Live Kamera di Kotak Pertama */
-    .scrap-slot.live-cam video {
+    .scrap-slot.active-cam {
+      border: 2px solid #ff0055 !important;
+      box-shadow: 0 0 12px rgba(255, 0, 85, 0.9);
+    }
+
+    #webcam {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transform: scaleX(-1);
+      display: block;
     }
 
     .scrap-slot img {
@@ -364,48 +435,71 @@
       height: 100%;
       object-fit: cover;
       display: none;
-      filter: sepia(0.15) contrast(1.05);
     }
 
     .scrap-slot .slot-label {
       font-size: 9px;
-      color: var(--muted);
+      color: #777;
       font-weight: 700;
     }
 
-    .slot-countdown {
+    /* Overlays Countdown & Flash */
+    #slotCountdownOverlay {
       position: absolute;
       inset: 0;
-      background: rgba(30, 15, 10, 0.55);
+      background: rgba(0, 0, 0, 0.75);
       backdrop-filter: blur(1px);
       display: none;
       align-items: center;
       justify-content: center;
-      color: #fff;
-      font-family: 'Fraunces', serif;
-      font-size: 32px;
-      font-weight: 700;
+      color: #ff3366;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 38px;
       z-index: 5;
     }
 
-    .slot-flash {
+    #slotFlashOverlay {
       position: absolute;
       inset: 0;
       background: #fff;
       opacity: 0;
       pointer-events: none;
       z-index: 6;
+      transition: opacity 0.15s ease-out;
     }
 
-    .scrap-footer {
-      font-family: 'Caveat', cursive;
-      font-size: 12px;
-      color: var(--ink);
-      margin-top: 4px;
+    /* Film Roll Footer Typography */
+    .film-footer-box {
+      margin-top: 6px;
+      text-align: center;
+    }
+
+    .film-footer-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
       line-height: 1;
+      text-transform: uppercase;
     }
 
-    /* Tombol Aksi Estetik */
+    .film-footer-year {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      line-height: 1;
+      letter-spacing: 1px;
+    }
+
+    .film-footer-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 7px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      opacity: 0.85;
+      text-transform: uppercase;
+    }
+
+    /* Tombol Aksi */
     .booth-action-row {
       display: flex;
       gap: 8px;
@@ -415,29 +509,30 @@
     }
 
     .btn-scrap-start {
-      background: var(--rose);
+      background: #8f2f3f;
       color: #fff;
       border: 0;
-      padding: 7px 16px;
+      padding: 8px 18px;
       border-radius: 20px;
       font-size: 11.5px;
-      font-weight: 700;
+      font-weight: 800;
       cursor: pointer;
-      box-shadow: 0 3px 8px rgba(192, 88, 108, 0.4);
+      box-shadow: 0 4px 10px rgba(143, 47, 63, 0.4);
       transition: transform 0.1s;
     }
     .btn-scrap-start:active { transform: scale(0.95); }
+    .btn-scrap-start:disabled { background: #bbb; cursor: not-allowed; }
 
     .btn-scrap-dl {
-      background: var(--kraft-dark);
+      background: #1c1c1e;
       color: #fff;
       border: 0;
-      padding: 7px 16px;
+      padding: 8px 18px;
       border-radius: 20px;
       font-size: 11.5px;
-      font-weight: 700;
+      font-weight: 800;
       cursor: pointer;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
     /* Navigasi */
@@ -502,8 +597,8 @@
           <div class="page-content">
             <div class="cover-card">
               <span class="hand" style="font-size: 32px; color: var(--kraft-light);">Special Invitation</span>
-              <h2 class="serif" style="font-size: 26px; margin: 12px 0; color: #fff;">Untuk Naswa ♡</h2>
-              <p style="font-size: 13px; color: var(--paper-dark); opacity: 0.9;">Ada sebuah cerita & kejutan kecil di dalamnya...</p>
+              <h2 class="serif" style="font-size: 26px; margin: 12px 0; color: #fff;">Naswa's Birthday ♡</h2>
+              <p style="font-size: 13px; color: var(--paper-dark); opacity: 0.9;">Dari aku, kejutan kecil ini buat kamu...</p>
               
               <div class="wax-seal" id="openBookSeal">♡</div>
               
@@ -517,7 +612,7 @@
         <div class="page" style="z-index: 9;">
           <div class="page-content">
             <span class="tape top-center"></span>
-            <div class="hand" style="font-size: 36px; color: var(--rose); text-align: center;">Dear Naswa,</div>
+            <div class="hand" style="font-size: 36px; color: var(--rose); text-align: center;">Dear Naswaku Sayangku Cintaku, Manisku,</div>
             
             <div class="heart-frame">
               <img src="images/foto-12.jpg" alt="Naswa Main Photo">
@@ -590,7 +685,7 @@
         <!-- ================= PAGE 5: VIDEO & MEMORY STATS ================= -->
         <div class="page" style="z-index: 6;">
           <div class="page-content">
-            <h2 class="serif" style="font-size: 18px; text-align: center;">Langkah Bersama</h2>
+            <h2 class="serif" style="font-size: 18px; text-align: center;">Short Video</h2>
             
             <div class="video-frame-box">
               <span class="tape top-center rose"></span>
@@ -605,13 +700,13 @@
 
             <div>
               <div class="sticky-note yellow">
-                <b class="hand" style="font-size: 17px; color: var(--ink);">365+ Hari</b> — Canda tawa & cerita manis.
+                <b class="hand" style="font-size: 17px; color: var(--ink);">Memory Lane</b> — Sedikit rekaman perjalanan singkat kita.
               </div>
               <div class="sticky-note pink">
-                <b class="hand" style="font-size: 17px; color: var(--rose-dark);">1000+ Jam</b> — Obrolan hangat setiap waktu.
+                <b class="hand" style="font-size: 17px; color: var(--rose-dark);">Countless Hours</b> — Tempat cerita paling nyaman dari dulu.
               </div>
               <div class="sticky-note green">
-                <b class="hand" style="font-size: 17px; color: #2c5943;">∞ Rasa Syukur</b> — Selalu bersamamu.
+                <b class="hand" style="font-size: 17px; color: #2c5943;">Thank You</b> — Makasih ya udah selalu hadir & bertahan.
               </div>
             </div>
 
@@ -658,18 +753,18 @@
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
               <figure class="polaroid zoomable" style="--r: -3deg;">
                 <img src="images/foto-07.jpg" alt="sweet memories">
-                <figcaption>sweet memories</figcaption>
+                <figcaption>foto terlucu dan terimut</figcaption>
               </figure>
               <figure class="polaroid zoomable" style="--r: 2deg;">
                 <img src="images/foto-08.jpg" alt="favorite">
-                <figcaption>favorite</figcaption>
+                <figcaption>foto terkeren kamu</figcaption>
               </figure>
             </div>
 
             <div style="margin-top: 8px;">
               <figure class="polaroid zoomable" style="--r: -1deg; width: 80%; margin: 0 auto;">
                 <img src="images/foto-09.jpg" alt="our world" style="aspect-ratio: 16/9;">
-                <figcaption>our world</figcaption>
+                <figcaption>konser pertama kia hehehe</figcaption>
               </figure>
             </div>
           </div>
@@ -684,19 +779,19 @@
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
               <figure class="polaroid zoomable" style="--r: 2deg;">
                 <img src="images/foto-10.jpg" alt="memorable">
-                <figcaption>memorable</figcaption>
+                <figcaption>bareface kamu yang selalu aku suka</figcaption>
               </figure>
               <figure class="polaroid zoomable" style="--r: -2deg;">
                 <img src="images/foto-11.jpg" alt="together">
-                <figcaption>together</figcaption>
+                <figcaption>foto ini lucu</figcaption>
               </figure>
               <figure class="polaroid zoomable" style="--r: -3deg;">
                 <img src="images/foto-02.jpg" alt="hal kecil">
-                <figcaption>hal kecil</figcaption>
+                <figcaption>foto fav aku</figcaption>
               </figure>
               <figure class="polaroid zoomable" style="--r: 3deg;">
                 <img src="images/foto-03.jpg" alt="rasa besar">
-                <figcaption>rasa besar</figcaption>
+                <figcaption>foto terkeren kamu #2</figcaption>
               </figure>
             </div>
           </div>
@@ -736,71 +831,63 @@
           <span class="page-number">9 / 10</span>
         </div>
 
-        <!-- ================= PAGE 10: SCRAPBOOK PHOTOBOOTH (LIVE CAM DI KOTAK PERTAMA) ================= -->
+        <!-- ================= PAGE 10: RETRO FILM ROLL PHOTOBOOTH ================= -->
         <div class="page" style="z-index: 1;">
           <div class="page-content">
             <div class="scrapbook-booth">
               <span class="tape top-center rose"></span>
-              <div class="booth-title">Naswa's Photo Booth 📸</div>
+              <div class="booth-header-box">
+                <div class="booth-title">RETRO PHOTOBOOTH STRIP 🎞️</div>
+                <div class="booth-subtitle">Naswa's Birthday Special Edition ♡</div>
+              </div>
 
-              <!-- 2 LEMBAR STRIP FOTO -->
+              <!-- 2 STRIP FILM ROLL SIDE-BY-SIDE -->
               <div class="scrapbook-strips-wrapper">
                 
-                <!-- Strip 1 (Slot 1 ada Live Webcam) -->
-                <div class="scrap-strip">
+                <!-- Strip 1 (Vintage Charcoal & Gold) -->
+                <div class="scrap-strip film-dark">
+                  <div class="film-header-text">HAPPY BIRTHDAY!! ★</div>
                   <div class="scrap-grid">
-                    <!-- Kotak 1: Live Camera / Foto 1 -->
-                    <div class="scrap-slot live-cam" id="slotBox0">
-                      <video id="webcam" autoplay playsinline muted></video>
+                    <div class="scrap-slot" id="slotBox0">
                       <img id="pbImg0" alt="Foto 1">
-                      <div class="slot-countdown" id="cd0">3</div>
-                      <div class="slot-flash" id="flash0"></div>
-                      <span class="slot-label" id="lbl0">Live Cam</span>
+                      <span class="slot-label" id="lbl0">FRAME #1</span>
                     </div>
-                    <!-- Kotak 2: Foto 2 -->
                     <div class="scrap-slot" id="slotBox1">
                       <img id="pbImg1" alt="Foto 2">
-                      <div class="slot-countdown" id="cd1">3</div>
-                      <div class="slot-flash" id="flash1"></div>
-                      <span class="slot-label" id="lbl1">Foto 2</span>
+                      <span class="slot-label" id="lbl1">FRAME #2</span>
                     </div>
-                    <!-- Kotak 3: Foto 3 -->
                     <div class="scrap-slot" id="slotBox2">
                       <img id="pbImg2" alt="Foto 3">
-                      <div class="slot-countdown" id="cd2">3</div>
-                      <div class="slot-flash" id="flash2"></div>
-                      <span class="slot-label" id="lbl2">Foto 3</span>
+                      <span class="slot-label" id="lbl2">FRAME #3</span>
                     </div>
                   </div>
-                  <div class="scrap-footer">Naswa ♡ Strip #1</div>
+                  <div class="film-footer-box">
+                    <div class="film-footer-title">NASWA'S DAY</div>
+                    <div class="film-footer-sub">BIRTHDAY EDITION</div>
+                  </div>
                 </div>
 
-                <!-- Strip 2 (Foto 4, 5, 6) -->
-                <div class="scrap-strip">
+                <!-- Strip 2 (Burgundy Vintage & Cream White) -->
+                <div class="scrap-strip film-red">
+                  <div class="film-header-text">SWEET MEMORY ♡</div>
                   <div class="scrap-grid">
-                    <!-- Kotak 4: Foto 4 -->
                     <div class="scrap-slot" id="slotBox3">
                       <img id="pbImg3" alt="Foto 4">
-                      <div class="slot-countdown" id="cd3">3</div>
-                      <div class="slot-flash" id="flash3"></div>
-                      <span class="slot-label" id="lbl3">Foto 4</span>
+                      <span class="slot-label" id="lbl3">FRAME #4</span>
                     </div>
-                    <!-- Kotak 5: Foto 5 -->
                     <div class="scrap-slot" id="slotBox4">
                       <img id="pbImg4" alt="Foto 5">
-                      <div class="slot-countdown" id="cd4">3</div>
-                      <div class="slot-flash" id="flash4"></div>
-                      <span class="slot-label" id="lbl4">Foto 5</span>
+                      <span class="slot-label" id="lbl4">FRAME #5</span>
                     </div>
-                    <!-- Kotak 6: Foto 6 -->
                     <div class="scrap-slot" id="slotBox5">
                       <img id="pbImg5" alt="Foto 6">
-                      <div class="slot-countdown" id="cd5">3</div>
-                      <div class="slot-flash" id="flash5"></div>
-                      <span class="slot-label" id="lbl5">Foto 6</span>
+                      <span class="slot-label" id="lbl5">FRAME #6</span>
                     </div>
                   </div>
-                  <div class="scrap-footer">Naswa ♡ Strip #2</div>
+                  <div class="film-footer-box">
+                    <div class="film-footer-title">NASWA'S DAY</div>
+                    <div class="film-footer-sub">BIRTHDAY EDITION</div>
+                  </div>
                 </div>
 
               </div>
@@ -808,7 +895,7 @@
               <!-- TOMBOL KONTROL BAWAH -->
               <div class="booth-action-row">
                 <button class="btn-scrap-start" id="startPbBtn" onclick="startPhotoSession()">Mulai Foto (6x) 📸</button>
-                <button class="btn-scrap-dl" onclick="downloadStrips()">Download Strip 📥</button>
+                <button class="btn-scrap-dl" onclick="downloadCombinedStrips()">Download Strip 📥</button>
               </div>
 
             </div>
@@ -835,6 +922,10 @@
     </figure>
   </div>
 
+  <!-- Hidden Elemen Kamera & Overlay -->
+  <video id="webcam" autoplay playsinline muted style="display:none;"></video>
+  <div id="slotCountdownOverlay">3</div>
+  <div id="slotFlashOverlay"></div>
   <canvas id="snapCanvas" style="display:none;"></canvas>
 
   <!-- ================= JAVASCRIPT LOGIC ================= -->
@@ -850,6 +941,8 @@
           .then(function(stream) {
             webcamStream = stream;
             video.srcObject = stream;
+            video.play();
+            attachWebcamToBox(0);
           })
           .catch(function(err) {
             alert("Izin kamera diperlukan untuk fitur Photobooth ini.");
@@ -862,26 +955,40 @@
         webcamStream.getTracks().forEach(function(track) { track.stop(); });
         webcamStream = null;
       }
+      var video = document.getElementById('webcam');
+      video.style.display = 'none';
+      document.body.appendChild(video);
     }
 
-    /* Sesi Foto Otomatis Berurutan Masuk ke Kotak */
+    function attachWebcamToBox(boxIndex) {
+      for (let i = 0; i < 6; i++) {
+        document.getElementById('slotBox' + i).classList.remove('active-cam');
+      }
+
+      var targetBox = document.getElementById('slotBox' + boxIndex);
+      var video = document.getElementById('webcam');
+      
+      targetBox.appendChild(video);
+      targetBox.classList.add('active-cam');
+      video.style.display = 'block';
+
+      var lbl = document.getElementById('lbl' + boxIndex);
+      if (lbl) lbl.style.display = 'none';
+    }
+
+    /* Sesi Foto Otomatis Berurutan dari Box 0 ke Box 5 */
     function startPhotoSession() {
       if (isCapturing) return;
       isCapturing = true;
       capturedPhotos = [];
       document.getElementById('startPbBtn').disabled = true;
 
-      // Reset tampilan kotak strip
       for (let i = 0; i < 6; i++) {
         let imgElem = document.getElementById('pbImg' + i);
         let lblElem = document.getElementById('lbl' + i);
         imgElem.style.display = 'none';
-        if (i === 0) {
-          document.getElementById('webcam').style.display = 'block';
-          lblElem.style.display = 'none';
-        } else {
-          lblElem.style.display = 'block';
-        }
+        imgElem.src = '';
+        lblElem.style.display = 'block';
       }
 
       var currentPhoto = 0;
@@ -890,10 +997,25 @@
         if (currentPhoto >= 6) {
           isCapturing = false;
           document.getElementById('startPbBtn').disabled = false;
+          var video = document.getElementById('webcam');
+          video.style.display = 'none';
+          document.body.appendChild(video);
+          for (let i = 0; i < 6; i++) {
+            document.getElementById('slotBox' + i).classList.remove('active-cam');
+          }
+          alert("Selesai! Semua foto photobooth berhasil diambil 🎉");
           return;
         }
 
-        let cdOverlay = document.getElementById('cd0'); // Countdown selalu di kotak 1
+        attachWebcamToBox(currentPhoto);
+
+        var activeBox = document.getElementById('slotBox' + currentPhoto);
+        var cdOverlay = document.getElementById('slotCountdownOverlay');
+        var flashOverlay = document.getElementById('slotFlashOverlay');
+        
+        activeBox.appendChild(cdOverlay);
+        activeBox.appendChild(flashOverlay);
+
         cdOverlay.style.display = 'flex';
         let count = 3;
         cdOverlay.textContent = count;
@@ -907,7 +1029,7 @@
             cdOverlay.style.display = 'none';
             takeSnap(currentPhoto);
             currentPhoto++;
-            setTimeout(captureStep, 1000);
+            setTimeout(captureStep, 600);
           }
         }, 1000);
       }
@@ -934,92 +1056,146 @@
       imgElem.src = dataUrl;
       imgElem.style.display = 'block';
 
-      // Sembunyikan label atau video live di kotak tersebut agar foto hasil jepretan tampil
-      document.getElementById('lbl' + index).style.display = 'none';
-      if (index === 0) {
-        video.style.display = 'none'; // Matikan live cam di kotak 1 setelah terambil fotonya
-      }
+      var lbl = document.getElementById('lbl' + index);
+      if (lbl) lbl.style.display = 'none';
 
-      // Efek Flash
-      var flash = document.getElementById('flash' + index);
+      var flash = document.getElementById('slotFlashOverlay');
       flash.style.opacity = '0.85';
       setTimeout(function() { flash.style.opacity = '0'; }, 150);
     }
 
-    /* Download 2 Strip PNG High-Res */
-    function downloadStrips() {
+    /* DOWNLOAD 2 STRIP FILM ROLL BERDAMPINGAN DENGAN GERIGI KLISE FOTO */
+    function downloadCombinedStrips() {
       if (capturedPhotos.length < 6) {
         alert("Silakan tekan 'Mulai Foto (6x)' dan selesaikan sesi fotonya terlebih dahulu!");
         return;
       }
 
-      exportSingleStrip([capturedPhotos[0], capturedPhotos[1], capturedPhotos[2]], "Strip_Naswa_1.png", "Naswa ♡ Strip #1");
-      setTimeout(function() {
-        exportSingleStrip([capturedPhotos[3], capturedPhotos[4], capturedPhotos[5]], "Strip_Naswa_2.png", "Naswa ♡ Strip #2");
-      }, 500);
-    }
-
-    function exportSingleStrip(photoArray, fileName, titleText) {
       var canvas = document.createElement('canvas');
       var ctx = canvas.getContext('2d');
 
-      var width = 450;
-      var padding = 20;
-      var slotHeight = 290;
-      var gap = 12;
-      var footerHeight = 70;
-      var totalHeight = (padding * 2) + (3 * slotHeight) + (2 * gap) + footerHeight;
+      var singleStripW = 400;
+      var stripGap = 35;
+      var paddingOuter = 40;
+      var headerH = 100;
+      var slotHeight = 270;
+      var slotGap = 18;
+      var footerHeight = 110;
 
-      canvas.width = width;
+      var totalWidth = (paddingOuter * 2) + (singleStripW * 2) + stripGap;
+      var totalHeight = paddingOuter + headerH + (3 * slotHeight) + (2 * slotGap) + footerHeight + paddingOuter;
+
+      canvas.width = totalWidth;
       canvas.height = totalHeight;
 
-      ctx.fillStyle = "#fffdf8";
-      ctx.fillRect(0, 0, width, totalHeight);
+      // Background Canvas Paper Vintage
+      ctx.fillStyle = "#f4ebd9";
+      ctx.fillRect(0, 0, totalWidth, totalHeight);
 
-      ctx.strokeStyle = "#e5d2bb";
-      ctx.lineWidth = 3;
-      ctx.strokeRect(6, 6, width - 12, totalHeight - 12);
+      // Header Judul Atas Canvas
+      ctx.fillStyle = "#1c1c1e";
+      ctx.font = "42px 'Bebas Neue', sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText("RETRO PHOTOBOOTH COLLECTION 🎞️", totalWidth / 2, paddingOuter + 45);
 
-      var loaded = 0;
-      var imgs = [];
+      ctx.fillStyle = "#8f2f3f";
+      ctx.font = "bold 26px 'Caveat', cursive";
+      ctx.fillText("Naswa's Birthday Special Edition ♡", totalWidth / 2, paddingOuter + 82);
 
-      for (var i = 0; i < 3; i++) {
+      var loadedCount = 0;
+      var loadedImages = [];
+
+      for (let i = 0; i < 6; i++) {
         (function(idx) {
           var img = new Image();
           img.onload = function() {
-            imgs[idx] = img;
-            loaded++;
-            if (loaded === 3) {
-              var slotW = width - (padding * 2);
-              for (var j = 0; j < 3; j++) {
-                var y = padding + (j * (slotHeight + gap));
-                var m = imgs[j];
-
-                var scale = Math.max(slotW / m.width, slotHeight / m.height);
-                var sw = slotW / scale;
-                var sh = slotHeight / scale;
-                var sx = (m.width - sw) / 2;
-                var sy = (m.height - sh) / 2;
-
-                ctx.drawImage(m, sx, sy, sw, sh, padding, y, slotW, slotHeight);
-
-                ctx.fillStyle = "rgba(180, 130, 90, 0.08)";
-                ctx.fillRect(padding, y, slotW, slotHeight);
-              }
-
-              ctx.fillStyle = "#3b2319";
-              ctx.font = "bold 26px 'Caveat', cursive, sans-serif";
-              ctx.textAlign = "center";
-              ctx.fillText(titleText + " · 25.10.2026", width / 2, totalHeight - 25);
-
-              var link = document.createElement('a');
-              link.download = fileName;
-              link.href = canvas.toDataURL('image/png');
-              link.click();
+            loadedImages[idx] = img;
+            loadedCount++;
+            if (loadedCount === 6) {
+              drawBothFilmStrips();
             }
           };
-          img.src = photoArray[idx];
+          img.src = capturedPhotos[idx];
         })(i);
+      }
+
+      function drawBothFilmStrips() {
+        for (let s = 0; s < 2; s++) {
+          var startX = paddingOuter + s * (singleStripW + stripGap);
+          var startY = paddingOuter + headerH;
+          var stripH = 50 + (3 * slotHeight) + (2 * slotGap) + footerHeight;
+
+          var isDark = (s === 0);
+          var bgColor = isDark ? "#1c1c1e" : "#5a1827";
+          var textColor = isDark ? "#ffd700" : "#ffffff";
+
+          // Shadow Strip
+          ctx.shadowColor = "rgba(0,0,0,0.35)";
+          ctx.shadowBlur = 20;
+          ctx.shadowOffsetY = 10;
+
+          // Draw Background Strip
+          ctx.fillStyle = bgColor;
+          ctx.beginPath();
+          ctx.roundRect(startX, startY, singleStripW, stripH, 8);
+          ctx.fill();
+
+          ctx.shadowColor = "transparent"; // Reset shadow
+
+          // Render Gerigi Film Roll (Perforations) kiri dan kanan
+          ctx.fillStyle = "#ffffff";
+          for (let pY = startY + 15; pY < startY + stripH - 15; pY += 20) {
+            ctx.fillRect(startX + 8, pY, 12, 12);
+            ctx.fillRect(startX + singleStripW - 20, pY, 12, 12);
+          }
+
+          // Strip Header Title
+          ctx.fillStyle = textColor;
+          ctx.font = "24px 'Bebas Neue', sans-serif";
+          ctx.textAlign = "center";
+          ctx.fillText(isDark ? "NASWA PRIDE ★" : "SWEET MEMORY ♡", startX + (singleStripW / 2), startY + 38);
+
+          var slotW = singleStripW - 60;
+          var slotX = startX + 30;
+
+          for (let f = 0; f < 3; f++) {
+            var photoIndex = (s * 3) + f;
+            var slotY = startY + 50 + f * (slotHeight + slotGap);
+            var m = loadedImages[photoIndex];
+
+            // Border Klise Foto Putih
+            ctx.fillStyle = "#ffffff";
+            ctx.fillRect(slotX - 3, slotY - 3, slotW + 6, slotHeight + 6);
+
+            // Render Foto Aspect Fill
+            var scale = Math.max(slotW / m.width, slotHeight / m.height);
+            var sw = slotW / scale;
+            var sh = slotHeight / scale;
+            var sx = (m.width - sw) / 2;
+            var sy = (m.height - sh) / 2;
+
+            ctx.drawImage(m, sx, sy, sw, sh, slotX, slotY, slotW, slotHeight);
+          }
+
+          // Film Footer Typography
+          var footerY = startY + 50 + (3 * slotHeight) + (2 * slotGap) + 30;
+          
+          ctx.fillStyle = textColor;
+          ctx.font = "900 18px 'Montserrat', sans-serif";
+          ctx.fillText(isDark ? "CLASS OF" : "NASWA'S DAY", startX + (singleStripW / 2), footerY);
+
+          ctx.font = "38px 'Bebas Neue', sans-serif";
+          ctx.fillText("2026", startX + (singleStripW / 2), footerY + 34);
+
+          ctx.font = "700 12px 'Montserrat', sans-serif";
+          ctx.fillText(isDark ? "SPECIAL EDITION" : "BIRTHDAY EDITION", startX + (singleStripW / 2), footerY + 52);
+        }
+
+        // Auto Download Link
+        var link = document.createElement('a');
+        link.download = "Retro_FilmStrip_Naswa.png";
+        link.href = canvas.toDataURL('image/png');
+        link.click();
       }
     }
 
@@ -1057,7 +1233,6 @@
 
         if (currentPage === 9) {
           initCamera();
-          document.getElementById('webcam').style.display = 'block';
         } else {
           stopCamera();
         }
