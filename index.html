@@ -807,23 +807,15 @@
           <span class="page-number">8 / 10</span>
         </div>
 
-        <!-- ================= PAGE 9: SURAT LENGKAP (TERKUNCI) ================= -->
+        <!-- ================= PAGE 9: SURAT LENGKAP (TERBUKA) ================= -->
         <div class="page" style="z-index: 2;">
           <div class="page-content">
             <span class="tape top-center"></span>
             
-            <div id="letterLocked" class="letter-lock-container">
-              <div class="lock-icon">🔒</div>
-              <h3 class="serif" style="font-size: 18px; margin-bottom: 4px;">Surat Ini Masih Terkunci</h3>
-              <p style="font-size: 12px; color: var(--muted); margin-bottom: 10px;">
-                Surat spesial ini baru bisa dibuka dan dibaca tepat pada tanggal <b>25 Oktober 2026</b>.
-              </p>
-              <div style="background: rgba(192, 88, 108, 0.1); padding: 6px 12px; border-radius: 20px; font-size: 11px; color: var(--rose-dark); font-weight: 700;">
-                Tunggu tanggal mainnya ya, Sayangku Cintaku Manisku ♡
-              </div>
-            </div>
+            <!-- Surat sudah terbuka langsung -->
+            <div id="letterLocked" class="letter-lock-container" style="display: none;"></div>
 
-            <div id="letterUnlocked" class="letter-body" style="display: none;">
+            <div id="letterUnlocked" class="letter-body" style="display: block;">
               <h2 class="serif" style="font-size: 16px; text-align: center; margin-bottom: 8px; color: var(--rose-dark);">Happy Birthday, Sayangku 🤎</h2>
               
               <p><b>Selamat ulang tahun sayangku, cintaku.</b></p>
@@ -1295,20 +1287,9 @@
       setInterval(updateCountdown, 1000);
       updateCountdown();
 
-      /* Hanya Surat (Hal 9) yang dikunci sampai tanggal 25 Okt 2026 */
-      function checkContentLocks() {
-        var now = new Date();
-        var unlockDate = new Date('2026-10-25T00:00:00+07:00');
-        
-        if (now >= unlockDate) {
-          document.getElementById('letterLocked').style.display = 'none';
-          document.getElementById('letterUnlocked').style.display = 'block';
-        } else {
-          document.getElementById('letterLocked').style.display = 'flex';
-          document.getElementById('letterUnlocked').style.display = 'none';
-        }
-      }
-      checkContentLocks();
+      /* Surat halaman 9 dibuka langsung tanpa penguncian tanggal */
+      document.getElementById('letterLocked').style.display = 'none';
+      document.getElementById('letterUnlocked').style.display = 'block';
 
       var lightbox = document.getElementById('lightbox');
       var lbImg = document.getElementById('lbImg');
